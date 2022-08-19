@@ -1,0 +1,20 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "user_uart.h": "c",
+        "gpio.h": "c",
+        "msp.h": "c",
+        "interrupt.h": "c",
+        "stdint.h": "c",
+        "stdint-gcc.h": "c",
+        "stddef.h": "c",
+        "user_tick.h": "c",
+        "user.h": "c"
+    },
+    "licenser.license": "AL2",
+    "licenser.author": "Budali11",
+    "licenser.projectName": "C_C++",
+    "licenser.customHeader": "@FILENAME@ - @PROJECT@\n\nCopyright @2022/08@ @Budali11@\n\nThis is my license...",
+    "licenser.customTermsAndConditions": "Copyright @2022/08@ @Budali11@\n\nThese are my terms and conditions...",
+    "licenser.useSingleLineStyle": true,
+}
