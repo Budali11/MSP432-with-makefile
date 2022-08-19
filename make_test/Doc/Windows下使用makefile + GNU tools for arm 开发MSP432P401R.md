@@ -51,11 +51,13 @@
 
 * ### make 工具的安装
 
-  >  在官网获取安装包后，双击打开。选择安装路径后一路next，直到选择packages选项。![make工具安装](F:\TI\MSP432\PRJ\make_test\Doc\make工具安装.png)
+  >  在官网获取安装包后，双击打开。选择安装路径后一路next，直到选择packages选项。
   >
-  > 在make 的new 一栏选择最新版本，之后一路next，并记下安装路径。将安装路径下的bin文件夹添加到环境变量中。
+  >  ![make工具安装](make工具安装.png)
   >
-  > 可以在此链接获取安装包[setup-x86_64.exe](https://www.cygwin.com/setup-x86_64.exe)
+  >  在make 的new 一栏选择最新版本，之后一路next，并记下安装路径。将安装路径下的bin文件夹添加到环境变量中。
+  >
+  >  可以在此链接获取安装包[setup-x86_64.exe](https://www.cygwin.com/setup-x86_64.exe)
 
 * ### Openocd 的安装
 
@@ -296,7 +298,7 @@
   >  > 	  *
   >  > 	  ******************************************************************************/
   >  > 	  ENTRY(Reset_Handler)
-  >  > 		
+  >  > 			
   >  > 	  MEMORY
   >  > 	  {
   >  > 	      MAIN_FLASH (RX) : ORIGIN = 0x00000000, LENGTH = 0x00040000
@@ -304,7 +306,7 @@
   >  > 	      SRAM_CODE  (RWX): ORIGIN = 0x01000000, LENGTH = 0x00010000
   >  > 	      SRAM_DATA  (RW) : ORIGIN = 0x20000000, LENGTH = 0x00010000
   >  > 	  }
-  >  > 		
+  >  > 			
   >  > 	  REGION_ALIAS("REGION_TEXT", MAIN_FLASH);
   >  > 	  REGION_ALIAS("REGION_INFO", INFO_FLASH);
   >  > 	  REGION_ALIAS("REGION_BSS", SRAM_DATA);
@@ -314,46 +316,46 @@
   >  > 	  REGION_ALIAS("REGION_ARM_EXIDX", MAIN_FLASH);
   >  > 	  REGION_ALIAS("REGION_ARM_EXTAB", MAIN_FLASH);
   >  > 	   SECTIONS {
-  >  > 		
+  >  > 			
   >  > 	      /* section for the interrupt vector area                                 */
   >  > 	      PROVIDE (_intvecs_base_address =
   >  > 	          DEFINED(_intvecs_base_address) ? _intvecs_base_address : 0x0);
-  >  > 		
+  >  > 			
   >  > 	      .intvecs (_intvecs_base_address) : AT (_intvecs_base_address) {
   >  > 	          KEEP (*(.intvecs))
   >  > 	      } > REGION_TEXT
-  >  > 		
+  >  > 			
   >  > 	      /* The following three sections show the usage of the INFO flash memory  */
   >  > 	      /* INFO flash memory is intended to be used for the following            */
   >  > 	      /* device specific purposes:                                             */
   >  > 	      /* Flash mailbox for device security operations                          */
   >  > 	      PROVIDE (_mailbox_base_address = 0x200000);
-  >  > 		
+  >  > 			
   >  > 	      .flashMailbox (_mailbox_base_address) : AT (_mailbox_base_address) {
   >  > 	          KEEP (*(.flashMailbox))
   >  > 	      } > REGION_INFO
-  >  > 		
+  >  > 			
   >  > 	      /* TLV table for device identification and characterization              */
   >  > 	      PROVIDE (_tlv_base_address = 0x00201000);
-  >  > 		
+  >  > 			
   >  > 	      .tlvTable (_tlv_base_address) (NOLOAD) : AT (_tlv_base_address) {
   >  > 	          KEEP (*(.tlvTable))
   >  > 	      } > REGION_INFO
-  >  > 		
+  >  > 			
   >  > 	      /* BSL area for device bootstrap loader                                  */
   >  > 	      PROVIDE (_bsl_base_address = 0x00202000);
-  >  > 		
+  >  > 			
   >  > 	      .bslArea (_bsl_base_address) : AT (_bsl_base_address) {
   >  > 	          KEEP (*(.bslArea))
   >  > 	      } > REGION_INFO
-  >  > 		
+  >  > 			
   >  > 	      PROVIDE (_vtable_base_address =
   >  > 	          DEFINED(_vtable_base_address) ? _vtable_base_address : 0x20000000);
-  >  > 		
+  >  > 			
   >  > 	      .vtable (_vtable_base_address) : AT (_vtable_base_address) {
   >  > 	          KEEP (*(.vtable))
   >  > 	      } > REGION_DATA
-  >  > 		
+  >  > 			
   >  > 	      .text : {
   >  > 	          CREATE_OBJECT_SYMBOLS
   >  > 	          KEEP (*(.text))
@@ -369,24 +371,24 @@
   >  > 	          KEEP (*(.init))
   >  > 	          KEEP (*(.fini*))
   >  > 	      } > REGION_TEXT AT> REGION_TEXT
-  >  > 		
+  >  > 			
   >  > 	      .rodata : {
   >  > 	          *(.rodata)
   >  > 	          *(.rodata.*)
   >  > 	      } > REGION_TEXT AT> REGION_TEXT
-  >  > 		
+  >  > 			
   >  > 	      .ARM.exidx : {
   >  > 	          __exidx_start = .;
   >  > 	          *(.ARM.exidx* .gnu.linkonce.armexidx.*)
   >  > 	          __exidx_end = .;
   >  > 	      } > REGION_ARM_EXIDX AT> REGION_ARM_EXIDX
-  >  > 		
+  >  > 			
   >  > 	      .ARM.extab : {
   >  > 	          KEEP (*(.ARM.extab* .gnu.linkonce.armextab.*))
   >  > 	      } > REGION_ARM_EXTAB AT> REGION_ARM_EXTAB
-  >  > 		
+  >  > 			
   >  > 	      __etext = .;
-  >  > 		
+  >  > 			
   >  > 	      .data : {
   >  > 	          __data_load__ = LOADADDR (.data);
   >  > 	          __data_start__ = .;
@@ -395,7 +397,7 @@
   >  > 	          . = ALIGN (4);
   >  > 	          __data_end__ = .;
   >  > 	      } > REGION_DATA AT> REGION_TEXT
-  >  > 		
+  >  > 			
   >  > 	      .bss : {
   >  > 	          __bss_start__ = .;
   >  > 	          *(.shbss)
@@ -405,7 +407,7 @@
   >  > 	          . = ALIGN (4);
   >  > 	          __bss_end__ = .;
   >  > 	      } > REGION_BSS AT> REGION_BSS
-  >  > 		
+  >  > 			
   >  > 	      .heap : {
   >  > 	          __heap_start__ = .;
   >  > 	          end = __heap_start__;
@@ -415,12 +417,12 @@
   >  > 	          __heap_end__ = .;
   >  > 	          __HeapLimit = __heap_end__;
   >  > 	      } > REGION_HEAP AT> REGION_HEAP
-  >  > 		
+  >  > 			
   >  > 	      .stack (NOLOAD) : ALIGN(0x8) {
   >  > 	          _stack = .;
   >  > 	          KEEP(*(.stack))
   >  > 	      } > REGION_STACK AT> REGION_STACK
-  >  > 		
+  >  > 			
   >  > 	  	__StackTop = ORIGIN(REGION_STACK) + LENGTH(REGION_STACK);
   >  > 	      PROVIDE(__stack = __StackTop);
   >  > 	  }
@@ -435,23 +437,23 @@
   >  >   ```c
   >  >   #include "msp.h"
   >  >   #include "gpio.h"
-  >  >     
+  >  >       
   >  >   /**
   >  >    * main.c
   >  >    */
   >  >   int main(void)
   >  >   {
   >  >   	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
-  >  >     
+  >  >       
   >  >   	GPIO_setAsOutputPin(GPIO_PORT_P1, GPIO_PIN0);
   >  >   	GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN0);
   >  >   	while(1)
   >  >   	{
-  >  >     
+  >  >       
   >  >   	}
   >  >   	return 0;
   >  >   }
-  >  >     
+  >  >       
   >  >   ```
   >  >
   >
