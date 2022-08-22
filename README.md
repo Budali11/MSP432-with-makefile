@@ -2,7 +2,7 @@
 
 * ## make_test
 
-	模仿stm32cubemx生成的makefile工程，尝试使用makefile对msp432进行开发，幸运成功的工程。教程文档在[此处](make_test/Doc/Windows下使用makefile + GNU tools for arm 开发MSP432P401R.md)，也可以在make_test/Doc中找到。
+	模仿stm32cubemx生成的makefile工程，尝试使用makefile对msp432进行开发，幸运成功的工程。教程文档在[此处](https://github.com/Budali11/MSP432-with-makefile-and-Cpp/tree/main/make_test/Doc/Windows下使用makefile%20%2B%20GNU%20tools%20for%20arm%20开发MSP432P401R.md)，也可以在make_test/Doc中找到。
 
 * ## C_C++
 
