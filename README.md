@@ -14,3 +14,6 @@
 	2. Makefile里的变量 _LDFLASGS_ 中 ` -specs=nano.specs` 替换为 ` -specs=nosys.specs`，不要使用`-nostdlib`。
 	3. 注意 _VPATH_ ，冒号':'后面不要紧接斜杠'/'。
 
+* ## pwm_device_C++
+
+	C++对UART和PWM设备做了一些简单封装。
