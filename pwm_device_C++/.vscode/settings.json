@@ -1,0 +1,15 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "user_uart.h": "c",
+        "gpio.h": "c",
+        "msp.h": "c",
+        "timer32.h": "c"
+    },
+    "licenser.license": "AL2",
+    "licenser.author": "Budali11",
+    "licenser.projectName": "pwm",
+    "licenser.customHeader": "@FILENAME@ - @PROJECT@\n\nCopyright @2022/08@ @Budali11@\n\nThis is my license...",
+    "licenser.customTermsAndConditions": "Copyright @2022/08@ @Budali11@\n\nThese are my terms and conditions...",
+    "licenser.useSingleLineStyle": true,
+}
