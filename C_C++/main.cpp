@@ -23,6 +23,14 @@ int main(void)
     user_systick.set_interrupt(1, true);
     user_systick.start();
 
+    yuki.printf("test test.\r\n");
+    yuki.printf("float data: %f\r\n", 0.123456);
+    yuki.printf("int data: %d\r\n", -123);
+    yuki.printf("unsigned data: %u\r\n", 0xffL);
+    yuki.printf("hex data: %x\r\n", 0x123);
+    char test[] = {"Yuki."};
+    yuki.printf("char* data: %s\r\n", test);
+    yuki.printf("char data: %c\r\n", 'a');
 	while(1)
 	{
 		

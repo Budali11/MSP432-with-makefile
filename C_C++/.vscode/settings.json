@@ -9,7 +9,15 @@
         "stdint-gcc.h": "c",
         "stddef.h": "c",
         "user_tick.h": "c",
-        "user.h": "c"
+        "user.h": "c",
+        "stdio.h": "c",
+        "errno.h": "c",
+        "stdlib.h": "c",
+        "stat.h": "c",
+        "time.h": "c",
+        "signal.h": "c",
+        "_ansi.h": "c",
+        "cstdio": "cpp"
     },
     "licenser.license": "AL2",
     "licenser.author": "Budali11",

@@ -46,34 +46,36 @@ MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 
 #sources
 C_SOURCES = \
-/Bsp/Src/adc14.c \
-/Bsp/Src/aes256.c \
-/Bsp/Src/comp_e.c \
-/Bsp/Src/cpu.c \
-/Bsp/Src/crc32.c \
-/Bsp/Src/cs.c \
-/Bsp/Src/dma.c \
-/Bsp/Src/flash.c \
-/Bsp/Src/fpu.c \
-/Bsp/Src/gpio.c \
-/Bsp/Src/i2c.c \
-/Bsp/Src/interrupt.c \
-/Bsp/Src/mpu.c \
-/Bsp/Src/pcm.c \
-/Bsp/Src/pmap.c \
-/Bsp/Src/pss.c \
-/Bsp/Src/ref_a.c \
-/Bsp/Src/reset.c \
-/Bsp/Src/rtc_c.c \
-/Bsp/Src/spi.c \
-/Bsp/Src/sysctl.c \
-/Bsp/Src/systick.c \
-/Bsp/Src/timer32.c \
-/Bsp/Src/timer_a.c \
-/Bsp/Src/uart.c \
-/Bsp/Src/wdt_a.c\
-/Core/Src/startup_msp432p401r_gcc.c \
-/Core/Src/system_msp432p401r.c \
+Bsp/Src/adc14.c \
+Bsp/Src/aes256.c \
+Bsp/Src/comp_e.c \
+Bsp/Src/cpu.c \
+Bsp/Src/crc32.c \
+Bsp/Src/cs.c \
+Bsp/Src/dma.c \
+Bsp/Src/flash.c \
+Bsp/Src/fpu.c \
+Bsp/Src/gpio.c \
+Bsp/Src/i2c.c \
+Bsp/Src/interrupt.c \
+Bsp/Src/mpu.c \
+Bsp/Src/pcm.c \
+Bsp/Src/pmap.c \
+Bsp/Src/pss.c \
+Bsp/Src/ref_a.c \
+Bsp/Src/reset.c \
+Bsp/Src/rtc_c.c \
+Bsp/Src/spi.c \
+Bsp/Src/sysctl.c \
+Bsp/Src/systick.c \
+Bsp/Src/timer32.c \
+Bsp/Src/timer_a.c \
+Bsp/Src/uart.c \
+Bsp/Src/wdt_a.c\
+Core/Src/startup_msp432p401r_gcc.c \
+Core/Src/system_msp432p401r.c \
+User/Src/syscalls.c \
+
 
 CPP_SOURCES = \
 /main.cpp \
@@ -98,14 +100,14 @@ C_INCLUDES = \
 LIB = -lc -lm -lnosys \
 
 #link options
-LDFLAGS = $(MCU) -Tmsp432p401r.lds -specs=nosys.specs $(LIB) -Wl,-gc-sections,--cref -Wl,-Map=$(BUILD_DIR)/$(PRJ_NAME).map#-nostdlib
+LDFLAGS = $(MCU) -Tmsp432p401r.lds -specs=nosys.specs $(LIB) -Wl,-gc-sections,--cref -Wl,-Map=$(BUILD_DIR)/$(PRJ_NAME).map
 #compile options
 CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) #
 
 #path define
 VPATH = \
 Core/Include:Core/Include/CMSIS:Bsp/Inc:\
-Bsp/Src:Core/Src/:User/Src/:\
+Bsp/Src:Core/Src:User/Src:\
 
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
 OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(CPP_SOURCES:.cpp=.o)))
@@ -132,11 +134,11 @@ $(BUILD_DIR):
 clean:
 	rm -rf $(BUILD_DIR)
 connect:
-	openocd -f I:/MCU/Openocd/INSTALL/scripts/interface/cmsis-dap.cfg -f I:/MCU/Openocd/INSTALL/scripts/target/ti_msp432.cfg
+	openocd -f /usr/local/share/openocd/scripts/interface/xds110.cfg -f /usr/local/share/openocd/scripts/target/ti_msp432.cfg
 download:
 	openocd \
-	-f I:/MCU/Openocd/INSTALL/scripts/interface/cmsis-dap.cfg \
-	-f I:/MCU/Openocd/INSTALL/scripts/target/ti_msp432.cfg \
+	-f /usr/local/share/openocd/scripts/interface/xds110.cfg \
+	-f /usr/local/share/openocd/scripts/target/ti_msp432.cfg \
 	-c init \
 	-c halt \
 	-c "flash write_image erase $(BUILD_DIR)/$(PRJ_NAME).elf 0x00000000" \

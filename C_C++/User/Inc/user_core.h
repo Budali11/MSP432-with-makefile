@@ -23,7 +23,7 @@ typedef struct __list_node
 class User_Systick_T
 {
 private:
-    SysTick_Type * m_base;
+    SysTick_Type *m_base;
     uint32_t m_period_ms; //user-need period 
     uint16_t m_times; //if reload-value is too big for reload register,
                     // then divide reload-value user.times times to load in the reload register
@@ -43,7 +43,7 @@ public:
 class User_Nvic_T
 {
 private:
-    list_node * enable_irq_list, * current_node;
+    list_node *enable_irq_list, *current_node;
     uint32_t priority_group;
 public:
     void grouping(uint32_t PriorityGroup);
