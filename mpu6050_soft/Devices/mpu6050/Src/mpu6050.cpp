@@ -25,7 +25,6 @@ MPU6050_T::MPU6050_T()
 {
     m_slave_mpu6050 = (iic_slave *)malloc(sizeof(iic_slave));
     m_slave_mpu6050->name = "mpu6050";
-    m_slave_mpu6050->lock = UNLOCK;
     m_slave_mpu6050->addr = MPU6050_ADDR;
 
     /* measurement configuration */
@@ -54,12 +53,6 @@ int MPU6050_T::device_init(void)
         .buf = msg,
         .num = 2,
     };
-    
-    if(m_slave_mpu6050->lock != LOCKED)
-    {
-        //perror
-        return -1;
-    }
     
     /* get operation functions */
     User_IIC_T *ops = (User_IIC_T *)m_slave_mpu6050->pclass_ops;

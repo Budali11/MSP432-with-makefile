@@ -16,6 +16,9 @@
 #include "cs.h"
 #include "gpio.h"
 #include "cstring"
+#include "user_uart.h"
+
+extern User_Uart_T yuki;
 
 
 void User_IIC_T::m_iic_start(void)
@@ -181,6 +184,15 @@ User_IIC_T::~User_IIC_T()
  */
 void User_IIC_T::init(uint32_t scl_rate)
 {
+    /* lock this driver */
+    if(lock != UNLOCK)
+    {
+        //perror
+        yuki.printf("iic busy.\r\n");
+        return;
+    }
+    lock = LOCKED;
+
     /* configure ports */
     GPIO_setAsOutputPin(m_scl_port, m_scl_pin);
     GPIO_setOutputHighOnPin(m_scl_port, m_scl_pin);
@@ -196,6 +208,9 @@ void User_IIC_T::init(uint32_t scl_rate)
         m_delay_value = 12;
     else if(scl_rate == IIC_LOW_RATE)
         m_delay_value = 24;
+
+    /* release this driver */
+    lock = UNLOCK;
 }
 
 void User_IIC_T::add_slave(iic_slave *pslave)
@@ -229,7 +244,6 @@ uint16_t User_IIC_T::select_slave(const char *name)
     if(strcmp(ps->name, name) == 0)
     {
         m_current_slave = ps;
-        m_current_slave->lock = LOCKED;
 
         return ps->addr;
     }
@@ -251,6 +265,16 @@ uint16_t User_IIC_T::select_slave(const char *name)
 int User_IIC_T::write(struct iic_data *data, uint32_t flags)
 {
     int ret = 0;
+
+    /* lock this driver */
+    if(lock != UNLOCK)
+    {
+        //perror
+        yuki.printf("iic busy.\r\n");
+        return -1;
+    }
+    lock = LOCKED;
+
     /* generate start condition */
     m_iic_start();
     /* transmit process */
@@ -266,6 +290,9 @@ int User_IIC_T::write(struct iic_data *data, uint32_t flags)
 
     /* generate stop as default*/
     m_iic_stop();
+
+    /* release this driver */
+    lock = UNLOCK;
     
     return ret;
 }
@@ -275,6 +302,15 @@ int User_IIC_T::write(struct iic_data *data, uint32_t flags)
  */
 int User_IIC_T::read(struct iic_data *data, uint32_t flags)
 {
+    /* lock this driver */
+    if(lock != UNLOCK)
+    {
+        //perror
+        yuki.printf("iic busy.\r\n");
+        return;
+    }
+    lock = LOCKED;
+
     /* receive data process */
     for(uint32_t i = 0; i < data->num; i++)
     {
@@ -287,6 +323,9 @@ int User_IIC_T::read(struct iic_data *data, uint32_t flags)
 
     /* generate stop as default*/
     m_iic_stop();
+
+    /* release this driver */
+    lock = UNLOCK;
 
     return 0;
 }

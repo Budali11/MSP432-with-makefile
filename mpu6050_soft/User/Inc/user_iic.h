@@ -52,7 +52,6 @@ struct iic_data
 /* a structure typr represents a iic slave */
 struct iic_slave
 {
-    LOCK_T lock;
     const char *name;
     uint16_t addr;
     struct iic_slave *next;
@@ -71,6 +70,7 @@ private:
     struct iic_slave *m_slave_list, *m_current_slave;
     uint16_t m_sda_port, m_sda_pin, m_scl_port, m_scl_pin;
     uint32_t m_delay_value;
+    LOCK_T lock;
     inline void SDA_IN(void)
     {
         (base_flag == ODD)?(m_base.odd_base->DIR &= ~m_sda_pin, m_base.odd_base->OUT |= m_sda_pin)\
