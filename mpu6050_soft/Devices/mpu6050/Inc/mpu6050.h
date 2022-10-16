@@ -30,14 +30,14 @@ typedef struct mpu6050_data
     int16_t Gyro_X_RAW;
     int16_t Gyro_Y_RAW;
     int16_t Gyro_Z_RAW;
-    double Gx;
-    double Gy;
-    double Gz;
+    double old_Gx,Gx;
+    double old_Gy,Gy;
+    double old_Gz,Gz;
+    float pass_us;
 
     float Temperature;
 
-    double KalmanAngleX;
-    double KalmanAngleY;
+    double k_roll, k_pitch, k_yaw;
 }mpu6050_data_t;
 
 
@@ -58,7 +58,7 @@ public:
     void read_gyro(mpu6050_data& rdata);
     void read_temp(mpu6050_data& rdata);
     int read_all(mpu6050_data& rdata);
-    double kalman_getAngle(mpu6050_data& rdata);
+    void kalman_getAngle(mpu6050_data& rdata);
 };
 
 

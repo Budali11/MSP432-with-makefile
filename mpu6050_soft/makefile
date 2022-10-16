@@ -89,7 +89,9 @@ main.cpp \
 User/Src/user_uart.cpp \
 User/Src/user_tick.cpp \
 User/Src/user_nvic.cpp \
-User/Src/user_iic.cpp
+User/Src/user_iic.cpp \
+User/Src/user_timer32.cpp \
+
 
 CPP_SOURCES += $(CPP_DEVICE_SOURCES) $(CPP_BUS_SOURCES)
 
@@ -130,7 +132,7 @@ all: $(BUILD_DIR)/$(PRJ_NAME).elf $(BUILD_DIR)/$(PRJ_NAME).bin
 
 
 $(BUILD_DIR)/$(PRJ_NAME).elf: $(OBJECTS)
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(CPP) $(OBJECTS) $(LDFLAGS) -o $@
 	$(SZ) $@
 
 $(BUILD_DIR)/$(PRJ_NAME).bin: $(BUILD_DIR)/$(PRJ_NAME).elf

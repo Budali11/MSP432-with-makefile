@@ -3,6 +3,7 @@
 #include "cs.h"
 #include "user_uart.h"
 #include "mpu6050.h"
+#include "user_timer32.h"
 
 void Clock_Configuration(void);
 User_Uart_T yuki = User_Uart_T(EUSCI_A0, 115200);
@@ -10,6 +11,7 @@ extern User_Systick_T user_systick;
 MPU6050_T mpu6050 = MPU6050_T();
 User_IIC_T iic = User_IIC_T(P6);
 mpu6050_data_t measurement = {0};
+clock user_clock1 = clock(TIMER_1);
 
 /**
  * main.c
@@ -21,7 +23,7 @@ int main(void)
     GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN0);
 	Clock_Configuration();
     yuki.init(EUSCI_A0, 115200);
-    yuki.send_string("Yuki.\r\n");
+    yuki.send_string("\r\nYuki.\r\n");
 
     iic.init(IIC_SUPER_SUPER_FAST_RATE);
     iic.add_slave(mpu6050.iic_init());
@@ -32,9 +34,19 @@ int main(void)
     else
         yuki.printf("device mpu6050 init ok.\r\n");
     mpu6050.read_all(measurement);
+
+    user_clock1 = 0;
+    float test = 0;
 	while(1)
 	{
         // mpu6050.read_all(measurement);
+        // user_clock1 >> test;
+        // yuki.printf("time pass %f\r\n", test);
+        // if(test < 0)
+        // {
+        //     user_clock1 = 0;
+        //     yuki.printf("time out.\r\n");
+        // }
 	}
 	return 0;
 }

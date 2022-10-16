@@ -161,6 +161,7 @@ User_IIC_T::User_IIC_T(DIO_PORT_Even_Interruptable_Type *base)
     m_sda_port = GPIO_PORT_P6;
     m_sda_pin = GPIO_PIN4;
     base_flag = EVEN;
+    lock = UNLOCK;
 }
 User_IIC_T::User_IIC_T(DIO_PORT_Odd_Interruptable_Type *base)
 {
@@ -172,6 +173,7 @@ User_IIC_T::User_IIC_T(DIO_PORT_Odd_Interruptable_Type *base)
     m_sda_port = GPIO_PORT_P6;
     m_sda_pin = GPIO_PIN4;
     base_flag = ODD;
+    lock = UNLOCK;
 }
 
 
@@ -188,7 +190,7 @@ void User_IIC_T::init(uint32_t scl_rate)
     if(lock != UNLOCK)
     {
         //perror
-        yuki.printf("iic busy.\r\n");
+        yuki.printf("init: iic busy.\r\n");
         return;
     }
     lock = LOCKED;
@@ -270,7 +272,7 @@ int User_IIC_T::write(struct iic_data *data, uint32_t flags)
     if(lock != UNLOCK)
     {
         //perror
-        yuki.printf("iic busy.\r\n");
+        yuki.printf("write: iic busy.\r\n");
         return -1;
     }
     lock = LOCKED;
@@ -286,7 +288,11 @@ int User_IIC_T::write(struct iic_data *data, uint32_t flags)
     DELAY(1);
 
     if(flags & IIC_NO_STOP != 0) /* if not need to stop */
+    {
+        /* release this driver */
+        lock = UNLOCK;
         return ret;
+    }
 
     /* generate stop as default*/
     m_iic_stop();
@@ -306,8 +312,8 @@ int User_IIC_T::read(struct iic_data *data, uint32_t flags)
     if(lock != UNLOCK)
     {
         //perror
-        yuki.printf("iic busy.\r\n");
-        return;
+        yuki.printf("read: iic busy.\r\n");
+        return -1;
     }
     lock = LOCKED;
 
@@ -319,8 +325,11 @@ int User_IIC_T::read(struct iic_data *data, uint32_t flags)
     }
     
     if(flags & IIC_NO_STOP != 0) /* if not need to stop */
+    {
+        /* release this driver */
+        lock = UNLOCK;
         return 0;
-
+    }
     /* generate stop as default*/
     m_iic_stop();
 

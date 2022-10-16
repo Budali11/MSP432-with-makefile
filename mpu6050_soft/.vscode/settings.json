@@ -18,7 +18,10 @@
         "signal.h": "c",
         "_ansi.h": "c",
         "cstdlib": "cpp",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "ostream": "cpp"
     },
     "licenser.license": "AL2",
     "licenser.author": "Budali11",

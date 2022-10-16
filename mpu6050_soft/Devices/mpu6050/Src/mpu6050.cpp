@@ -16,6 +16,7 @@
 #include "mpu6050.h"
 #include "mpu6050_defs.h"
 #include "stdio.h"
+#include "cmath"
 #include "user_iic.h"
 #include "user_uart.h"
 
@@ -53,7 +54,7 @@ int MPU6050_T::device_init(void)
         .buf = msg,
         .num = 2,
     };
-    
+
     /* get operation functions */
     User_IIC_T *ops = (User_IIC_T *)m_slave_mpu6050->pclass_ops;
     
@@ -229,6 +230,10 @@ int MPU6050_T::read_all(mpu6050_data& rdata)
 
     rdata.Temperature = tmp/340.0f + 36.53f;
 
+    rdata.old_Gx = rdata.Gx;
+    rdata.old_Gy = rdata.Gy;
+    rdata.old_Gz = rdata.Gz;
+
     rdata.Gx = (double)(rdata.Gyro_X_RAW) / gyro_LSB[m_gyro_fsr];
     rdata.Gy = (double)(rdata.Gyro_Y_RAW) / gyro_LSB[m_gyro_fsr];
     rdata.Gz = (double)(rdata.Gyro_Z_RAW) / gyro_LSB[m_gyro_fsr];
@@ -251,3 +256,19 @@ int MPU6050_T::read_all(mpu6050_data& rdata)
 
     return 0;
 }
+    
+void MPU6050_T::kalman_getAngle(mpu6050_data& rdata)
+{
+    float a_roll, a_pitch;
+    float g_roll, g_pitch, g_yaw;
+
+    /* get a_roll and a_pitch according to accel data */
+    a_roll = atan(rdata.Ay / rdata.Az);
+    a_pitch = -atan(rdata.Ax / (pow(rdata.Ay * rdata.Ay + rdata.Az * rdata.Az, 0.5)));
+
+    /* get g_roll, g_pitch and g_yaw according to gyro data */
+    // g_roll = 
+
+}
+
+
