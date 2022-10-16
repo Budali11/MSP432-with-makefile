@@ -17,6 +17,7 @@
 #include "msp.h"
 #include "user_iic.h"
 #include "cstdlib"
+#include "user_timer32.h"
 
 typedef struct mpu6050_data
 {    

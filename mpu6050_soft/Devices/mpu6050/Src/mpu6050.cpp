@@ -21,6 +21,7 @@
 #include "user_uart.h"
 
 extern User_Uart_T yuki;
+clock user_clock1 = clock(TIMER_1);
 
 MPU6050_T::MPU6050_T()
 {
@@ -211,6 +212,12 @@ int MPU6050_T::read_all(mpu6050_data& rdata)
         return -1;
     }
 
+    /* read out last time timer value */
+    user_clock1 >> rdata.pass_us;
+
+    /* timing */
+    user_clock1 = 0;
+
     /* read out data */
     data.buf = measure;
     data.num = 14;
@@ -251,7 +258,9 @@ int MPU6050_T::read_all(mpu6050_data& rdata)
     /* output gyro y */
     yuki.printf("Gy: %f\t", rdata.Gy);
     /* output gyro z */
-    yuki.printf("Gz: %f\r\n", rdata.Gz);
+    yuki.printf("Gz: %f\t", rdata.Gz);
+    /* output delta t */
+    yuki.printf("delta t: %fus\r\n",rdata.pass_us);
 
 
     return 0;

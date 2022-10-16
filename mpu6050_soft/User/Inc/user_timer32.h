@@ -31,6 +31,9 @@ public:
     inline void start(void){
         m_base->CONTROL |= 1 << 7;
     }
+    inline void restart(void){
+        m_base->LOAD = 60000;
+    }
     inline void stop(void){
         m_base->CONTROL &= ~(1 << 7);
     }
@@ -38,7 +41,10 @@ public:
         m_base->CONTROL |= 1 << 5;
     }
     inline uint32_t read_timer(void){
-        return m_base->VALUE;
+        return ((m_base->CONTROL >> 1) & 0x1) ? (m_base->VALUE) : (m_base->VALUE & 0xffff);
+    }
+    inline void load(uint32_t load){
+        m_base->LOAD = load;
     }
 
 };
@@ -46,16 +52,15 @@ public:
 class clock : public User_Timer32_T
 {
 private:
-    uint32_t m_timer_value;
+    uint32_t m_load;
+    float m_us;
 public:
     clock();
     clock(uint8_t timer_n);
     ~clock();
-    inline void start(void){
-        User_Timer32_T::start();
-    }
+    void clock_init(void);
     void operator=(uint32_t us);
-    float operator>>(float & rtime);
+    void operator>>(float & rtime);
 };
 
 
