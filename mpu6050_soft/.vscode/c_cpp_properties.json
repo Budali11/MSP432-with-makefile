@@ -30,6 +30,28 @@
                 ]
             },
             "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "win-arm-gcc",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "Core/Include",
+                "Core/Include/CMSIS",
+                "Bsp/Inc",
+                "User/Inc",
+                "Devices/mpu6050/Inc",
+                "Bus/IIC/Inc"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "I:\\MCU\\GNU_Tools_for_ARM\\11.3_rel1\\bin\\arm-none-eabi-g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4

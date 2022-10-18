@@ -35,9 +35,9 @@ int main(void)
     else
         yuki.printf("device mpu6050 init ok.\r\n");
 
-        mpu6050.read_all(measurement);
 	while(1)
 	{
+        mpu6050.read_all(measurement);
 	}
 	return 0;
 }

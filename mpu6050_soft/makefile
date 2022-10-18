@@ -2,6 +2,12 @@
 #make-test
 
 
+ifdef LINUX
+OPENOCD_PATH = /usr/local/share/openocd
+else
+OPENOCD_PATH = I:/MCU/Openocd/INSTALL
+endif
+
 #define project name
 PRJ_NAME = mpu6050
 #build, contents obj file
@@ -150,11 +156,11 @@ $(BUILD_DIR):
 clean:
 	rm -rf $(BUILD_DIR)
 connect:
-	openocd -f /usr/local/share/openocd/scripts/interface/xds110.cfg -f /usr/local/share/openocd/scripts/target/ti_msp432.cfg
+	openocd -f $(OPENOCD_PATH)/scripts/interface/xds110.cfg -f $(OPENOCD_PATH)/scripts/target/ti_msp432.cfg
 download:
 	openocd \
-	-f /usr/local/share/openocd/scripts/interface/xds110.cfg \
-	-f /usr/local/share/openocd/scripts/target/ti_msp432.cfg \
+	-f $(OPENOCD_PATH)/scripts/interface/xds110.cfg \
+	-f $(OPENOCD_PATH)/scripts/target/ti_msp432.cfg \
 	-c init \
 	-c halt \
 	-c "flash write_image erase $(BUILD_DIR)/$(PRJ_NAME).elf 0x00000000" \

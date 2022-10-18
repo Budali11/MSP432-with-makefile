@@ -276,7 +276,9 @@ void MPU6050_T::kalman_getAngle(mpu6050_data& rdata)
     a_pitch = -atan(rdata.Ax / (pow(rdata.Ay * rdata.Ay + rdata.Az * rdata.Az, 0.5)));
 
     /* get g_roll, g_pitch and g_yaw according to gyro data */
-    // g_roll = 
+    g_roll = (rdata.)
+
+    /* g_roll and others are angular velocity after rotated*/
 
 }
 
