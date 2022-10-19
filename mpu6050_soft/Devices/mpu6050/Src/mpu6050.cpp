@@ -30,9 +30,18 @@ MPU6050_T::MPU6050_T()
     m_slave_mpu6050->addr = MPU6050_ADDR;
 
     /* measurement configuration */
-    m_accel_fsr = ACCEL_8G_RANGE;
-    m_gyro_fsr = GYRO_500D_RANGE;
+    m_accel_fsr = ACCEL_4G_RANGE;
+    m_gyro_fsr = GYRO_250D_RANGE;
 
+    m_data = {
+            0,
+            .k = {
+            .r_K = 0.4,
+            .p_K = 0.4,
+            .re_est = 0.0025,
+            .pe_est = 0.0025,
+        },
+    };
 }
 
 MPU6050_T::~MPU6050_T()
@@ -147,39 +156,37 @@ int MPU6050_T::device_init(void)
         return -1;
     }
 
-    /* self-test */
-    /* send slave address(write) */
-    msg[0] = (m_slave_mpu6050->addr << 1)|0;
-    msg[1] = ACCEL_XOUT_H_REG;
-    data.num = 2;
-    ret = ops->write(&data, IIC_NO_STOP);
-    if(ret != 2)
-    {
-        //perror
-        yuki.send_string("read accel xout h error.\r\n");
-        return -1;
-    }
-    /* send slave address(read) */
-    msg[0] = (m_slave_mpu6050->addr << 1)|1;
-    data.num = 1;
-    ret = ops->write(&data, IIC_NO_STOP);
-    if(ret != 1)
-    {
-        //perror
-        yuki.printf("read accel xout h error.\r\n");
-        return -1;
-    }
+    // /* give up first 300 data */
+    // for(uint8_t i = 0; i < 300; i++)
+    //     read_all(m_data, READ_NO_COMPUTE);
 
-    uint8_t measure[14] = {0};
-    data.buf = measure;
-    data.num = 14;
-    ops->read(&data, IIC_STOP|IIC_ACK);
-    for(int i = 0; i < 14; i++)
-        yuki.printf("data %d is %d\r\n", i, measure[i]);
+    /* make statistics and average */
+    for(uint8_t i = 0; i < 50; i++)
+    {
+        read_all(MPU6050_NO_DEBUG);
+        /* statistics */
+        m_data.ax_raw_offset += m_data.Accel_X_RAW;
+        m_data.ay_raw_offset += m_data.Accel_Y_RAW;
+        m_data.az_raw_offset += (int)accel_LSB[m_accel_fsr] - m_data.Accel_Z_RAW;
+        m_data.gx_raw_offset += m_data.Gyro_X_RAW;
+        m_data.gy_raw_offset += m_data.Gyro_Y_RAW;
+        m_data.gz_raw_offset += m_data.Gyro_Z_RAW;
+    }
+    /* average */
+    m_data.ax_raw_offset /= 50;
+    m_data.ay_raw_offset /= 50;
+    m_data.az_raw_offset /= 50;
+    m_data.gx_raw_offset /= 50;
+    m_data.gy_raw_offset /= 50;
+    m_data.gz_raw_offset /= 50;
+
+    yuki.printf("ax_offset: %d\t", m_data.ax_raw_offset);
+    yuki.printf("ay_offset: %d\t", m_data.ay_raw_offset);
+    yuki.printf("az_offset: %d\r\n", m_data.az_raw_offset);
 
     return 0;
 }
-int MPU6050_T::read_all(mpu6050_data& rdata)
+int MPU6050_T::read_all(uint8_t flags)
 {
     uint8_t measure[14] = {0};
     uint32_t ret = 0;
@@ -213,7 +220,7 @@ int MPU6050_T::read_all(mpu6050_data& rdata)
     }
 
     /* read out last time timer value */
-    user_clock1 >> rdata.pass_us;
+    user_clock1 >> m_data.pass_us;
 
     /* timing */
     user_clock1 = 0;
@@ -222,64 +229,112 @@ int MPU6050_T::read_all(mpu6050_data& rdata)
     data.buf = measure;
     data.num = 14;
     ops->read(&data, IIC_STOP|IIC_ACK);
-    rdata.Accel_X_RAW = measure[0] << 8 | measure[1];
-    rdata.Accel_Y_RAW = measure[2] << 8 | measure[3];
-    rdata.Accel_Z_RAW = measure[4] << 8 | measure[5];
+
+    if((flags & MPU6050_NO_COMPUTE) != 0)
+        return 0;
+
+    m_data.Accel_X_RAW = measure[0] << 8 | measure[1];
+    m_data.Accel_Y_RAW = measure[2] << 8 | measure[3];
+    m_data.Accel_Z_RAW = measure[4] << 8 | measure[5];
     int16_t tmp = measure[6] << 8 | measure[7];
-    rdata.Gyro_X_RAW = measure[8] << 8 | measure[9];
-    rdata.Gyro_Y_RAW = measure[10] << 8 | measure[11];
-    rdata.Gyro_Z_RAW = measure[12] << 8 | measure[13];
+    m_data.Gyro_X_RAW = measure[8] << 8 | measure[9];
+    m_data.Gyro_Y_RAW = measure[10] << 8 | measure[11];
+    m_data.Gyro_Z_RAW = measure[12] << 8 | measure[13];
 
     /* computing accel, gyro and temperature */
-    rdata.Ax = (double)(rdata.Accel_X_RAW) / accel_LSB[m_accel_fsr];
-    rdata.Ay = (double)(rdata.Accel_Y_RAW) / accel_LSB[m_accel_fsr];
-    rdata.Az = (double)(rdata.Accel_Z_RAW) / accel_LSB[m_accel_fsr];
+    m_data.Ax = (double)(m_data.Accel_X_RAW + m_data.ax_raw_offset) / accel_LSB[m_accel_fsr];
+    m_data.Ay = (double)(m_data.Accel_Y_RAW + m_data.ay_raw_offset) / accel_LSB[m_accel_fsr];
+    m_data.Az = (double)(m_data.Accel_Z_RAW + m_data.az_raw_offset) / accel_LSB[m_accel_fsr];
 
-    rdata.Temperature = tmp/340.0f + 36.53f;
+    m_data.Temperature = tmp/340.0f + 36.53f;
 
-    rdata.old_Gx = rdata.Gx;
-    rdata.old_Gy = rdata.Gy;
-    rdata.old_Gz = rdata.Gz;
+    m_data.old_Gx = m_data.Gx;
+    m_data.old_Gy = m_data.Gy;
+    m_data.old_Gz = m_data.Gz;
 
-    rdata.Gx = (double)(rdata.Gyro_X_RAW) / gyro_LSB[m_gyro_fsr];
-    rdata.Gy = (double)(rdata.Gyro_Y_RAW) / gyro_LSB[m_gyro_fsr];
-    rdata.Gz = (double)(rdata.Gyro_Z_RAW) / gyro_LSB[m_gyro_fsr];
-
-    /* output temp */
-    yuki.printf("temp %f\t", rdata.Temperature);
-    /* output accel x */
-    yuki.printf("Ax: %f\t", rdata.Ax);
-    /* output accel y */
-    yuki.printf("Ay: %f\t", rdata.Ay);
-    /* output accel z */
-    yuki.printf("Az: %f\t", rdata.Az);
-    /* output gyro x */
-    yuki.printf("Gx: %f\t", rdata.Gx);
-    /* output gyro y */
-    yuki.printf("Gy: %f\t", rdata.Gy);
-    /* output gyro z */
-    yuki.printf("Gz: %f\t", rdata.Gz);
+    m_data.Gx = (double)(m_data.Gyro_X_RAW + m_data.gx_raw_offset) / gyro_LSB[m_gyro_fsr];
+    m_data.Gy = (double)(m_data.Gyro_Y_RAW + m_data.gy_raw_offset) / gyro_LSB[m_gyro_fsr];
+    m_data.Gz = (double)(m_data.Gyro_Z_RAW + m_data.gz_raw_offset) / gyro_LSB[m_gyro_fsr];
+    
+    if((flags & MPU6050_NO_DEBUG) != 0)
+        return 0;
+    
+    // /* output accel x */
+    // yuki.printf("Ax: %f\t", m_data.Ax);
+    // /* output accel y */
+    // yuki.printf("Ay: %f\t", m_data.Ay);
+    // /* output accel z */
+    // yuki.printf("Az: %f\t", m_data.Az);
+    // /* output temp */
+    // yuki.printf("temp %f\t", m_data.Temperature);
+    // /* output gyro x */
+    // yuki.printf("Gx: %f\t", m_data.Gx);
+    // /* output gyro y */
+    // yuki.printf("Gy: %f\t", m_data.Gy);
+    // /* output gyro z */
+    // yuki.printf("Gz: %f\t", m_data.Gz);
     /* output delta t */
-    yuki.printf("delta t: %fus\r\n",rdata.pass_us);
+    yuki.printf("delta t: %fus\t",m_data.pass_us);
 
 
     return 0;
 }
     
-void MPU6050_T::kalman_getAngle(mpu6050_data& rdata)
+void MPU6050_T::kalman_getAngle(uint8_t flags)
 {
     float a_roll, a_pitch;
-    float g_roll, g_pitch, g_yaw;
+    static float g_roll = 0, g_pitch = 0, g_yaw = 0, e_mea = 0.5;
+    double dr_dt, dp_dt, dy_dt;
 
     /* get a_roll and a_pitch according to accel data */
-    a_roll = atan(rdata.Ay / rdata.Az);
-    a_pitch = -atan(rdata.Ax / (pow(rdata.Ay * rdata.Ay + rdata.Az * rdata.Az, 0.5)));
+    a_roll = atan(m_data.Ay / m_data.Az) * RAD2DEG;
+    a_pitch = -atan(m_data.Ax / (pow(m_data.Ay * m_data.Ay + m_data.Az * m_data.Az, 0.5))) * RAD2DEG;
 
     /* get g_roll, g_pitch and g_yaw according to gyro data */
-    g_roll = (rdata.)
+    double g_rotate[][3] = 
+    {   
+        /**
+         *  first:
+         *          1, 0, 0
+         *          0, 1, 0
+         *          0, 0, 1 
+         */
+        {1, sin(g_pitch)*sin(g_roll)/cos(g_pitch), cos(g_roll)*sin(g_pitch)/cos(g_pitch)},
+        {0, cos(g_roll), -sin(g_roll)},
+        {0, sin(g_roll)/cos(g_pitch), cos(g_roll)/cos(g_pitch)}
+    };
 
-    /* g_roll and others are angular velocity after rotated*/
+    /* compute rotated angular_v */
+    dr_dt = g_rotate[0][0] * m_data.Gx + g_rotate[0][1] * m_data.Gy + g_rotate[0][2] * m_data.Gz;
+    dp_dt = g_rotate[1][0] * m_data.Gx + g_rotate[1][1] * m_data.Gy + g_rotate[1][2] * m_data.Gz;
+    dy_dt = g_rotate[2][0] * m_data.Gx + g_rotate[2][1] * m_data.Gy + g_rotate[2][2] * m_data.Gz;
 
+    /* g_roll and others are angle after rotated*/
+    g_roll += dr_dt * m_data.pass_us / 1000000.0f;
+    g_pitch += dp_dt * m_data.pass_us / 1000000.0f;
+    g_yaw += dy_dt * m_data.pass_us / 1000000.0f;
+    
+    // /* update kalman parameter */
+    // m_data.k.r_K = m_data.k.re_est / (m_data.k.re_est - e_mea);
+    // m_data.k.p_K = m_data.k.pe_est / (m_data.k.pe_est - e_mea);
+
+    // /* compute k_roll and k_pitch */
+    // m_data.k.roll = a_roll + m_data.k.r_K * (a_roll - g_roll);
+    // m_data.k.pitch = a_pitch + m_data.k.p_K * (a_pitch - g_pitch);
+    // m_data.k.yaw = g_yaw;
+
+    // /* update kalman parameter */
+    // m_data.k.re_est = (1 - m_data.k.r_K) * m_data.k.re_est;
+    // m_data.k.pe_est = (1 - m_data.k.p_K) * m_data.k.pe_est;
+
+    if((flags & MPU6050_NO_DEBUG) != 0)
+        return;
+    
+    yuki.printf("a_roll: %f\t", a_roll);
+    // yuki.printf("a_pitch: %f\t", a_pitch);
+    yuki.printf("g_roll: %f\r\n", g_roll);
+    // yuki.printf("g_pitch: %f\t", g_pitch);
+    // yuki.printf("g_yaw: %f\r\n", g_yaw);
 }
 
 

@@ -22,7 +22,8 @@
         "iostream": "cpp",
         "iosfwd": "cpp",
         "ostream": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "limits": "cpp"
     },
     "licenser.license": "AL2",
     "licenser.author": "Budali11",

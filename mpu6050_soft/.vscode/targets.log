@@ -8,7 +8,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This program built for i686-pc-msys
  
 
-# Make data base, printed on Mon Oct 17 23:28:14 2022
+# Make data base, printed on Wed Oct 19 19:07:03 2022
 
 # Variables
 
@@ -23,9 +23,9 @@ CPP_SOURCES = main.cpp User/Src/user_uart.cpp User/Src/user_tick.cpp User/Src/us
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
- 
 @D = $(patsubst %/,%,$(dir $@))
 # environment
+ 
 HOMEDRIVE = C:
 # automatic
 @F = $(notdir $@)
@@ -57,6 +57,8 @@ PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 MAKEFILE_LIST :=  makefile
 # makefile (from `makefile', line 85)
 CPP_BUS_SOURCES = Bus/IIC/Src/iic_bus.cpp 
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # makefile (from `makefile', line 34)
 CP = $(PREFIX)objcopy
 # environment
@@ -106,7 +108,7 @@ NVTOOLSEXT_PATH = C:\Program Files\NVIDIA Corporation\NvToolsExt\
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_12616_SMWDVHSKCGGVNYSX
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_6188_XYLMMVBVARUWNIIM
 # environment
 SW_SIM_MPIT = INTELMPI
 # environment
@@ -266,14 +268,16 @@ PROCESSOR_LEVEL = 23
 # environment
 TERM = cygwin
 # environment
-VSCODE_PID = 12616
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+VSCODE_PID = 6188
 # environment
 DOTNET_CLI_TELEMETRY_OPTOUT = 1
 # environment
 USERDOMAIN_ROAMINGPROFILE = DESKTOP-MMIO2D6
- 
 # variable set hash-table stats:
-# Load=129/1024=13%, Rehash=0, Collisions=16/182=9%
+ 
+# Load=131/1024=13%, Rehash=0, Collisions=18/195=9%
 
 # Pattern-specific Variable Values
 
@@ -323,7 +327,7 @@ Bsp/Src/adc14.c:
 build/flash.o: Bsp/Src/flash.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `flash'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -344,7 +348,7 @@ Bsp/Src/pmap.c:
 build/user_tick.o: User/Src/user_tick.cpp | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `user_tick'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -356,7 +360,7 @@ build/user_tick.o: User/Src/user_tick.cpp | build
 build/system_msp432p401r.o: Core/Src/system_msp432p401r.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `system_msp432p401r'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -367,11 +371,11 @@ build/system_msp432p401r.o: Core/Src/system_msp432p401r.c | build
 
 build/mpu6050.elf: build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build/crc32.o build/cs.o build/dma.o build/flash.o build/fpu.o build/gpio.o build/i2c.o build/interrupt.o build/mpu.o build/pcm.o build/pmap.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/spi.o build/sysctl.o build/systick.o build/timer32.o build/timer_a.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/syscalls.o build/main.o build/user_uart.o build/user_tick.o build/user_nvic.o build/user_iic.o build/user_timer32.o build/mpu6050.o build/iic_bus.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-10-17 23:27:47
+#  Last modified 2022-10-19 16:47:48
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/11=0%
 #  commands to execute (from `makefile', line 141):
 	$(CPP) $(OBJECTS) $(LDFLAGS) -o $@
 	$(SZ) $@
@@ -380,7 +384,7 @@ build/mpu6050.elf: build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build
 build/reset.o: Bsp/Src/reset.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `reset'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -392,7 +396,7 @@ build/reset.o: Bsp/Src/reset.c | build
 build/main.o: main.cpp | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `main'
-#  Last modified 2022-10-17 23:27:46
+#  Last modified 2022-10-19 16:37:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -404,8 +408,7 @@ build/main.o: main.cpp | build
 build/timer_a.o: Bsp/Src/timer_a.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `timer_a'
-#  Last modified 2022-10-17 21:58:59
- 
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -414,10 +417,11 @@ build/timer_a.o: Bsp/Src/timer_a.c | build
 	$(CC) $(CCFLAGS) $< -o $@
 	
 
+ 
 build/user_uart.o: User/Src/user_uart.cpp | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `user_uart'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -438,7 +442,7 @@ gdb:
 # Not a target:
 User/Src/user_iic.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:40:17
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -447,11 +451,27 @@ User/Src/user_iic.cpp:
 build/user_timer32.o: User/Src/user_timer32.cpp | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `user_timer32'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 16:47:48
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/user_timer32.o
+# automatic
+# % := 
+# automatic
+# * := user_timer32
+# automatic
+# + := User/Src/user_timer32.cpp
+# automatic
+# | := build
+# automatic
+# < := User/Src/user_timer32.cpp
+# automatic
+# ^ := User/Src/user_timer32.cpp
+# automatic
+# ? := User/Src/user_timer32.cpp
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/21=5%
 #  commands to execute (from `makefile', line 151):
 	$(CPP) $(CCFLAGS) $< -o $@
 	
@@ -461,14 +481,14 @@ all: build/mpu6050.elf build/mpu6050.bin
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/11=0%
 
 build/syscalls.o: User/Src/syscalls.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `syscalls'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -503,16 +523,6 @@ Bsp/Src/spi.c:
 # Not a target:
 Bsp/Src/wdt_a.c:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-10-17 21:58:59
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-Bus/IIC/Src/iic_bus.cpp:
-#  Implicit rule search has been done.
 #  Last modified 2022-10-17 21:58:59
 #  File has been updated.
 #  Successfully updated.
@@ -522,7 +532,8 @@ Bus/IIC/Src/iic_bus.cpp:
 build/pss.o: Bsp/Src/pss.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `pss'
-#  Last modified 2022-10-17 21:58:59
+ 
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -551,9 +562,8 @@ Bsp/Src/fpu.c:
 
 build/mpu6050.bin: build/mpu6050.elf
 #  Implicit rule search has not been done.
-#  Last modified 2022-10-17 23:27:47
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  commands to execute (from `makefile', line 145):
 	$(CP) $< -O binary $@
 	
@@ -561,7 +571,7 @@ build/mpu6050.bin: build/mpu6050.elf
 build/uart.o: Bsp/Src/uart.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `uart'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -597,7 +607,7 @@ Bsp/Src/mpu.c:
 build/pcm.o: Bsp/Src/pcm.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `pcm'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -611,7 +621,6 @@ Bsp/Src/crc32.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-10-17 21:58:59
 #  File has been updated.
- 
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
@@ -627,8 +636,9 @@ Bsp/Src/timer32.c:
 
 build/dma.o: Bsp/Src/dma.c | build
 #  Implicit rule search has been done.
+ 
 #  Implicit/static pattern stem: `dma'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -640,7 +650,7 @@ build/dma.o: Bsp/Src/dma.c | build
 build/cpu.o: Bsp/Src/cpu.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `cpu'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -652,7 +662,7 @@ build/cpu.o: Bsp/Src/cpu.c | build
 build/gpio.o: Bsp/Src/gpio.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `gpio'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -672,7 +682,7 @@ makefile:
 
 build:
 #  Implicit rule search has not been done.
-#  Last modified 2022-10-17 23:27:47
+#  Last modified 2022-10-19 16:47:48
 #  File has been updated.
 #  Successfully updated.
 #  commands to execute (from `makefile', line 154):
@@ -700,7 +710,7 @@ Bsp/Src/timer_a.c:
 # Not a target:
 main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 16:36:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -709,7 +719,7 @@ main.cpp:
 build/user_nvic.o: User/Src/user_nvic.cpp | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `user_nvic'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -727,19 +737,10 @@ User/Src/syscalls.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-Devices/mpu6050/Src/mpu6050.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-17 21:58:59
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 build/interrupt.o: Bsp/Src/interrupt.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `interrupt'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -778,7 +779,7 @@ Bsp/Src/rtc_c.c:
 build/cs.o: Bsp/Src/cs.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `cs'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -793,26 +794,20 @@ Bsp/Src/uart.c:
 #  Last modified 2022-10-17 21:58:59
 #  File has been updated.
 #  Successfully updated.
- 
 # variable set hash-table stats:
+ 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-build/iic_bus.o: Bus/IIC/Src/iic_bus.cpp | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `iic_bus'
-#  Last modified 2022-10-17 21:58:59
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 151):
-	$(CPP) $(CCFLAGS) $< -o $@
-	
+# Not a target:
+build/iic_bus.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 build/user_iic.o: User/Src/user_iic.cpp | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `user_iic'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:40:21
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -824,7 +819,7 @@ build/user_iic.o: User/Src/user_iic.cpp | build
 build/startup_msp432p401r_gcc.o: Core/Src/startup_msp432p401r_gcc.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `startup_msp432p401r_gcc'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -860,7 +855,7 @@ Bsp/Src/pcm.c:
 build/aes256.o: Bsp/Src/aes256.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `aes256'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -872,7 +867,7 @@ build/aes256.o: Bsp/Src/aes256.c | build
 build/ref_a.o: Bsp/Src/ref_a.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ref_a'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -893,7 +888,7 @@ Bsp/Src/dma.c:
 build/sysctl.o: Bsp/Src/sysctl.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `sysctl'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -932,7 +927,7 @@ Bsp/Src/gpio.c:
 # Not a target:
 User/Src/user_timer32.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 16:51:12
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -941,7 +936,7 @@ User/Src/user_timer32.cpp:
 build/i2c.o: Bsp/Src/i2c.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `i2c'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -964,6 +959,7 @@ download:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
+ 
 #  commands to execute (from `makefile', line 161):
 	openocd \
 	-f $(OPENOCD_PATH)/scripts/interface/xds110.cfg \
@@ -978,9 +974,8 @@ download:
 build/adc14.o: Bsp/Src/adc14.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `adc14'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
- 
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
@@ -991,7 +986,7 @@ build/adc14.o: Bsp/Src/adc14.c | build
 build/pmap.o: Bsp/Src/pmap.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `pmap'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1021,7 +1016,7 @@ Bsp/Src/interrupt.c:
 build/systick.o: Bsp/Src/systick.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `systick'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1033,7 +1028,7 @@ build/systick.o: Bsp/Src/systick.c | build
 build/comp_e.o: Bsp/Src/comp_e.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `comp_e'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1054,7 +1049,7 @@ Bsp/Src/cs.c:
 build/spi.o: Bsp/Src/spi.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `spi'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1066,7 +1061,7 @@ build/spi.o: Bsp/Src/spi.c | build
 build/wdt_a.o: Bsp/Src/wdt_a.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `wdt_a'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1075,17 +1070,11 @@ build/wdt_a.o: Bsp/Src/wdt_a.c | build
 	$(CC) $(CCFLAGS) $< -o $@
 	
 
-build/mpu6050.o: Devices/mpu6050/Src/mpu6050.cpp | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `mpu6050'
-#  Last modified 2022-10-17 21:58:59
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 151):
-	$(CPP) $(CCFLAGS) $< -o $@
-	
+# Not a target:
+build/mpu6050.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 connect:
 #  Phony target (prerequisite of .PHONY).
@@ -1099,7 +1088,7 @@ connect:
 build/fpu.o: Bsp/Src/fpu.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `fpu'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1115,8 +1104,8 @@ Bsp/Src/aes256.c:
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
  
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/ref_a.c:
@@ -1139,7 +1128,7 @@ Bsp/Src/sysctl.c:
 build/mpu.o: Bsp/Src/mpu.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `mpu'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1160,7 +1149,7 @@ Bsp/Src/i2c.c:
 build/rtc_c.o: Bsp/Src/rtc_c.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `rtc_c'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1172,7 +1161,7 @@ build/rtc_c.o: Bsp/Src/rtc_c.c | build
 build/crc32.o: Bsp/Src/crc32.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `crc32'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1193,7 +1182,7 @@ Bsp/Src/systick.c:
 build/timer32.o: Bsp/Src/timer32.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `timer32'
-#  Last modified 2022-10-17 21:58:59
+#  Last modified 2022-10-19 15:19:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1203,7 +1192,7 @@ build/timer32.o: Bsp/Src/timer32.c | build
 	
 
 # files hash-table stats:
-# Load=86/1024=8%, Rehash=0, Collisions=85/899=9%
+# Load=84/1024=8%, Rehash=0, Collisions=65/829=8%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -1214,9 +1203,8 @@ build/timer32.o: Bsp/Src/timer32.c | build
 # # of strings in strcache: 1
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
- 
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Oct 17 23:28:14 2022
+# Finished Make data base on Wed Oct 19 19:07:03 2022
 
  

@@ -19,18 +19,31 @@
 #include "cstdlib"
 #include "user_timer32.h"
 
+#define MPU6050_DEBUG              1
+#define MPU6050_NO_DEBUG           2
+#define MPU6050_NO_COMPUTE         4
+
+// Kalman structure
+typedef struct __Kalman
+{
+    double roll, pitch, yaw;
+    double r_K, p_K;
+    double re_est, pe_est;
+
+}Kalman_t;
+
 typedef struct mpu6050_data
-{    
-    int16_t Accel_X_RAW;
-    int16_t Accel_Y_RAW;
-    int16_t Accel_Z_RAW;
+{
+    int16_t Accel_X_RAW, Accel_Y_RAW, Accel_Z_RAW;
+    int32_t ax_raw_offset, ay_raw_offset, az_raw_offset;
+
     double Ax;
     double Ay;
     double Az;
 
-    int16_t Gyro_X_RAW;
-    int16_t Gyro_Y_RAW;
-    int16_t Gyro_Z_RAW;
+    int16_t Gyro_X_RAW, Gyro_Y_RAW, Gyro_Z_RAW;
+    int32_t gx_raw_offset, gy_raw_offset, gz_raw_offset;
+    
     double old_Gx,Gx;
     double old_Gy,Gy;
     double old_Gz,Gz;
@@ -38,7 +51,8 @@ typedef struct mpu6050_data
 
     float Temperature;
 
-    double k_roll, k_pitch, k_yaw;
+    Kalman_t k;
+
 }mpu6050_data_t;
 
 
@@ -58,20 +72,10 @@ public:
     void read_accel(mpu6050_data& rdata);
     void read_gyro(mpu6050_data& rdata);
     void read_temp(mpu6050_data& rdata);
-    int read_all(mpu6050_data& rdata);
-    void kalman_getAngle(mpu6050_data& rdata);
+    int read_all(uint8_t flags);
+    void kalman_getAngle(uint8_t flags);
 };
 
 
-// Kalman structure
-typedef struct
-{
-    double Q_angle;
-    double Q_bias;
-    double R_measure;
-    double angle;
-    double bias;
-    double P[2][2];
-}Kalman_t;
 
 #endif

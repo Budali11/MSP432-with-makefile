@@ -287,7 +287,7 @@ int User_IIC_T::write(struct iic_data *data, uint32_t flags)
     }
     DELAY(1);
 
-    if(flags & IIC_NO_STOP != 0) /* if not need to stop */
+    if((flags & IIC_NO_STOP) != 0) /* if not need to stop */
     {
         /* release this driver */
         lock = UNLOCK;
@@ -324,7 +324,7 @@ int User_IIC_T::read(struct iic_data *data, uint32_t flags)
         data->buf[i] = m_iic_receive_byte((i != (data->num - 1)) && (IIC_ACK & flags));
     }
     
-    if(flags & IIC_NO_STOP != 0) /* if not need to stop */
+    if((flags & IIC_NO_STOP) != 0) /* if not need to stop */
     {
         /* release this driver */
         lock = UNLOCK;

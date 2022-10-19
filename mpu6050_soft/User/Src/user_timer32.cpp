@@ -71,7 +71,7 @@ clock::clock(uint8_t timer_n)
     uint32_t MCLK = CS_getMCLK();
     // m_us = (float)(MCLK / 16) / 1000000.0;
     m_load = 60000;
-    m_us = 1.5;
+    m_us = 3.0;
     start();
 }
 
@@ -89,7 +89,7 @@ void clock::clock_init(void)
 
 void clock::operator=(uint32_t us)
 {
-    (us == 0) ? m_load = 60000 : m_load = us;
+    m_load = (us == 0) ? 60000 : us;
     load(m_load);
 }
 

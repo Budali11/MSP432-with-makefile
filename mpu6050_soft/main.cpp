@@ -11,7 +11,7 @@ User_Uart_T yuki = User_Uart_T(EUSCI_A0, 115200);
 extern User_Systick_T user_systick;
 MPU6050_T mpu6050 = MPU6050_T();
 User_IIC_T iic = User_IIC_T(P6);
-mpu6050_data_t measurement = {0};
+
 
 /**
  * main.c
@@ -33,11 +33,12 @@ int main(void)
     if(mpu6050.device_init())
         yuki.printf("device mpu6050 init failed.\r\n");
     else
-        yuki.printf("device mpu6050 init ok.\r\n");
+        yuki.printf("\r\ndevice mpu6050 init ok.\r\n");
 
 	while(1)
 	{
-        mpu6050.read_all(measurement);
+        mpu6050.read_all(MPU6050_DEBUG);
+        mpu6050.kalman_getAngle(MPU6050_DEBUG);
 	}
 	return 0;
 }

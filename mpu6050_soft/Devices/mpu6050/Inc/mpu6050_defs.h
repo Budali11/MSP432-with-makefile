@@ -36,6 +36,8 @@
 #define GYRO_1000D_RANGE        2
 #define GYRO_2000D_RANGE        3
 
+#define RAD2DEG                 57.2957795131f
+
 const float accel_LSB[] = 
 {
     16384.0f,
