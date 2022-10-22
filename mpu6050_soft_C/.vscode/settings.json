@@ -28,7 +28,9 @@
         "iic_bus.h": "c",
         "msp432p401r.h": "c",
         "mpu6050.h": "c",
-        "mpu6050_defs.h": "c"
+        "mpu6050_defs.h": "c",
+        "user_core.h": "c",
+        "cs.h": "c"
     },
     "licenser.license": "AL2",
     "licenser.author": "Budali11",

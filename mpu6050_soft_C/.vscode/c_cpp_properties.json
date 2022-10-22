@@ -46,12 +46,14 @@
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "__MSP432P401R__",
+                "PROCESS_FACE"
             ],
             "compilerPath": "I:\\MCU\\GNU_Tools_for_ARM\\11.3_rel1\\bin\\arm-none-eabi-g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-gcc-x64",
+            "intelliSenseMode": "windows-gcc-arm",
             "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
