@@ -18,10 +18,12 @@ int IIC_Init(iic_adapter_t *padapter)
     padapter->driver_id = IIC_SCL_PORT << 24 | IIC_SCL_PIN << 16 | IIC_SDA_PORT << 8 | IIC_SDA_PIN;
 
     /* set up functions */
-    padapter->start = IIC_Adapter_Start;
-    padapter->stop = IIC_Adapter_Stop;
-    padapter->sendByte = IIC_Adapter_SendByte;
-    padapter->receiveByte = IIC_Adapter_ReceiveByte;
+    padapter->init = IIC_Adapter_Init;
+    padapter->read = IIC_Adapter_Read;
+    padapter->write = IIC_Adapter_Write;
+
+    /* adapter lock unlock as default */
+    padapter->lock = UNLOCK;
 
     return 0;
 }
@@ -179,5 +181,75 @@ int IIC_Adapter_ReceiveByte(uint8_t ack)
     return receive;
 }
 
+int IIC_Adapter_Write(iic_adapter_t *padapter, uint8_t *buf, uint32_t num, uint32_t flags)
+{
+    int ret = 0;
+
+    /* lock this driver */
+    if(padapter->lock != UNLOCK)
+    {
+        //perror
+        return -1;
+    }
+    padapter->lock = LOCKED;
+
+    /* generate start condition */
+    IIC_Adapter_Start();
+
+    /* transmit process */
+    for(uint32_t i = 0; i < num; i++)
+    {
+        /* send bytes */
+        ret += IIC_Adapter_SendByte(buf[i]);
+    }
+    DELAY(1);
+
+    if((flags & IIC_NO_STOP) != 0) /* if not need to stop */
+    {
+        /* release this driver */
+        padapter->lock = UNLOCK;
+        return ret;
+    }
+
+    /* generate stop as default*/
+    IIC_Adapter_Stop();
+
+    /* release this driver */
+    padapter->lock = UNLOCK;
+    
+    return ret;
+}
+
+int IIC_Adapter_Read(iic_adapter_t *padapter, uint8_t *buf, uint32_t num, uint32_t flags)
+{
+    /* lock this driver */
+    if(padapter->lock != UNLOCK)
+    {
+        //perror
+        return -1;
+    }
+    padapter->lock = LOCKED;
+
+    /* receive data process */
+    for(uint32_t i = 0; i < num; i++)
+    {
+        /* receive bytes */
+        buf[i] = IIC_Adapter_ReceiveByte((i != (num - 1)) && (IIC_ACK & flags));
+    }
+    
+    if((flags & IIC_NO_STOP) != 0) /* if not need to stop */
+    {
+        /* release this driver */
+        padapter->lock = UNLOCK;
+        return 0;
+    }
+    /* generate stop as default*/
+    IIC_Adapter_Stop();
+
+    /* release this driver */
+    padapter->lock = UNLOCK;
+
+    return 0;
+}
 
 

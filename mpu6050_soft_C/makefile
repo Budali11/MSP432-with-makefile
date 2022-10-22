@@ -79,8 +79,10 @@ Bsp/Src/uart.c \
 Bsp/Src/wdt_a.c\
 Core/Src/startup_msp432p401r_gcc.c \
 Core/Src/system_msp432p401r.c \
-User/Src/syscalls.c \
 Bus/IIC/Src/iic_bus.c \
+User/Src/syscalls.c \
+User/Src/user_uart.c \
+
 
 # device source
 C_DEVICE_SOURCES = \
@@ -113,9 +115,9 @@ CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) #
 
 #path define
 VPATH = \
-Core/Include:Core/Include/CMSIS:Bsp/Inc:\
+Core/Include:Core/Include/CMSIS:Bsp/Inc:User/Inc:\
 Bsp/Src:Core/Src:User/Src:\
-Bus/IIC/Src:Devices/mpu6050/Src:\
+Bus/IIC/Src:Devices/mpu6050/Src:Devices/mpu6050/Inc\
 
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
 

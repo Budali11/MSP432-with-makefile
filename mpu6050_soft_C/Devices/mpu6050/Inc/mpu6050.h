@@ -15,6 +15,7 @@
 #define MPU6050_H
 
 #include "msp.h"
+#include "iic_bus.h"
 #if defined PROCESS_FACE
 
 #define MPU6050_DEBUG              1
@@ -47,6 +48,19 @@ typedef struct mpu6050_data
 
 }mpu6050_data_t;
 
-#endif
+typedef struct mpu6050
+{
+    int (*device_init)(iic_adapter_t *padapter, struct mpu6050 *pdevice);
+    int (*read_all)(iic_adapter_t *padapter, struct mpu6050 *pdevice, uint32_t flags);
+    void (*kalman_getAngle)(struct mpu6050 *pdevice, uint32_t flags);
+}mpu6050_t;
 
+
+int MPU6050_Init(mpu6050_t *pdevice);
+int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice);
+int MPU6050_Read_All(iic_adapter_t *padapter, mpu6050_t *pdevice, uint32_t flags);
+void MPU6050_Kalman_GetAngle(mpu6050_t *pdevice, uint32_t flags);
+
+
+#endif
 #endif

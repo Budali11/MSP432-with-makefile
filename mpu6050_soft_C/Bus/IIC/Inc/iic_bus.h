@@ -23,6 +23,24 @@
 extern "C"{
 #endif //__cplusplus
 
+/* iic rate select */
+#define IIC_SUPER_SUPER_FAST_RATE   0
+#define IIC_SUPER_FAST_RATE         1
+#define IIC_FAST_RATE               2
+#define IIC_MEDIUM_RATE             3
+#define IIC_LOW_RATE                4
+
+
+/* use for io base */
+#define ODD 1
+#define EVEN 2
+
+/* iic operations flags */
+#define IIC_STOP        0
+#define IIC_NO_STOP     1
+#define IIC_ACK         2
+#define IIC_NACK        4
+
 #define IIC_IO_BASE                 P6
 #define IIC_SCL_PORT                GPIO_PORT_P6
 #define IIC_SDA_PORT                GPIO_PORT_P6
@@ -52,6 +70,7 @@ extern "C"{
 #define DELAY(x) \
     for(uint32_t i = 0; i < x; i++)
 
+
 /* a enum type for iic device, indicates if this device is be used of not */
 enum LOCK_T {
     LOCKED = 0,
@@ -64,18 +83,23 @@ typedef struct iic_adapter
     enum LOCK_T lock;
     uint32_t driver_id;
     int (*init)(struct iic_adapter *padapter);
-    int (*start)(void);
-    int (*stop)(void);
-    int (*sendByte)(uint8_t byte);
-    int (*receiveByte)(uint8_t ack);
+    int (*write)(struct iic_adapter *padapter, uint8_t *buf, uint32_t num, uint32_t flags);
+    int (*read)(struct iic_adapter *padapter, uint8_t *buf, uint32_t num, uint32_t flags);
 }iic_adapter_t;
 
+/* user call function */
 int IIC_Init(iic_adapter_t *padapter);
-int IIC_Adapter_Init(iic_adapter_t *padapter);
+
+/* iic_adapter private function */
 int IIC_Adapter_Start(void);
 int IIC_Adapter_Stop(void);
 int IIC_Adapter_SendByte(uint8_t byte);
 int IIC_Adapter_ReceiveByte(uint8_t ack);
+
+/* iic_adapter public function */
+int IIC_Adapter_Init(iic_adapter_t *padapter);
+int IIC_Adapter_Write(iic_adapter_t *padapter, uint8_t *buf, uint32_t num, uint32_t flags);
+int IIC_Adapter_Read(iic_adapter_t *padapter, uint8_t *buf, uint32_t num, uint32_t flags);
 
 
 #ifdef __cplusplus

@@ -26,6 +26,8 @@
 #define GYRO_XOUT_H_REG 0x43
 
 #define MPU6050_ADDR 0x68
+#define MPU6050_ADDR_READ 0xD1
+#define MPU6050_ADDR_WRITE 0xD0
 
 #define ACCEL_2G_RANGE          0
 #define ACCEL_4G_RANGE          1
@@ -35,6 +37,9 @@
 #define GYRO_500D_RANGE         1
 #define GYRO_1000D_RANGE        2
 #define GYRO_2000D_RANGE        3
+#define MPU6050_USING_AFSR      ACCEL_4G_RANGE
+#define MPU6050_USING_GFSR      GYRO_500D_RANGE
+
 
 #define RAD2DEG                 57.2957795131f
 

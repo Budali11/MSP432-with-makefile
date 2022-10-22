@@ -26,7 +26,9 @@
         "limits": "cpp",
         "new": "cpp",
         "iic_bus.h": "c",
-        "msp432p401r.h": "c"
+        "msp432p401r.h": "c",
+        "mpu6050.h": "c",
+        "mpu6050_defs.h": "c"
     },
     "licenser.license": "AL2",
     "licenser.author": "Budali11",
