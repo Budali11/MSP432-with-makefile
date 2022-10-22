@@ -1,6 +1,7 @@
 #2022/7/31 22:56
 #make-test
 
+LINUX = 1
 
 ifdef LINUX
 OPENOCD_PATH = /usr/local/share/openocd
