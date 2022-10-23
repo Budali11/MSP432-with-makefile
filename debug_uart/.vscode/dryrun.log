@@ -1,0 +1,6 @@
+make.exe --dry-run --keep-going --print-directory
+make.exe: Entering directory `/f/Git/PRJ/MSP432-with-makefile/debug_uart'
+make.exe: Nothing to be done for `all'.
+ 
+make.exe: Leaving directory `/f/Git/PRJ/MSP432-with-makefile/debug_uart'
+ 
