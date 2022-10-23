@@ -50,9 +50,9 @@ FLOAT-ABI = -mfloat-abi=hard
 MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 
 
-
 #sources
-C_SOURCES = \
+CS = \
+main.c \
 Bsp/Src/adc14.c \
 Bsp/Src/aes256.c \
 Bsp/Src/comp_e.c \
@@ -82,29 +82,44 @@ Bsp/Src/wdt_a.c\
 Core/Src/startup_msp432p401r_gcc.c \
 Core/Src/system_msp432p401r.c \
 User/Src/syscalls.c \
+Bus/IIC/Src/iic_bus.c \
 
-CPP_BUS_SOURCES = \
-Bus/IIC/Src/iic_bus.cpp \
-
-
-CPP_DEVICE_SOURCES = \
-Devices/mpu6050/Src/mpu6050.cpp \
-
-
-CPP_SOURCES = \
+CPPS = \
 main.cpp \
 User/Src/user_uart.cpp \
 User/Src/user_tick.cpp \
 User/Src/user_nvic.cpp \
-User/Src/user_iic.cpp \
 User/Src/user_timer32.cpp \
+User/Src/user_iic.cpp \
 
 
-CPP_SOURCES += $(CPP_DEVICE_SOURCES) $(CPP_BUS_SOURCES)
+# device sources
+CPP_DEVICE_SOURCES = \
+Devices/mpu6050_OOP/Src/mpu6050.cpp \
+
+C_DEVICE_SOURCES = \
+Devices/mpu6050/Src/mpu6050.c \
+
+CPPS += $(CPP_DEVICE_SOURCES)
+CS += $(C_DEVICE_SOURCES)
+
+# except files
+EXCEPT_CPP = \
+Devices/mpu6050_OOP/Src/mpu6050.cpp \
+User/Src/user_iic.cpp \
+
+
+EXCEPT_C = \
+main.c \
+
+
+CPP_SOURCES = $(filter-out $(EXCEPT_CPP), $(CPPS))
+C_SOURCES = $(filter-out $(EXCEPT_C), $(CS))
 
 #defines
 C_DEFS = \
 -D__MSP432P401R__ \
+-DPROCESS_FACE \
 -Dgcc \
 
 #includes
@@ -128,8 +143,8 @@ CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) #
 #path define
 VPATH = \
 Core/Include:Core/Include/CMSIS:Bsp/Inc:\
-Bsp/Src:Core/Src:User/Src:Devices/mpu6050/Src:\
-Bus/IIC/Src\
+Bsp/Src:Core/Src:User/Src:\
+Bus/IIC/Src:Devices/mpu6050/Src:\
 
 
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))

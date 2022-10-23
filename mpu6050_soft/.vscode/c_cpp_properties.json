@@ -15,7 +15,8 @@
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE",
-                "__MSP432P401R__"
+                "__MSP432P401R__",
+                "PROCESS_FACE"
             ],
             "windowsSdkVersion": "10.0.17763.0",
             "compilerPath": "/usr/local/arm/GNU_Tools_for_ARM/bin/arm-none-eabi-g++",

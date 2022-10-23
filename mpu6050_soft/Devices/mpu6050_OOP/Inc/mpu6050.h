@@ -11,11 +11,16 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-#if !defined MPU6050_H
-#define MPU6050_H
+#if !defined MPU6050_OOP_H
+#define MPU6050_OOP_H
 
 #include "msp.h"
-#if defined PROCESS_FACE
+
+#if !defined PROCESS_FACE
+
+#include "user_iic.h"
+#include "cstdlib"
+#include "user_timer32.h"
 
 #define MPU6050_DEBUG              1
 #define MPU6050_NO_DEBUG           2
@@ -46,6 +51,27 @@ typedef struct mpu6050_data
     Kalman_t k;
 
 }mpu6050_data_t;
+
+
+
+// MPU6050 structure
+class MPU6050_T
+{
+private:
+    mpu6050_data_t m_data;
+    iic_slave *m_slave_mpu6050;
+    uint8_t m_accel_fsr, m_gyro_fsr;
+public:
+    MPU6050_T();
+    ~MPU6050_T();
+    iic_slave *iic_init(void);
+    int device_init(void);
+    void read_accel(mpu6050_data& rdata);
+    void read_gyro(mpu6050_data& rdata);
+    void read_temp(mpu6050_data& rdata);
+    int read_all(uint8_t flags);
+    void kalman_getAngle(uint8_t flags);
+};
 
 #endif
 

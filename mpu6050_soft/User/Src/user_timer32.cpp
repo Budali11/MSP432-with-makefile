@@ -50,7 +50,8 @@ void User_Timer32_T::init(Timer32_Type *base, uint8_t mode)
     m_base->CONTROL |= 1 << 0;
 
     /* load vlaue */
-    m_base->LOAD = 60000;
+    /* set 16-bit value, save computing time */
+    m_base->LOAD = 0xffff;
 
 }
 
@@ -67,12 +68,6 @@ clock::clock(uint8_t timer_n)
         init(TIMER32_2, 0);
     else
         yuki.printf("clock init error.\r\n");
-
-    uint32_t MCLK = CS_getMCLK();
-    // m_us = (float)(MCLK / 16) / 1000000.0;
-    m_load = 60000;
-    m_us = 3.0;
-    start();
 }
 
 clock::~clock()
@@ -80,8 +75,11 @@ clock::~clock()
 }
 
 void clock::clock_init(void)
-{
-    load(1000);
+{    
+    uint32_t MCLK = CS_getMCLK();
+    m_us = (float)(MCLK / 16) / 1000000.0;
+    m_load = 0xffff;
+    
     start();
 
     while(read_timer() != 0);
@@ -89,13 +87,14 @@ void clock::clock_init(void)
 
 void clock::operator=(uint32_t us)
 {
-    m_load = (us == 0) ? 60000 : us;
+    m_load = (us == 0) ? 0xffff : us;
     load(m_load);
 }
 
 void clock::operator>>(float & rtime)
 {
     uint32_t timer_value = m_load - read_timer();
+    // yuki.printf("tim_val: %d ", timer_value);
 
     rtime = (timer_value == 0) ? -1 : ((float)timer_value / m_us);
 }

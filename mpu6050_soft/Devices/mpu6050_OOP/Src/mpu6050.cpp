@@ -156,9 +156,9 @@ int MPU6050_T::device_init(void)
         return -1;
     }
 
-    // /* give up first 300 data */
-    // for(uint8_t i = 0; i < 300; i++)
-    //     read_all(m_data, READ_NO_COMPUTE);
+    /* give up first 300 data */
+    for(int i = 0; i < 300; i++)
+        read_all(MPU6050_NO_COMPUTE);
 
     /* make statistics and average */
     for(uint8_t i = 0; i < 50; i++)
@@ -183,6 +183,8 @@ int MPU6050_T::device_init(void)
     yuki.printf("ax_offset: %d\t", m_data.ax_raw_offset);
     yuki.printf("ay_offset: %d\t", m_data.ay_raw_offset);
     yuki.printf("az_offset: %d\r\n", m_data.az_raw_offset);
+
+    user_clock1.clock_init();
 
     return 0;
 }
@@ -248,10 +250,6 @@ int MPU6050_T::read_all(uint8_t flags)
 
     m_data.Temperature = tmp/340.0f + 36.53f;
 
-    m_data.old_Gx = m_data.Gx;
-    m_data.old_Gy = m_data.Gy;
-    m_data.old_Gz = m_data.Gz;
-
     m_data.Gx = (double)(m_data.Gyro_X_RAW + m_data.gx_raw_offset) / gyro_LSB[m_gyro_fsr];
     m_data.Gy = (double)(m_data.Gyro_Y_RAW + m_data.gy_raw_offset) / gyro_LSB[m_gyro_fsr];
     m_data.Gz = (double)(m_data.Gyro_Z_RAW + m_data.gz_raw_offset) / gyro_LSB[m_gyro_fsr];
@@ -274,7 +272,7 @@ int MPU6050_T::read_all(uint8_t flags)
     // /* output gyro z */
     // yuki.printf("Gz: %f\t", m_data.Gz);
     /* output delta t */
-    yuki.printf("delta t: %fus\t",m_data.pass_us);
+    yuki.printf("dt:%fus  ",m_data.pass_us);
 
 
     return 0;
@@ -299,15 +297,18 @@ void MPU6050_T::kalman_getAngle(uint8_t flags)
          *          0, 1, 0
          *          0, 0, 1 
          */
-        {1, sin(g_pitch)*sin(g_roll)/cos(g_pitch), cos(g_roll)*sin(g_pitch)/cos(g_pitch)},
+        // {1, sin(g_pitch)*sin(g_roll)/cos(g_pitch), cos(g_roll)*sin(g_pitch)/cos(g_pitch)},
+        // {0, cos(g_roll), -sin(g_roll)},
+        // {0, sin(g_roll)/cos(g_pitch), cos(g_roll)/cos(g_pitch)},
+        {1, tan(g_pitch)*sin(g_roll), cos(g_roll)*tan(g_pitch)},
         {0, cos(g_roll), -sin(g_roll)},
         {0, sin(g_roll)/cos(g_pitch), cos(g_roll)/cos(g_pitch)}
     };
 
     /* compute rotated angular_v */
-    dr_dt = g_rotate[0][0] * m_data.Gx + g_rotate[0][1] * m_data.Gy + g_rotate[0][2] * m_data.Gz;
-    dp_dt = g_rotate[1][0] * m_data.Gx + g_rotate[1][1] * m_data.Gy + g_rotate[1][2] * m_data.Gz;
-    dy_dt = g_rotate[2][0] * m_data.Gx + g_rotate[2][1] * m_data.Gy + g_rotate[2][2] * m_data.Gz;
+    dr_dt = m_data.Gx + g_rotate[0][1] * m_data.Gy + g_rotate[0][2] * m_data.Gz;
+    dp_dt = g_rotate[1][1] * m_data.Gy + g_rotate[1][2] * m_data.Gz;
+    dy_dt = g_rotate[2][1] * m_data.Gy + g_rotate[2][2] * m_data.Gz;
 
     /* g_roll and others are angle after rotated*/
     g_roll += dr_dt * m_data.pass_us / 1000000.0f;
@@ -330,11 +331,11 @@ void MPU6050_T::kalman_getAngle(uint8_t flags)
     if((flags & MPU6050_NO_DEBUG) != 0)
         return;
     
-    yuki.printf("a_roll: %f\t", a_roll);
-    // yuki.printf("a_pitch: %f\t", a_pitch);
-    yuki.printf("g_roll: %f\r\n", g_roll);
-    // yuki.printf("g_pitch: %f\t", g_pitch);
-    // yuki.printf("g_yaw: %f\r\n", g_yaw);
+    yuki.printf("ar:%f  ", a_roll);
+    // yuki.printf("ap:%f  ", a_pitch);
+    yuki.printf("gr:%f\r\n", g_roll);
+    // yuki.printf("gp:%f  ", g_pitch);
+    // yuki.printf("gy:%f\r\n", g_yaw);
 }
 
 

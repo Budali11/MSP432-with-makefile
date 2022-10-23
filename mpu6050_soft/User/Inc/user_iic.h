@@ -15,6 +15,8 @@
 #if !defined USER_IIC_H
 #define USER_IIC_H 
 
+#if !defined PROCESS_FACE
+
 #include "msp.h"
 
 /* iic rate select */
@@ -130,5 +132,8 @@ public:
      */
     int read(struct iic_data *data, uint32_t flags);
 };
+
+#else
+#endif
 
 #endif

@@ -32,7 +32,7 @@ public:
         m_base->CONTROL |= 1 << 7;
     }
     inline void restart(void){
-        m_base->LOAD = 60000;
+        m_base->LOAD = 0xffff;
     }
     inline void stop(void){
         m_base->CONTROL &= ~(1 << 7);

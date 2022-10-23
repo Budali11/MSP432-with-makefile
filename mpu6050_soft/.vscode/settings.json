@@ -23,7 +23,10 @@
         "iosfwd": "cpp",
         "ostream": "cpp",
         "cmath": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "new": "cpp",
+        "iic_bus.h": "c",
+        "msp432p401r.h": "c"
     },
     "licenser.license": "AL2",
     "licenser.author": "Budali11",
