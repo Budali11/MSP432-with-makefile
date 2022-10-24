@@ -1,5 +1,7 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/budali11/git_download/MSP432-with-makefile/debug_uart'
-make: Nothing to be done for 'all'.
+arm-none-eabi-gcc build/main.o build/cpu.o build/cs.o build/dma.o build/flash.o build/fpu.o build/gpio.o build/i2c.o build/interrupt.o build/mpu.o build/pcm.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/sysctl.o build/systick.o build/timer32.o build/timer_a.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/iic_bus.o build/syscalls.o build/user_uart.o build/user_dma.o -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -Tmsp432p401r.lds -specs=nosys.specs -lc -lm -lnosys  -Wl,-gc-sections,--cref -Wl,-Map=build/debug_uart.map -o build/debug_uart.elf
+arm-none-eabi-size build/debug_uart.elf
+arm-none-eabi-objcopy build/debug_uart.elf -O binary build/debug_uart.bin
 make: Leaving directory '/home/budali11/git_download/MSP432-with-makefile/debug_uart'
  

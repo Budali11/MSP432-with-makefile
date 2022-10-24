@@ -1,5 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/budali11/git_download/MSP432-with-makefile-and-Cpp/mpu6050_soft'
+make: Entering directory '/home/budali11/git_download/MSP432-with-makefile/mpu6050_soft'
 mkdir build
 arm-none-eabi-gcc -c -g -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -D__MSP432P401R__ -DPROCESS_FACE -Dgcc  -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc -IDevices/mpu6050/Inc -IBus/IIC/Inc   Bsp/Src/adc14.c -o build/adc14.o
 arm-none-eabi-gcc -c -g -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -D__MSP432P401R__ -DPROCESS_FACE -Dgcc  -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc -IDevices/mpu6050/Inc -IBus/IIC/Inc   Bsp/Src/aes256.c -o build/aes256.o
@@ -40,5 +40,5 @@ arm-none-eabi-g++ -c -g -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=ha
 arm-none-eabi-g++ build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build/crc32.o build/cs.o build/dma.o build/flash.o build/fpu.o build/gpio.o build/i2c.o build/interrupt.o build/mpu.o build/pcm.o build/pmap.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/spi.o build/sysctl.o build/systick.o build/timer32.o build/timer_a.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/syscalls.o build/iic_bus.o build/mpu6050.o build/main.o build/user_uart.o build/user_tick.o build/user_nvic.o build/user_timer32.o -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -Tmsp432p401r.lds -specs=nosys.specs -lc -lm -lnosys  -Wl,-gc-sections,--cref -Wl,-Map=build/mpu6050.map -o build/mpu6050.elf
 arm-none-eabi-size build/mpu6050.elf
 arm-none-eabi-objcopy build/mpu6050.elf -O binary build/mpu6050.bin
-make: Leaving directory '/home/budali11/git_download/MSP432-with-makefile-and-Cpp/mpu6050_soft'
+make: Leaving directory '/home/budali11/git_download/MSP432-with-makefile/mpu6050_soft'
  

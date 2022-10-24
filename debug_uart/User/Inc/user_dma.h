@@ -22,6 +22,7 @@
 // #define USING_5TO8_CHANNEL
 
 
+
 typedef struct dma_controller
 {
     uint8_t cur_ch_num; /* channel C */
@@ -29,5 +30,6 @@ typedef struct dma_controller
 }dma_controller_t;
 
 void DMA_PreInit(void);
+
 
 #endif

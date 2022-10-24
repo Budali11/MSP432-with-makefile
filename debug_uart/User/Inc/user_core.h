@@ -15,6 +15,7 @@
 #define USER_CORE_H
 
 #include "msp.h"
+#include "user_uart.h"
 #include "stdint.h"
 #include "stddef.h"
 #include "stdlib.h"

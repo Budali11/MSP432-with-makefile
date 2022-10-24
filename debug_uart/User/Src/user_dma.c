@@ -28,13 +28,15 @@ static uint32_t data_control_structure[][4] __attribute__((aligned(16))) =
 #if defined USING_1_CHANNEL
     /* channel 0 */
     {0,0,0,0},
-#endif
+#if defined USING_2_CHANNEL
     /* channel 1 */
     {0,0,0,0},
+#if defined USING_3TO4_CHANNEL
     /* channel 2 */
     {0,0,0,0},
     /* channel 3 */
     {0,0,0,0},
+#if defined USING_5TO8_CHANNEL
     /* channel 4 */
     {0,0,0,0},
     /* channel 5 */
@@ -43,16 +45,23 @@ static uint32_t data_control_structure[][4] __attribute__((aligned(16))) =
     {0,0,0,0},
     /* channel 7 */
     {0,0,0,0},
-
+#endif
+#endif
+#endif
+#endif
     /* alternate data structure */
+#if defined USING_1_CHANNEL
     /* channel 0 */
     {0,0,0,0},
+#if defined USING_2_CHANNEL
     /* channel 1 */
     {0,0,0,0},
+#if defined USING_3TO4_CHANNEL
     /* channel 2 */
     {0,0,0,0},
     /* channel 3 */
     {0,0,0,0},
+#if defined USING_5TO8_CHANNEL
     /* channel 4 */
     {0,0,0,0},
     /* channel 5 */
@@ -60,7 +69,11 @@ static uint32_t data_control_structure[][4] __attribute__((aligned(16))) =
     /* channel 6 */
     {0,0,0,0},
     /* channel 7 */
-    {0,0,0,0}
+    {0,0,0,0},
+#endif
+#endif
+#endif
+#endif
 };
 
 

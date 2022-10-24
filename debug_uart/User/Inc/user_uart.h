@@ -18,9 +18,68 @@
 #define USER_UART_H
 
 #include "msp.h"
+#include "gpio.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
+
+/*user can change this macro to specify a EUSCI module*/
+#define USING_EUSCI_A_X 0
+
+//ports definition
+#if (USING_EUSCI_A_X == 0)
+    #define UART_TXD_PIN GPIO_PIN3
+    #define UART_TXD_PORT GPIO_PORT_P1
+    #define UART_RXD_PIN GPIO_PIN2
+    #define UART_RXD_PORT GPIO_PORT_P1
+#elif (USING_EUSCI_A_X == 1)
+    #define UART_TXD_PIN GPIO_PIN3
+    #define UART_TXD_PORT GPIO_PORT_P1
+    #define UART_RXD_PIN GPIO_PIN2
+    #define UART_RXD_PORT GPIO_PORT_P1
+#elif (USING_EUSCI_A_X == 2)
+    #define UART_TXD_PIN GPIO_PIN3
+    #define UART_TXD_PORT GPIO_PORT_P1
+    #define UART_RXD_PIN GPIO_PIN2
+    #define UART_RXD_PORT GPIO_PORT_P1
+#elif (USING_EUSCI_A_X == 3)
+    #define UART_TXD_PIN GPIO_PIN3
+    #define UART_TXD_PORT GPIO_PORT_P1
+    #define UART_RXD_PIN GPIO_PIN2
+    #define UART_RXD_PORT GPIO_PORT_P1
+#elif (USING_EUSCI_A_X == 4)
+    #define UART_TXD_PIN GPIO_PIN3
+    #define UART_TXD_PORT GPIO_PORT_P1
+    #define UART_RXD_PIN GPIO_PIN2
+    #define UART_RXD_PORT GPIO_PORT_P1
+#else
+    #error please specify a EUSCI module
+
+#endif 
+
+//baudrate definitions, write to MCTLW register
+#define BAUDRATE_9600       0x21
+#define BAUDRATE_19200      0x11
+#define BAUDRATE_38400      0x6581
+#define BAUDRATE_57600      0x2501
+#define BAUDRATE_115200     0x2081
+#define BAUDRATE_230400     0x2041
+#define BAUDRATE_460800     0xA1
+
+#define DEBUG_UART              EUSCI_A0
+#define DEBUG_UART_BAUDRATE     115200
+
+/* preInit function */
+void UART_PreInit(void);
+
+/* private function */
+void Send_Nchar(uint8_t *str, uint32_t n);
 
 /* public function */
-int D_printf(const char *pstr, ...);
+void Send_String(uint8_t *str);
+int Printf(const char *str, ...);
+int Receive(uint8_t *buf);
+int D_printf(const char *str, ...);
 int D_Receive(uint8_t *buf);
 
 #endif

@@ -30,7 +30,8 @@ int main(void)
 	GPIO_setAsOutputPin(GPIO_PORT_P1, GPIO_PIN0);
     GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN0);
 	Clock_Configuration();
-
+    UART_PreInit();
+    Printf("Yuki.\r\n");
     while (1)
     {
         /* code */
