@@ -54,8 +54,9 @@ REGION_ALIAS("REGION_HEAP", SRAM_DATA);
 REGION_ALIAS("REGION_ARM_EXIDX", MAIN_FLASH);
 REGION_ALIAS("REGION_ARM_EXTAB", MAIN_FLASH);
 
-/* my definition */
+/* my definition start */
 REGION_ALIAS("REGION_PREINIT", MAIN_FLASH);
+/* my definition end */
 
 SECTIONS {
 

@@ -91,12 +91,17 @@ C_SOURCES += $(C_DEVICE_SOURCES)
 
 # exclude file
 EXCLUDE = \
+Bus/IIC/Src/iic_bus.c \
+Bsp/Src/dma.c \
+Bsp/Src/i2c.c \
 Bsp/Src/comp_e.c \
 Bsp/Src/spi.c \
 Bsp/Src/crc32.c \
 Bsp/Src/adc14.c \
 Bsp/Src/aes256.c \
 Bsp/Src/pmap.c \
+Bsp/Src/timer32.c \
+Bsp/Src/timer_a.c \
 
 C_EXCLUDED = $(filter-out $(EXCLUDE), $(C_SOURCES))
 
