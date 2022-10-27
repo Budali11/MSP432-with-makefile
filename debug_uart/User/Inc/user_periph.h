@@ -11,15 +11,19 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-#if !defined USER_CORE_H
-#define USER_CORE_H
 
-#include "msp.h"
-<<<<<<< HEAD
-#include "user_periph.h"
-#include "user_uart.h"
-#include "user_dma.h"
-=======
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
+#if !defined USER_PERIPH_H
+#define USER_PERTPH_H
+
+#include <stddef.h>
+#include "user_defs.h"
+
+typedef int (*preFunc_t)(void);
+
+#define preinit(fn) \
+    static preFunc_t __preinit_call_##fn __used __attribute__((__section__(".preinitcall"))) = fn
+
+int Peripheral_PreInit(void);
+
 
 #endif

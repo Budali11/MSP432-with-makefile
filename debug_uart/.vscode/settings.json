@@ -32,7 +32,12 @@
         "user_core.h": "c",
         "cs.h": "c",
         "user_dma.h": "c",
+<<<<<<< HEAD
+        "flash.h": "c",
+        "user_periph.h": "c"
+=======
         "flash.h": "c"
+>>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
     },
     "licenser.license": "AL2",
     "licenser.author": "Budali11",

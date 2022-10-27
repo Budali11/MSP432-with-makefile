@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 #include "user_core.h"
+<<<<<<< HEAD
+=======
 #include "user_uart.h"
 #include "user_dma.h"
+>>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 #include "iic_bus.h"
 #include "flash.h"
 #include "pcm.h"
@@ -36,8 +39,14 @@ int main(void)
 	GPIO_setAsOutputPin(GPIO_PORT_P1, GPIO_PIN0);
     GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN0);
 	Clock_Configuration();
+<<<<<<< HEAD
+    Delay(20);
+    Peripheral_PreInit();
+
+=======
     DMA_PreInit();
     UART_PreInit();
+>>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
     Printf("Yuki.\r\n");
     D_Printf("DMA_Yuki.\r\n");
     Delay(500);

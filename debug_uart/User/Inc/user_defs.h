@@ -11,15 +11,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-#if !defined USER_CORE_H
-#define USER_CORE_H
 
-#include "msp.h"
-<<<<<<< HEAD
-#include "user_periph.h"
-#include "user_uart.h"
-#include "user_dma.h"
-=======
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
+#if !defined USER_DEFS_H
+#define USER_DEFS_H
+
+
+#define getName(var) #var
+#define __used __attribute__((used))
+
 
 #endif

@@ -80,6 +80,10 @@ Bsp/Src/wdt_a.c\
 Core/Src/startup_msp432p401r_gcc.c \
 Core/Src/system_msp432p401r.c \
 Bus/IIC/Src/iic_bus.c \
+<<<<<<< HEAD
+User/Src/user_periph.c \
+=======
+>>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 User/Src/syscalls.c \
 User/Src/user_uart.c \
 User/Src/user_dma.c \
@@ -120,7 +124,11 @@ LIB = -lc -lm -lnosys \
 #link options
 LDFLAGS = $(MCU) -Tmsp432p401r.lds -specs=nosys.specs $(LIB) -Wl,-gc-sections,--cref -Wl,-Map=$(BUILD_DIR)/$(PRJ_NAME).map
 #compile options
+<<<<<<< HEAD
+CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) -Wall#
+=======
 CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) #
+>>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 
 #path define
 VPATH = \
