@@ -54,11 +54,8 @@ REGION_ALIAS("REGION_HEAP", SRAM_DATA);
 REGION_ALIAS("REGION_ARM_EXIDX", MAIN_FLASH);
 REGION_ALIAS("REGION_ARM_EXTAB", MAIN_FLASH);
 
-<<<<<<< HEAD
 /* my definition */
 REGION_ALIAS("REGION_PREINIT", MAIN_FLASH);
-=======
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 
 SECTIONS {
 
@@ -122,7 +119,6 @@ SECTIONS {
         *(.rodata.*)
     } > REGION_TEXT AT> REGION_TEXT
 
-<<<<<<< HEAD
     /* my definition start */
     .preinitcall : {
         __preinit_start = .;
@@ -131,8 +127,6 @@ SECTIONS {
     } > REGION_PREINIT
     /* my definition end */
 
-=======
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
     .ARM.exidx : {
         __exidx_start = .;
         *(.ARM.exidx* .gnu.linkonce.armexidx.*)

@@ -13,22 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-<<<<<<< HEAD
 #include "user_periph.h"
-=======
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 #include "user_uart.h"
 #include "user_dma.h"
 
 /* preInit function */
-<<<<<<< HEAD
 static int UART_PreInit(void)
 {
     int ret = 0;
-=======
-void UART_PreInit(void)
-{
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
     //set UCSWRST
     DEBUG_UART->CTLW0 = 0x01;
     //init all register
@@ -69,10 +61,7 @@ void UART_PreInit(void)
         DEBUG_UART->MCTLW = BAUDRATE_460800;
         break;
     default:
-<<<<<<< HEAD
     ret = -1;
-=======
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
         break;
     }
     //disable auto baudrate
@@ -91,14 +80,10 @@ void UART_PreInit(void)
     /* configure DMA channel */
     DMA_Config_Source(DMA_CH0_EUSCIA0TX, (uint32_t)&(DEBUG_UART->TXBUF), CONFIG_PRIMARY|CONFIG_ALTERNATE);
 
-<<<<<<< HEAD
     return ret;
 }
 preinit(UART_PreInit);
 
-=======
-}
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 
 /* private function */
 void Send_Nchar(uint8_t *str, uint32_t n)
@@ -152,21 +137,13 @@ void Send_String(uint8_t *str)
     }
 }
 
-<<<<<<< HEAD
 void Printf(const char *str, ...)
-=======
-int Printf(const char *str, ...)
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 {
     va_list arg_list;
     size_t i = 0;
     char *pstr = (char *)str;
     va_start(arg_list, str);
-<<<<<<< HEAD
     for (; pstr[i] != '\0'; i++)
-=======
-    for (uint8_t err = 0; pstr[i] != '\0'; i++)
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
     {
         if(pstr[i] == '%')
         {
@@ -205,11 +182,7 @@ int Printf(const char *str, ...)
                     Send_Nchar((uint8_t *)&input, 1);
                 }break;
                 default:{
-<<<<<<< HEAD
                     Send_String((uint8_t *)"suggest to check up the input.\r\n");
-=======
-                    Send_String("suggest to check up the input.\r\n");
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
                 }
             }
             pstr += 2; //now pstr point at two char behind '%'
@@ -217,10 +190,6 @@ int Printf(const char *str, ...)
     }
     va_end(arg_list);
     Send_String((uint8_t *)pstr);
-<<<<<<< HEAD
-
-=======
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 }
 
 int Receive(uint8_t *buf)
@@ -235,11 +204,7 @@ int D_Printf(const char *str, ...)
     size_t i = 0;
     char *pstr = (char *)str;
     va_start(arg_list, str);
-<<<<<<< HEAD
     for (; pstr[i] != '\0'; i++)
-=======
-    for (uint8_t err = 0; pstr[i] != '\0'; i++)
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
     {
         if(pstr[i] == '%')
         {
@@ -278,11 +243,7 @@ int D_Printf(const char *str, ...)
                     D_Send_Nchar((uint8_t *)&input, 1);
                 }break;
                 default:{
-<<<<<<< HEAD
                     D_Send_String((uint8_t *)"suggest to check up the input.\r\n");
-=======
-                    D_Send_String("suggest to check up the input.\r\n");
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
                 }
             }
             pstr += 2; //now pstr point at two char behind '%'
@@ -290,9 +251,6 @@ int D_Printf(const char *str, ...)
     }
     va_end(arg_list);
     D_Send_String((uint8_t *)pstr);
-<<<<<<< HEAD
 
     return 0;
-=======
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 }

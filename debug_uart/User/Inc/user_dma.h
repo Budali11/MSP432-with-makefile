@@ -125,10 +125,6 @@ typedef struct dma_controller
 
 }dma_controller_t;
 
-<<<<<<< HEAD
-=======
-void DMA_PreInit(void);
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 void DMA_Config_Source(uint32_t Channel_Peripheral, uint32_t periph_addr, uint8_t isPrimary);
 void DMA_Specify_Src(uint32_t Channel_Peripheral, uint32_t src_addr, uint8_t isPrimary);
 void DMA_Specify_Ctrl(uint32_t Channel_Peripheral, uint32_t ctrl_word, uint8_t isPrimary);

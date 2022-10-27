@@ -15,11 +15,8 @@
 #define USER_CORE_H
 
 #include "msp.h"
-<<<<<<< HEAD
 #include "user_periph.h"
 #include "user_uart.h"
 #include "user_dma.h"
-=======
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 
 #endif

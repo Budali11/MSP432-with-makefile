@@ -15,13 +15,8 @@
  */
 #include "msp.h"
 #include "user_dma.h"
-<<<<<<< HEAD
 #include "user_periph.h"
 
-=======
-
-static dma_controller_t controller;
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 uint32_t data_control_structure[][4] __attribute__((aligned(256))) = 
 {
     /* first element is source end pointer */
@@ -66,11 +61,7 @@ uint32_t data_control_structure[][4] __attribute__((aligned(256))) =
 };
 
 
-<<<<<<< HEAD
 static int DMA_PreInit(void)
-=======
-void DMA_PreInit(void)
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 {
     /* enable data, user access*/
     /* non-bufferable and non-cacheable */
@@ -82,14 +73,10 @@ void DMA_PreInit(void)
 
     /* enable dma controller */
     DMA_Control->CFG |= 1 << 0;
-<<<<<<< HEAD
 
     return 0;
 }
 preinit(DMA_PreInit);
-=======
-}
->>>>>>> c3d1c48bb06eae38256c6d1954229bce8d1ad196
 
 void DMA_Config_Source(uint32_t Channel_Peripheral, uint32_t periph_addr, uint8_t isPrimary)
 {
