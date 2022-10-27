@@ -1,0 +1,626 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Thu Oct 27 22:47:10 2022
+
+# Variables
+
+# 'override' directive
+GNUMAKEFLAGS := 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# makefile (from 'makefile', line 21)
+PREFIX = arm-none-eabi-
+# automatic
+?F = $(notdir $?)
+# environment
+PAPERSIZE = letter
+# environment
+DESKTOP_SESSION = ubuntu
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_SESSION_CLASS = user
+# environment
+XDG_SESSION_TYPE = x11
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /home/budali11/git_download/MSP432-with-makefile/mpu6050_C
+# makefile
+SHELL = /bin/sh
+# environment
+VTE_VERSION = 6003
+# environment
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_translationsConfigFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/tcf.json","_cacheRoot":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_resolvedLanguagePackCoreLocation":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/d045a5eda657f4d7b676dedbfa7aab8207f8a075","_corruptedFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/corrupted.info","_languagePackSupport":true}
+# makefile (from 'makefile', line 34)
+SZ = $(PREFIX)size
+# environment
+JOURNAL_STREAM = 8:51566
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST :=  makefile
+# automatic
+@F = $(notdir $@)
+# makefile (from 'makefile', line 33)
+CP = $(PREFIX)objcopy
+# environment
+IM_CONFIG_PHASE = 1
+# environment
+QT_IM_MODULE = ibus
+# environment
+USERNAME = budali11
+# environment
+MAKELEVEL := 0
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/home/budali11/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=cb9a71fa907787f3b528bd4d635a8f13
+# makefile (from 'makefile', line 32)
+AS = $(PREFIX)gcc -x assembler-with-cpp
+# environment
+_ = /usr/bin/code
+# environment
+MANAGERPID = 1484
+# environment
+LC_NAME = en_US.UTF-8
+# environment
+VSCODE_CWD = /home/budali11/git_download/MSP432-with-makefile
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+NO_PROXY = localhost,127.0.0.0/8,::1
+# makefile (from 'makefile', line 35)
+LD = $(PREFIX)ld
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+SESSION_MANAGER = local/hello504:@/tmp/.ICE-unix/1690,unix/hello504:/tmp/.ICE-unix/1690
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from 'makefile', line 131)
+VPATH = Core/Include:Core/Include/CMSIS:Bsp/Inc:User/Inc: Bsp/Src:Core/Src:User/Src: Bus/IIC/Src: 
+# makefile (from 'makefile', line 128)
+CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) -Wall
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+all_proxy = socks://0.0.0.0:7891/
+# environment
+INVOCATION_ID = 0e602fe983154e37a5b48373ecb1c2fc
+# makefile (from 'makefile', line 126)
+LDFLAGS = $(MCU) -Tmsp432p401r.lds -specs=nosys.specs $(LIB) -Wl,-gc-sections,--cref -Wl,-Map=$(BUILD_DIR)/$(PRJ_NAME).map
+# makefile (from 'makefile', line 123)
+LIB = -lc -lm -lnosys 
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# automatic
+%F = $(notdir $%)
+# environment
+HTTPS_PROXY = http://0.0.0.0:7890/
+# environment
+no_proxy = localhost,127.0.0.0/8,::1
+# environment
+PWD = /home/budali11/git_download/MSP432-with-makefile/mpu6050_C
+# default
+.LOADED := 
+# environment
+SSH_AGENT_PID = 1659
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+GTK_MODULES = gail:atk-bridge
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/budali11
+# makefile (from 'makefile', line 89)
+C_DEVICE_SOURCES = 
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /home/budali11/.config/Code/CachedData/d045a5eda657f4d7b676dedbfa7aab8207f8a075
+# environment
+LOGNAME = budali11
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
++F = $(notdir $+)
+# environment
+ZSH = /home/budali11/.oh-my-zsh
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from 'makefile', line 109)
+C_DEFS = -D__MSP432P401R__ -DPROCESS_FACE -Dgcc 
+# environment
+LC_TIME = en_US.UTF-8
+# makefile (from 'makefile', line 115)
+C_INCLUDES = -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc -IBus/IIC/Inc 
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/arm/arm-linux-gnueabihf/bin:/usr/local/arm/GNU_Tools_for_ARM/bin
+# environment
+SHLVL = 1
+# makefile (from 'makefile', line 7)
+OPENOCD_PATH = /usr/local/share/openocd
+# makefile (from 'makefile', line 45)
+FLOAT-ABI = -mfloat-abi=hard
+# makefile (from 'makefile', line 31)
+CC = $(PREFIX)gcc
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# makefile (from 'makefile', line 15)
+BUILD_DIR = build
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = budali11
+# environment
+LC_MONETARY = en_US.UTF-8
+# makefile
+.DEFAULT_GOAL := all
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# makefile (from 'makefile', line 39)
+CPU = -mcpu=cortex-m4
+# environment
+LC_TELEPHONE = en_US.UTF-8
+# makefile (from 'makefile', line 42)
+FPU = -mfpu=fpv4-sp-d16
+# default
+MAKE_COMMAND := make
+# environment
+OLDPWD = /home/budali11/git_download/MSP432-with-makefile
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+LANGUAGE = zh_CN:en_US:en
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-386ed3f9-1.72.2-main.sock
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+GDK_BACKEND = x11
+# environment
+LC_PAPER = en_US.UTF-8
+# environment
+HTTP_PROXY = http://0.0.0.0:7890/
+# makefile (from 'makefile', line 4)
+LINUX = 1
+# environment
+QT_ACCESSIBILITY = 1
+# makefile (from 'makefile', line 48)
+MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
+# environment
+DISPLAY = :0
+# default
+MAKEFILES := 
+# environment
+LC_NUMERIC = en_US.UTF-8
+# automatic
+<F = $(notdir $<)
+# environment
+https_proxy = http://0.0.0.0:7890/
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# makefile (from 'makefile', line 93)
+EXCLUDE = Bsp/Src/dma.c Bsp/Src/i2c.c Bsp/Src/comp_e.c Bsp/Src/spi.c Bsp/Src/crc32.c Bsp/Src/adc14.c Bsp/Src/aes256.c Bsp/Src/pmap.c Bsp/Src/timer32.c Bsp/Src/timer_a.c 
+# environment
+LC_MEASUREMENT = en_US.UTF-8
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# environment
+DBUS_STARTER_BUS_TYPE = session
+# makefile (from 'makefile', line 105)
+C_EXCLUDED = $(filter-out $(EXCLUDE), $(C_SOURCES))
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c48feb5b_1ed8_4a0d_811c_94458d5ed0e5
+# automatic
+^F = $(notdir $^)
+# makefile (from 'makefile', line 90)
+C_SOURCES = main.c Bsp/Src/adc14.c Bsp/Src/aes256.c Bsp/Src/comp_e.c Bsp/Src/cpu.c Bsp/Src/crc32.c Bsp/Src/cs.c Bsp/Src/dma.c Bsp/Src/flash.c Bsp/Src/fpu.c Bsp/Src/gpio.c Bsp/Src/i2c.c Bsp/Src/interrupt.c Bsp/Src/mpu.c Bsp/Src/pcm.c Bsp/Src/pmap.c Bsp/Src/pss.c Bsp/Src/ref_a.c Bsp/Src/reset.c Bsp/Src/rtc_c.c Bsp/Src/spi.c Bsp/Src/sysctl.c Bsp/Src/systick.c Bsp/Src/timer32.c Bsp/Src/timer_a.c Bsp/Src/uart.c Bsp/Src/wdt_a.c Core/Src/startup_msp432p401r_gcc.c Core/Src/system_msp432p401r.c Bus/IIC/Src/iic_bus.c User/Src/user_periph.c User/Src/syscalls.c User/Src/user_uart.c User/Src/user_dma.c  $(C_DEVICE_SOURCES)
+# environment
+GNOME_TERMINAL_SERVICE = :1.82
+# default
+SUFFIXES := 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+WINDOWPATH = 2
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+LC_IDENTIFICATION = en_US.UTF-8
+# environment
+ALL_PROXY = socks://0.0.0.0:7891/
+# makefile (from 'makefile', line 13)
+PRJ_NAME = mpu6050_C
+ 
+# default
+.RECIPEPREFIX := 
+# makefile (from 'makefile', line 136)
+OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_EXCLUDED:.c=.o)))
+# environment
+http_proxy = http://0.0.0.0:7890/
+# environment
+LC_ADDRESS = en_US.UTF-8
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 11810
+# environment
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=cb9a71fa907787f3b528bd4d635a8f13
+# variable set hash-table stats:
+# Load=144/1024=14%, Rehash=0, Collisions=29/206=14%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# Core/Include/CMSIS/build: could not be stat'd.
+# User/Src/build: could not be stat'd.
+# Bsp/Inc/build: could not be stat'd.
+# Core/Include (device 66307, inode 5507402): 9 files, no impossibilities.
+# User/Inc/build: could not be stat'd.
+# . (device 66307, inode 5506278): 13 files, no impossibilities.
+# Core/Include/CMSIS (device 66307, inode 5507407): 8 files, no impossibilities.
+# Bsp/Src (device 66307, inode 5506996): 28 files, no impossibilities.
+# User/Src (device 66307, inode 5507771): 6 files, no impossibilities.
+# Bsp/Inc (device 66307, inode 5506964): 33 files, no impossibilities.
+# User/Inc (device 66307, inode 5507583): 7 files, no impossibilities.
+# Core/Src/build: could not be stat'd.
+# Bus/IIC/Src/build: could not be stat'd.
+# Core/Src (device 66307, inode 5507577): 4 files, no impossibilities.
+# Core/Include/build: could not be stat'd.
+# Bus/IIC/Src (device 66307, inode 5507333): 3 files, no impossibilities.
+# Bsp/Src/build: could not be stat'd.
+
+# 111 files, no impossibilities in 17 directories.
+
+# Implicit Rules
+
+build/%.o: %.c | build
+#  recipe to execute (from 'makefile', line 148):
+	$(CC) $(CCFLAGS) $< -o $@
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+# Not a target:
+build/flash.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/system_msp432p401r.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/reset.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/main.o: main.c | build
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2022-10-27 22:46:17.692270151
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := main.c
+# automatic
+# | := build
+# automatic
+# < := main.c
+# automatic
+# ^ := main.c
+# automatic
+# ? := main.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/22=5%
+#  recipe to execute (from 'makefile', line 148):
+	$(CC) $(CCFLAGS) $< -o $@
+
+# Not a target:
+build/user_uart.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+gdb:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 167):
+	arm-none-eabi-gdb $(BUILD_DIR)/$(PRJ_NAME).elf
+
+all: build/mpu6050_C.elf build/mpu6050_C.bin
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/12=0%
+
+# Not a target:
+build/syscalls.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: clean connect download gdb
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-10-27 22:46:17.704270309
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+build/pss.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/uart.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/pcm.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/cpu.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/gpio.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-10-27 22:47:03.092883996
+#  File has been updated.
+#  Successfully updated.
+
+build:
+#  Implicit rule search has not been done.
+#  Last modified 2022-10-27 22:46:17.696270204
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 151):
+	mkdir $@
+
+# Not a target:
+build/user_dma.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+# Not a target:
+build/interrupt.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/cs.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/iic_bus.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/startup_msp432p401r_gcc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/ref_a.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/sysctl.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 154):
+	rm -rf $(BUILD_DIR)
+
+download:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 158):
+	openocd \
+	-f $(OPENOCD_PATH)/scripts/interface/xds110.cfg \
+	-f $(OPENOCD_PATH)/scripts/target/ti_msp432.cfg \
+	-c init \
+	-c halt \
+	-c "flash write_image erase $(BUILD_DIR)/$(PRJ_NAME).elf 0x00000000" \
+	-c reset \
+	-c shutdown 
+
+# Not a target:
+build/systick.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/mpu6050_C.elf: build/main.o build/cpu.o build/cs.o build/flash.o build/fpu.o build/gpio.o build/interrupt.o build/mpu.o build/pcm.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/sysctl.o build/systick.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/iic_bus.o build/user_periph.o build/syscalls.o build/user_uart.o build/user_dma.o makefile | build
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/12=0%
+#  recipe to execute (from 'makefile', line 141):
+ 
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(SZ) $@
+
+# Not a target:
+build/user_periph.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/wdt_a.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/mpu6050_C.bin: build/mpu6050_C.elf makefile | build
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 145):
+	$(CP) $< -O binary $@
+
+connect:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 156):
+	openocd -f $(OPENOCD_PATH)/scripts/interface/xds110.cfg -f $(OPENOCD_PATH)/scripts/target/ti_msp432.cfg
+
+# Not a target:
+build/fpu.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/mpu.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/rtc_c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=37/1024=4%, Rehash=0, Collisions=3/113=3%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# General ('VPATH' variable) search path:
+# Core/Include:Core/Include/CMSIS:Bsp/Inc:User/Inc:Bsp/Src:Core/Src:User/Src:Bus/IIC/Src
+
+# strcache buffers: 1 (0) / strings = 151 / storage = 1610 B / avg = 10 B
+# current buf: size = 8162 B / used = 1610 B / count = 151 / avg = 10 B
+
+# strcache performance: lookups = 206 / hit rate = 26%
+# hash-table stats:
+# Load=151/8192=2%, Rehash=0, Collisions=11/206=5%
+# Finished Make data base on Thu Oct 27 22:47:10 2022
+
+ 

@@ -1,0 +1,59 @@
+{
+    "configurations": [
+        {
+            "name": "arm-gcc",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "Core/Include",
+                "Core/Include/CMSIS",
+                "Bsp/Inc",
+                "User/Inc",
+                "Bus/IIC/Inc"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "__MSP432P401R__",
+                "PROCESS_FACE"
+            ],
+            "windowsSdkVersion": "10.0.17763.0",
+            "compilerPath": "/usr/local/arm/GNU_Tools_for_ARM/bin/arm-none-eabi-gcc",
+            "cStandard": "c99",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-arm",
+            "browse": {
+                "path": [
+                    "User/Src",
+                    "Core/Src",
+                    "Bsp/Src"
+                ]
+            },
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "win-arm-gcc",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "Core/Include",
+                "Core/Include/CMSIS",
+                "Bsp/Inc",
+                "User/Inc",
+                "Bus/IIC/Inc"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "__MSP432P401R__",
+                "PROCESS_FACE"
+            ],
+            "compilerPath": "I:\\MCU\\GNU_Tools_for_ARM\\11.3_rel1\\bin\\arm-none-eabi-gcc.exe",
+            "cStandard": "c99",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-arm",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}
