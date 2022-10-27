@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 #include "user_core.h"
+#include "user_uart.h"
+#include "user_dma.h"
 #include "iic_bus.h"
 #include "flash.h"
 #include "pcm.h"
@@ -22,6 +24,10 @@
 
 void Clock_Configuration(void);
 void Clock_Information(void);
+void Delay(uint32_t us)
+{
+    for(uint32_t i = 0; i < 48*us; i++);
+}
 
 
 int main(void)
@@ -30,8 +36,12 @@ int main(void)
 	GPIO_setAsOutputPin(GPIO_PORT_P1, GPIO_PIN0);
     GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN0);
 	Clock_Configuration();
+    DMA_PreInit();
     UART_PreInit();
     Printf("Yuki.\r\n");
+    D_Printf("DMA_Yuki.\r\n");
+    Delay(500);
+    D_Printf("1234567890This is a test text.\r\n");
     while (1)
     {
         /* code */

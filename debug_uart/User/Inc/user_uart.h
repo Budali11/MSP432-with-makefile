@@ -21,10 +21,14 @@
 #include "gpio.h"
 #include <stdarg.h>
 #include <stdio.h>
-#include <string.h>
 
 /*user can change this macro to specify a EUSCI module*/
 #define USING_EUSCI_A_X 0
+
+/*user can change this macro to specify a EUSCI module*/
+#define DEBUG_UART              EUSCI_A0
+#define DEBUG_UART_BAUDRATE     115200
+#define DEBUG_UART_TX_DMA_CH    0
 
 //ports definition
 #if (USING_EUSCI_A_X == 0)
@@ -66,20 +70,19 @@
 #define BAUDRATE_230400     0x2041
 #define BAUDRATE_460800     0xA1
 
-#define DEBUG_UART              EUSCI_A0
-#define DEBUG_UART_BAUDRATE     115200
-
 /* preInit function */
 void UART_PreInit(void);
 
 /* private function */
+void D_Send_Nchar(uint8_t *str, uint32_t n);
 void Send_Nchar(uint8_t *str, uint32_t n);
 
 /* public function */
+void D_Send_String(uint8_t *str);
 void Send_String(uint8_t *str);
 int Printf(const char *str, ...);
 int Receive(uint8_t *buf);
-int D_printf(const char *str, ...);
+int D_Printf(const char *str, ...);
 int D_Receive(uint8_t *buf);
 
 #endif

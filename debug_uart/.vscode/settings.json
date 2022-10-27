@@ -30,7 +30,9 @@
         "mpu6050.h": "c",
         "mpu6050_defs.h": "c",
         "user_core.h": "c",
-        "cs.h": "c"
+        "cs.h": "c",
+        "user_dma.h": "c",
+        "flash.h": "c"
     },
     "licenser.license": "AL2",
     "licenser.author": "Budali11",
