@@ -38,9 +38,9 @@ int main(void)
 	Clock_Configuration();
     Peripheral_PreInit();
     Clock_Information();
-    D_Printf("123Yuki. N> Ready?\r\n");
-    my_delay(70);
-    D_Printf("123Yuki. N> Ready?\r\n");
+    D_Printf("1234567890\r\n");
+    my_delay(35);
+    D_Printf(" Yuki. N> Ready?\r\n");
 
     while (1)
     {
@@ -80,9 +80,9 @@ void Clock_Information(void)
     BCLK = CS_getBCLK();
 
     Printf("Clock Information:\r\n");
-    Printf("ACLK :%u ", ACLK);
-    Printf("MCLK :%u ", MCLK);
-    Printf("HSMCLK :%u ", HSMCLK);
-    Printf("SMCLK :%u ", SMCLK);
-    Printf("BCLK :%u\r\n", BCLK);
+    Printf("ACLK:%u ", ACLK);
+    Printf("MCLK:%u ", MCLK);
+    Printf("HSMCLK:%u ", HSMCLK);
+    Printf("SMCLK:%u ", SMCLK);
+    Printf("BCLK:%u\r\n", BCLK);
 }

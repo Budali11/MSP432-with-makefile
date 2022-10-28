@@ -1,0 +1,66 @@
+// Copyright 2022 Budali11
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+#if !defined MPU6050_H
+#define MPU6050_H
+
+#include "msp.h"
+#include "iic_bus.h"
+#if defined PROCESS_FACE
+
+#define MPU6050_DEBUG              1
+#define MPU6050_NO_DEBUG           2
+#define MPU6050_NO_COMPUTE         4
+
+// Kalman structure
+typedef struct __Kalman
+{
+    double roll, pitch, yaw;
+    double r_K, p_K;
+    double re_est, pe_est;
+
+}Kalman_t;
+
+typedef struct mpu6050_data
+{
+    int16_t Accel_X_RAW, Accel_Y_RAW, Accel_Z_RAW;
+    int32_t ax_raw_offset, ay_raw_offset, az_raw_offset;
+    double Ax, Ay, Az;
+
+    int16_t Gyro_X_RAW, Gyro_Y_RAW, Gyro_Z_RAW;
+    int32_t gx_raw_offset, gy_raw_offset, gz_raw_offset;
+    double Gx, Gy, Gz;
+
+    float pass_us;
+    float Temperature;
+
+    Kalman_t k;
+
+}mpu6050_data_t;
+
+typedef struct mpu6050
+{
+    int (*device_init)(iic_adapter_t *padapter, struct mpu6050 *pdevice);
+    int (*read_all)(iic_adapter_t *padapter, struct mpu6050 *pdevice, uint32_t flags);
+    void (*kalman_getAngle)(struct mpu6050 *pdevice, uint32_t flags);
+}mpu6050_t;
+
+
+int MPU6050_Init(mpu6050_t *pdevice);
+int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice);
+int MPU6050_Read_All(iic_adapter_t *padapter, mpu6050_t *pdevice, uint32_t flags);
+void MPU6050_Kalman_GetAngle(mpu6050_t *pdevice, uint32_t flags);
+
+
+#endif
+#endif

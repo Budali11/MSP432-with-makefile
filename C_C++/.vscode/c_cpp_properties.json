@@ -25,7 +25,8 @@
                     "Core\\Src",
                     "Bsp\\Src"
                 ]
-            }
+            },
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4

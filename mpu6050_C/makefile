@@ -1,7 +1,7 @@
 #2022/7/31 22:56
 #make-test
 
-LINUX = 1
+# LINUX = 1
 
 ifdef LINUX
 OPENOCD_PATH = /usr/local/share/openocd
@@ -79,11 +79,11 @@ Bsp/Src/uart.c \
 Bsp/Src/wdt_a.c\
 Core/Src/startup_msp432p401r_gcc.c \
 Core/Src/system_msp432p401r.c \
-Bus/IIC/Src/iic_bus.c \
 User/Src/user_periph.c \
 User/Src/syscalls.c \
 User/Src/user_uart.c \
 User/Src/user_dma.c \
+Bus/IIC/Src/iic_bus.c \
 
 # device source
 C_DEVICE_SOURCES = 
