@@ -87,8 +87,9 @@ typedef struct iic_adapter
     int (*read)(struct iic_adapter *padapter, uint8_t *buf, uint32_t num, uint32_t flags);
 }iic_adapter_t;
 
-/* user call function */
-int IIC_Init(iic_adapter_t *padapter);
+/* this will be called very early */
+// static int IIC_Init(iic_adapter_t *padapter);
+// static int IIC_Adapter_Init(iic_adapter_t *padapter);
 
 /* iic_adapter private function */
 int IIC_Adapter_Start(void);
@@ -97,7 +98,6 @@ int IIC_Adapter_SendByte(uint8_t byte);
 int IIC_Adapter_ReceiveByte(uint8_t ack);
 
 /* iic_adapter public function */
-int IIC_Adapter_Init(iic_adapter_t *padapter);
 int IIC_Adapter_Write(iic_adapter_t *padapter, uint8_t *buf, uint32_t num, uint32_t flags);
 int IIC_Adapter_Read(iic_adapter_t *padapter, uint8_t *buf, uint32_t num, uint32_t flags);
 
