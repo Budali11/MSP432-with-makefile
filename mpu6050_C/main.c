@@ -25,6 +25,11 @@
 void Clock_Configuration(void);
 void Clock_Information(void);
 
+void my_delay(uint32_t us)
+{
+    for(uint32_t i = 0; i < us * 48; i++);
+}
+
 int main(void)
 {
 	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
@@ -32,7 +37,10 @@ int main(void)
     GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN0);
 	Clock_Configuration();
     Peripheral_PreInit();
-    D_Printf("   Yuki. N> Ready?\r\n");
+    Clock_Information();
+    D_Printf("123Yuki. N> Ready?\r\n");
+    my_delay(70);
+    D_Printf("123Yuki. N> Ready?\r\n");
 
     while (1)
     {
@@ -71,9 +79,10 @@ void Clock_Information(void)
     SMCLK = CS_getSMCLK();
     BCLK = CS_getBCLK();
 
-    (void)ACLK;
-    (void)MCLK;
-    (void)HSMCLK;
-    (void)SMCLK;
-    (void)BCLK;
+    Printf("Clock Information:\r\n");
+    Printf("ACLK :%u ", ACLK);
+    Printf("MCLK :%u ", MCLK);
+    Printf("HSMCLK :%u ", HSMCLK);
+    Printf("SMCLK :%u ", SMCLK);
+    Printf("BCLK :%u\r\n", BCLK);
 }

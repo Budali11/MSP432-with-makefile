@@ -1,5 +1,6 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/budali11/git_download/MSP432-with-makefile/mpu6050_C'
+mkdir build
 arm-none-eabi-gcc -c -g -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -D__MSP432P401R__ -DPROCESS_FACE -Dgcc  -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc -IBus/IIC/Inc  -Wall main.c -o build/main.o
 arm-none-eabi-gcc -c -g -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -D__MSP432P401R__ -DPROCESS_FACE -Dgcc  -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc -IBus/IIC/Inc  -Wall Bsp/Src/cpu.c -o build/cpu.o
 arm-none-eabi-gcc -c -g -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -D__MSP432P401R__ -DPROCESS_FACE -Dgcc  -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc -IBus/IIC/Inc  -Wall Bsp/Src/cs.c -o build/cs.o

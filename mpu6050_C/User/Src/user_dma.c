@@ -16,6 +16,7 @@
 #include "msp.h"
 #include "user_dma.h"
 #include "user_periph.h"
+#include "string.h"
 
 uint32_t data_control_structure[][4] __attribute__((aligned(256))) = 
 {
@@ -126,4 +127,12 @@ void DMA_Enable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate)
     // DMA_Control->ENASET |= 1 << 0;
 }
 
+void DMA_Disable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate)
+{
+    (!ifAlternate) ? (DMA_Control->ALTSET |= (1 << (Channel_Peripheral & 0x1))) : \
+        (DMA_Control->ALTCLR |= (1 << (Channel_Peripheral & 0x1)));
+        
+    DMA_Control->ENASET &= ~(1 << (Channel_Peripheral & 0x1));
+    // DMA_Control->ENASET |= 1 << 0;
+}
 

@@ -79,6 +79,7 @@ static int UART_PreInit(void)
 
     /* configure DMA channel */
     DMA_Config_Source(DMA_CH0_EUSCIA0TX, (uint32_t)&(DEBUG_UART->TXBUF), CONFIG_PRIMARY|CONFIG_ALTERNATE);
+    DMA_SET_PRIO(DEBUG_UART_TX_DMA_CH);
 
     return ret;
 }
@@ -103,7 +104,9 @@ void D_Send_Nchar(uint8_t *str, uint32_t n)
         UDMA_CHCTL_ARBSIZE_1|UDMA_CHCTL_XFERMODE_BASIC|\
         ((n - 1) << 4);
     
-    ctrl |= (7 << 21) | (7 << 18);
+    // ctrl |= (7 << 21) | (7 << 18);
+    /* disable channel */
+    DMA_Disable_Channel(DMA_CH0_EUSCIA0TX, 1);
 
     /* write control word */
     DMA_Specify_Ctrl(DMA_CH0_EUSCIA0TX, ctrl, CONFIG_PRIMARY|CONFIG_ALTERNATE);
@@ -111,11 +114,12 @@ void D_Send_Nchar(uint8_t *str, uint32_t n)
     /* specify source data pointer */
     DMA_Specify_Src(DMA_CH0_EUSCIA0TX, (uint32_t)(str+n), CONFIG_PRIMARY|CONFIG_ALTERNATE);
 
+    /* trigger dma transfer */
+    // DMA_TRIGGER(DEBUG_UART_TX_DMA_CH);
+    DMA_GEN_SWREQ(DEBUG_UART_TX_DMA_CH);
+
     /* enable channel */
     DMA_Enable_Channel(DMA_CH0_EUSCIA0TX, 0);
-
-    /* trigger dma transfer */
-    DMA_TRIGGER(DEBUG_UART_TX_DMA_CH);
 }
 
 /* public function */
@@ -147,7 +151,7 @@ void Printf(const char *str, ...)
     {
         if(pstr[i] == '%')
         {
-            D_Send_Nchar((uint8_t *)pstr, i);
+            Send_Nchar((uint8_t *)pstr, i);
             pstr += i;
             i = 0;
             switch (pstr[1])
@@ -208,7 +212,7 @@ int D_Printf(const char *str, ...)
     {
         if(pstr[i] == '%')
         {
-            Send_Nchar((uint8_t *)pstr, i);
+            D_Send_Nchar((uint8_t *)pstr, i);
             pstr += i;
             i = 0;
             switch (pstr[1])
