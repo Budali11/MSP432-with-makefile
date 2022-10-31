@@ -12,23 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 #include "iic_bus.h"
-int IIC_Init(iic_adapter_t *padapter)
-{
-    /* set up id */
-    padapter->driver_id = IIC_SCL_PORT << 24 | IIC_SCL_PIN << 16 | IIC_SDA_PORT << 8 | IIC_SDA_PIN;
+#include "user_periph.h"
 
-    /* set up functions */
-    padapter->init = IIC_Adapter_Init;
-    padapter->read = IIC_Adapter_Read;
-    padapter->write = IIC_Adapter_Write;
+iic_adapter_t user_iic;
 
-    /* adapter lock unlock as default */
-    padapter->lock = UNLOCK;
-
-    return 0;
-}
-
-int IIC_Adapter_Init(iic_adapter_t *padapter)
+static int IIC_Adapter_Init(iic_adapter_t *padapter)
 {
     int ret = 0;
     /* lock */
@@ -46,6 +34,35 @@ int IIC_Adapter_Init(iic_adapter_t *padapter)
 
     return ret;
 }
+
+static int IIC_Init(iic_adapter_t *padapter)
+{
+    int ret = 0;
+    /* set up id */
+    padapter->driver_id = IIC_SCL_PORT << 24 | IIC_SCL_PIN << 16 | IIC_SDA_PORT << 8 | IIC_SDA_PIN;
+
+    /* set up functions */
+    padapter->init = IIC_Adapter_Init;
+    padapter->read = IIC_Adapter_Read;
+    padapter->write = IIC_Adapter_Write;
+
+    /* adapter lock unlock as default */
+    padapter->lock = UNLOCK;
+
+    /* call adapter init function */
+    ret = padapter->init(padapter);
+
+    return ret;
+}
+
+static int IIC_preInit(void)
+{
+    int ret = 0;
+    ret = IIC_Init(&user_iic);
+
+    return ret;
+}
+preinit(IIC_preInit);
 
 int IIC_Adapter_Start(void)
 {
@@ -181,6 +198,18 @@ int IIC_Adapter_ReceiveByte(uint8_t ack)
     return receive;
 }
 
+/**
+ * @brief write datas to soft iic bus
+ * @param padapter pointer points to the iic adapter, it points defaultly to user_iic
+ * @param buf pointer points to first data
+ * @param num specify how many bytes to be transfered
+ * @param flags use this to specify some special options
+ *          - \b IIC_STOP        use this flag will generate a stop signal in the end of this function
+ *          - \b IIC_NO_STOP     on the contrary of \b IIC_STOP
+ *          - \b IIC_ACK         use this flag will generate a acknowledge signal in the end of this function, but before stop
+ *          - \b IIC_NACK        on the contrary of \b IIC_ACK, same before stop
+ * @retval 0 if success, -1 if iic adapter is busy
+ */
 int IIC_Adapter_Write(iic_adapter_t *padapter, uint8_t *buf, uint32_t num, uint32_t flags)
 {
     int ret = 0;
@@ -220,6 +249,18 @@ int IIC_Adapter_Write(iic_adapter_t *padapter, uint8_t *buf, uint32_t num, uint3
     return ret;
 }
 
+/**
+ * @brief receive datas to soft iic bus
+ * @param padapter pointer points to the iic adapter, it points defaultly to user_iic
+ * @param buf pointer points to where you store data
+ * @param num specify how many bytes to be received
+ * @param flags use this to specify some special options
+ *          - \b IIC_STOP        use this flag will generate a stop signal in the end of this function
+ *          - \b IIC_NO_STOP     on the contrary of \b IIC_STOP
+ *          - \b IIC_ACK         use this flag will generate a acknowledge signal in the end of this function, but before stop
+ *          - \b IIC_NACK        on the contrary of \b IIC_ACK, same before stop
+ * @retval 0 if success, -1 if iic adapter is busy
+ */
 int IIC_Adapter_Read(iic_adapter_t *padapter, uint8_t *buf, uint32_t num, uint32_t flags)
 {
     /* lock this driver */
