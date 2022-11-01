@@ -1,311 +1,285 @@
-make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
-# GNU Make 3.81
-# Copyright (C) 2006  Free Software Foundation, Inc.
-# This is free software; see the source for copying conditions.
-# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE.
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
 
-# This program built for i686-pc-msys
- 
-
-# Make data base, printed on Fri Oct 28 15:25:28 2022
+# Make data base, printed on Tue Nov  1 16:07:18 2022
 
 # Variables
 
+# 'override' directive
+GNUMAKEFLAGS := 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
+# makefile (from 'makefile', line 14)
+PREFIX = arm-none-eabi-
 # automatic
 ?F = $(notdir $?)
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# makefile
-MAKEFLAGS = Rrqp
+PAPERSIZE = letter
 # environment
-LC_CTYPE = zh_CN.UTF-8
-# makefile (from `makefile', line 78)
+DESKTOP_SESSION = ubuntu
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_SESSION_CLASS = user
+# environment
+XDG_SESSION_TYPE = x11
+# makefile (from 'makefile', line 80)
 CPP_SOURCES = /main.cpp /User/Src/user_uart.cpp /User/Src/user_tick.cpp /User/Src/user_nvic.cpp 
- 
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-HOMEDRIVE = C:
-# automatic
-@F = $(notdir $@)
-# automatic
-^D = $(patsubst %/,%,$(dir $^))
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
 # makefile
-CURDIR := /f/Git/PRJ/MSP432-with-makefile/C_C++
+CURDIR := /home/budali11/git_download/MSP432-with-makefile/C_C++
 # makefile
 SHELL = /bin/sh
 # environment
-WINDIR = C:\WINDOWS
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_translationsConfigFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/tcf.json","_cacheRoot":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_resolvedLanguagePackCoreLocation":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/d045a5eda657f4d7b676dedbfa7aab8207f8a075","_corruptedFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/corrupted.info","_languagePackSupport":true}
+# makefile (from 'makefile', line 29)
+SZ = $(PREFIX)size
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_translationsConfigFile":"C:\\Users\\HaoNan\\AppData\\Roaming\\Code\\clp\\d12f895d31d9f9b0d093ad4fb7402f51.zh-cn\\tcf.json","_cacheRoot":"C:\\Users\\HaoNan\\AppData\\Roaming\\Code\\clp\\d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_resolvedLanguagePackCoreLocation":"C:\\Users\\HaoNan\\AppData\\Roaming\\Code\\clp\\d12f895d31d9f9b0d093ad4fb7402f51.zh-cn\\d045a5eda657f4d7b676dedbfa7aab8207f8a075","_corruptedFile":"C:\\Users\\HaoNan\\AppData\\Roaming\\Code\\clp\\d12f895d31d9f9b0d093ad4fb7402f51.zh-cn\\corrupted.info","_languagePackSupport":true}
+_ = /usr/share/code/code
 # environment
-TZ = Asia/Shanghai
+JOURNAL_STREAM = 8:47956
 # environment
-VBOX_MSI_INSTALL_PATH = G:\VIRTUAL\
-# environment
-PYCHARM COMMUNITY EDITION = F:\Deep_learn\pycharm\PyCharm Community Edition 2021.3.3\bin;
-# environment
-ONEDRIVE = C:\Users\HaoNan\OneDrive
-# environment
-EXECIGNORE = *.dll
-# environment
-CUDA_PATH_V10_0 = F:\Deep_learn\CUDA\NVIDIA GPU Computing Toolkit\CUDA\v10.0
-# environment
-!F: = f:\Git\PRJ\MSP432-with-makefile\C_C++
-# environment
-PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
-# makefile (from `makefile', line 1)
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# makefile (from 'makefile', line 1)
 MAKEFILE_LIST :=  makefile
-# makefile (from `makefile', line 28)
+# automatic
+@F = $(notdir $@)
+# makefile (from 'makefile', line 28)
 CP = $(PREFIX)objcopy
 # environment
-TMP = /tmp
-# makefile (from `makefile', line 27)
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+# environment
+USERNAME = budali11
+# environment
+MAKELEVEL := 0
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/home/budali11/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=5cbcc82f474861f25ad779996360d13b
+# makefile (from 'makefile', line 27)
 AS = $(PREFIX)gcc -x assembler-with-cpp
 # environment
-PROGRAMW6432 = C:\Program Files
+MANAGERPID = 1498
 # environment
-GCC_VERSION = 11.2
-# environment
-INFOPATH = /usr/local/info:/usr/share/info:/usr/info
-# environment
-PROGRAMDATA = C:\ProgramData
-# makefile (from `makefile', line 26)
+LC_NAME = en_US.UTF-8
+# makefile (from 'makefile', line 26)
 CPP = $(PREFIX)g++
 # environment
-VSCODE_CWD = F:\Git\PRJ\MSP432-with-makefile\C_C++
+VSCODE_CWD = /home/budali11
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /c/Users/HaoNan/.eide/bin/builder/bin:/c/Users/HaoNan/.eide/bin/builder/utils:/c/Users/HaoNan/.eide/bin/scripts:/i/MCU/GNU_Tools_for_ARM/11.3_rel1/bin:/i/MCU/Openocd/INSTALL/bin:/usr/bin:/c/Program Files/Common Files/Oracle/Java/javapath:/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v11.1/bin:/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v11.1/libnvvp:/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v10.0/bin:/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v10.0/libnvvp:/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/c/WINDOWS/System32/OpenSSH/:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/c/WINDOWS/System32/OpenSSH/:/f/Matlab1/bin:/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/f/Xshell/:/c/Users/HaoNan/AppData/Local/Programs/Python/Python310/Scripts:/c/Users/HaoNan/AppData/Local/Programs/Python/Python310:/f/Deep_learn/Anaconda/Scripts:/f/Deep_learn/Anaconda:/f/Deep_learn/Anaconda/Library/bin:/c/Program Files/NVIDIA Corporation/Nsight Compute 2020.2.1/:/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v11.1/extras/CUPTI/lib64:/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v11.1/cudnn/bin:/f/RT-Thread_QEMU/env/tools/qemu/qemu32:/f/Git/Git/cmd:/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/110/Tools/Binn/:/c/Program Files (x86)/Microsoft SQL Server/120/Tools/Binn/:/c/Program Files/Microsoft SQL Server/120/Tools/Binn/:/c/Program Files/Microsoft SQL Server/120/DTS/Binn/:/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/c/Program Files/dotnet/:/f/Deep_learn/Anaconda:/f/Deep_learn/Anaconda/Library/mingw-w64/bin:/f/Deep_learn/Anaconda/Library/usr/bin:/f/Deep_learn/Anaconda/Library/bin:/f/Deep_learn/Anaconda/Scripts:/c/Users/HaoNan/AppData/Local/Microsoft/WindowsApps:/c/Program Files/Bandizip/:/f/Deep_learn/pycharm/PyCharm Community Edition 2021.3.3/bin:.:/f/Deep_learn/pycharm/PyCharm 2021.3.3/bin:.:/c/Users/HaoNan/AppData/Local/GitHubDesktop/bin:/i/MCU/Openocd/INSTALL/bin:/i/MCU/Cygwin/bin:/f/vs code/Microsoft VS Code/Microsoft VS Code/bin:/i/Win/mingw64/mingw64/bin:/i/Vim/INSTALL/Vim/vim90:/i/MCU/GNU_Tools_for_ARM/11.3_rel1/bin:/i/Win/mingw64/mingw64_12/bin:/i/MCU/Cygwin/bin:.
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/arm/arm-linux-gnueabihf/bin:/usr/local/arm/GNU_Tools_for_ARM/bin
+# makefile (from 'makefile', line 30)
+LD = $(PREFIX)ld
 # environment
-SW_SIM_HYDRA = C:\Program Files\Common Files\SolidWorks Shared\Simulation Worker Agent\
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-CUDA_PATH_V11_1 = F:\Deep_learn\CUDA\NVIDIA GPU Computing Toolkit\CUDA\v11.1
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+SESSION_MANAGER = local/hello504:@/tmp/.ICE-unix/1709,unix/hello504:/tmp/.ICE-unix/1709
 # environment
 COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST := makefile
+# automatic
+@F = $(notdir $@)
 # environment
-MINTTY_SHORTCUT = /cygdrive/c/Users/Public/Desktop/Cygwin64 Terminal.lnk
+SESSION_MANAGER = local/hello504:@/tmp/.ICE-unix/1680,unix/hello504:/tmp/.ICE-unix/1680
 # environment
-_ = /cygdrive/f/vs code/Microsoft VS Code/Microsoft VS Code/Code.exe
+CUDA_PATH = F:\Deep_learn\CUDA\NVIDIA GPU Computing Toolkit\CUDA\v11.1
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from 'makefile', line 28)
+CP = $(PREFIX)objcopy
+# makefile (from 'makefile', line 103)
+CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) 
 # environment
-PROCESSOR_ARCHITECTURE = x86
-# environment
-USERPROFILE = C:\Users\HaoNan
-# environment
-ALLUSERSPROFILE = C:\ProgramData
-# makefile (from `makefile', line 106)
-VPATH = Core/Include:Core/Include/CMSIS:Bsp/Inc: Bsp/Src:Core/Src/:User/Src/: 
-# environment
-EIDE_BINARIES_VER = 10.2.0
-# environment
-NUMBER_OF_PROCESSORS = 6
+XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
-# makefile (from `makefile', line 101)
+# environment
+INVOCATION_ID = 7fadc207fe9d453882f31e3c2c67613d
+# makefile (from 'makefile', line 103)
 LDFLAGS = $(MCU) -Tmsp432p401r.lds -specs=nosys.specs $(LIB) -Wl,-gc-sections,--cref -Wl,-Map=$(BUILD_DIR)/$(PRJ_NAME).map
-# makefile (from `makefile', line 98)
+# makefile (from 'makefile', line 100)
 LIB = -lc -lm -lnosys 
 # default
-.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-NVTOOLSEXT_PATH = C:\Program Files\NVIDIA Corporation\NvToolsExt\
+LS_COLORS = 
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 5453
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_2688_YBYYJTBHBLODWRNU
+DISPLAY = :0
 # environment
-SW_SIM_MPIT = INTELMPI
+PWD = /home/budali11/git_download/MSP432-with-makefile/C_C++
+# default
+.LOADED := 
 # environment
-ORIGINAL_PATH = /cygdrive/c/Program Files/Common Files/Oracle/Java/javapath:/cygdrive/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v11.1/bin:/cygdrive/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v11.1/libnvvp:/cygdrive/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v10.0/bin:/cygdrive/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v10.0/libnvvp:/cygdrive/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/cygdrive/c/WINDOWS/system32:/cygdrive/c/WINDOWS:/cygdrive/c/WINDOWS/System32/Wbem:/cygdrive/c/WINDOWS/System32/WindowsPowerShell/v1.0:/cygdrive/c/WINDOWS/System32/OpenSSH:/cygdrive/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/cygdrive/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/cygdrive/c/WINDOWS/system32:/cygdrive/c/WINDOWS:/cygdrive/c/WINDOWS/System32/Wbem:/cygdrive/c/WINDOWS/System32/WindowsPowerShell/v1.0:/cygdrive/c/WINDOWS/System32/OpenSSH:/cygdrive/f/Matlab1/bin:/cygdrive/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/cygdrive/f/Xshell:/cygdrive/c/Users/HaoNan/AppData/Local/Programs/Python/Python310/Scripts:/cygdrive/c/Users/HaoNan/AppData/Local/Programs/Python/Python310:/cygdrive/f/Deep_learn/Anaconda/Scripts:/cygdrive/f/Deep_learn/Anaconda:/cygdrive/f/Deep_learn/Anaconda/Library/bin:/cygdrive/c/Program Files/NVIDIA Corporation/Nsight Compute 2020.2.1:/cygdrive/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v11.1/extras/CUPTI/lib64:/cygdrive/f/Deep_learn/CUDA/NVIDIA GPU Computing Toolkit/CUDA/v11.1/cudnn/bin:/cygdrive/f/RT-Thread_QEMU/env/tools/qemu/qemu32:/cygdrive/f/Git/Git/cmd:/cygdrive/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/110/Tools/Binn:/cygdrive/c/Program Files (x86)/Microsoft SQL Server/120/Tools/Binn:/cygdrive/c/Program Files/Microsoft SQL Server/120/Tools/Binn:/cygdrive/c/Program Files/Microsoft SQL Server/120/DTS/Binn:/cygdrive/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/cygdrive/c/Program Files/dotnet:/cygdrive/f/Deep_learn/Anaconda:/cygdrive/f/Deep_learn/Anaconda/Library/mingw-w64/bin:/cygdrive/f/Deep_learn/Anaconda/Library/usr/bin:/cygdrive/f/Deep_learn/Anaconda/Library/bin:/cygdrive/f/Deep_learn/Anaconda/Scripts:/cygdrive/c/Users/HaoNan/AppData/Local/Microsoft/WindowsApps:/cygdrive/c/Program Files/Bandizip:/cygdrive/f/Deep_learn/pycharm/PyCharm Community Edition 2021.3.3/bin:/cygdrive/f/Deep_learn/pycharm/PyCharm 2021.3.3/bin:/cygdrive/c/Users/HaoNan/AppData/Local/GitHubDesktop/bin:/cygdrive/i/MCU/Openocd/INSTALL/bin:/usr/bin:/cygdrive/f/vs code/Microsoft VS Code/Microsoft VS Code/bin:/cygdrive/i/Win/mingw64/mingw64/bin:/cygdrive/i/Vim/INSTALL/Vim/vim90:/cygdrive/i/MCU/GNU_Tools_for_ARM/11.3_rel1/bin:/cygdrive/i/Win/mingw64/mingw64_12/bin:/usr/bin
+SSH_AGENT_PID = 1678
 # environment
-COMPUTERNAME = DESKTOP-MMIO2D6
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
-PWD = /cygdrive/f/Git/PRJ/MSP432-with-makefile
-# environment
-PROGRAMFILES = C:\Program Files (x86)
-# environment
-DRIVERDATA = C:\Windows\System32\Drivers\DriverData
-# environment
-NVCUDASAMPLES_ROOT = F:\Deep_learn\CUDA\NVIDIA Corporation\CUDA\v11.1
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = undefined
-# environment
-USERNAME = 17yearoldHaoNan
-# environment
-PUBLIC = C:\Users\Public
+GTK_MODULES = gail:atk-bridge
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /i/MCU/Cygwin/home/17yearoldHaoNan
+HOME = /home/budali11
 # environment
-VSCODE_CLI = 1
+VSCODE_CODE_CACHE_PATH = /home/budali11/.config/Code/CachedData/d045a5eda657f4d7b676dedbfa7aab8207f8a075
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\HaoNan\AppData\Roaming\Code\CachedData\d045a5eda657f4d7b676dedbfa7aab8207f8a075
-# makefile (from `makefile', line 29)
-SZ = $(PREFIX)size
+LOGNAME = budali11
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
++F = $(notdir $+)
 # environment
-PRINTER = ����ΪWPS PDF
-# environment
-COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
-# environment
-LOGONSERVER = \\DESKTOP-MMIO2D6
-# makefile (from `makefile', line 14)
-PREFIX = arm-none-eabi-
+ZSH = /home/budali11/.oh-my-zsh
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
-USERDOMAIN = DESKTOP-MMIO2D6
-# environment
-HOSTNAME = DESKTOP-MMIO2D6
-# makefile (from `makefile', line 86)
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from 'makefile', line 88)
 C_DEFS = -D__MSP432P401R__ -Dgcc 
-# makefile (from `makefile', line 43)
-MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 # environment
-EIDE_TOOL_OPENOCD = I:\MCU\Openocd\INSTALL\bin
+LC_TIME = en_US.UTF-8
+# makefile (from 'makefile', line 93)
+C_INCLUDES = -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc 
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 2
-# makefile (from `makefile', line 40)
+QT_IM_MODULE = ibus
+# environment
+SHLVL = 0
+# makefile (from 'makefile', line 40)
 FLOAT-ABI = -mfloat-abi=hard
-# makefile (from `makefile', line 25)
+# makefile (from 'makefile', line 25)
 CC = $(PREFIX)gcc
-# makefile (from `makefile', line 8)
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# makefile (from 'makefile', line 8)
 BUILD_DIR = build
 # default
-MAKE_VERSION := 3.81
+MAKE_VERSION := 4.2.1
 # environment
-USER = 17yearoldHaoNan
+USER = budali11
+# environment
+LC_MONETARY = en_US.UTF-8
 # makefile
 .DEFAULT_GOAL := all
-# makefile (from `makefile', line 103)
-CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) 
 # environment
-PROGRAMFILES(X86) = C:\Program Files (x86)
+XDG_CURRENT_DESKTOP = Unity
 # environment
-EIDE_MSYS = C:\Users\HaoNan\.eide\bin\builder\msys\bin
+LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
-# makefile (from `makefile', line 34)
+# makefile (from 'makefile', line 34)
 CPU = -mcpu=cortex-m4
-# makefile (from `makefile', line 37)
+# environment
+LC_TELEPHONE = en_US.UTF-8
+# makefile (from 'makefile', line 37)
 FPU = -mfpu=fpv4-sp-d16
-# environment
-LOCALAPPDATA = C:\Users\HaoNan\AppData\Local
-# environment
-PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\PowerShell\Modules\
 # default
-MAKE_COMMAND := make.exe
+MAKE_COMMAND := make
 # environment
-PROFILEREAD = true
-# environment
-PROCESSOR_ARCHITEW6432 = AMD64
-# environment
-OLDPWD = /cygdrive/f
-# environment
-TERM_PROGRAM = mintty
+OLDPWD = /home/budali11
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
-PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
+LANGUAGE = zh_CN:en_US:en
 # environment
-OS = Windows_NT
+VSCODE_IPC_HOOK = /run/user/1000/vscode-386ed3f9-1.72.2-main.sock
+# makefile
+MAKEFLAGS = pqrR
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\67c9db44112d2439cff4ff0999cb0352-1.72.2-main-sock
-# environment
-HOMEPATH = \
-# environment
-COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
-# environment
-PROMPT = $P$G
-# environment
-MFLAGS = -Rrqp
+MFLAGS = -pqrR
 # automatic
- 
 *D = $(patsubst %/,%,$(dir $*))
-# environment
-TERM_PROGRAM_VERSION = 3.6.1
-# environment
-SYSTEMROOT = C:\WINDOWS
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-EIDE_TOOL_GCC_ARM = I:\MCU\GNU_Tools_for_ARM\11.3_rel1\bin
+GDK_BACKEND = x11
 # environment
-GCC_BASE = I:\MCU\arm_tool_chain
+LC_PAPER = en_US.UTF-8
 # environment
-NVCUDASAMPLES10_0_ROOT = F:\Deep_learn\CUDA\NVIDIA Corporation\CUDA Samples\v10.0
-# automatic
-+F = $(notdir $+)
-# makefile (from `makefile', line 30)
-LD = $(PREFIX)ld
-# environment
-APPDATA = C:\Users\HaoNan\AppData\Roaming
-# environment
-TEMP = /tmp
-# makefile (from `makefile', line 91)
-C_INCLUDES = -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc 
-# environment
-COMSPEC = C:\WINDOWS\system32\cmd.exe
+QT_ACCESSIBILITY = 1
+# makefile (from 'makefile', line 43)
+MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 # default
 MAKEFILES := 
+# environment
+LC_NUMERIC = en_US.UTF-8
 # automatic
 <F = $(notdir $<)
 # environment
+LC_MEASUREMENT = en_US.UTF-8
+# environment
+PAGER = less
+# environment
 LC_ALL = C
 # environment
-SW_SIM_TEMP = C:\ProgramData\SOLIDWORKS\SW_net_sim_temp\
+DBUS_STARTER_BUS_TYPE = session
 # automatic
 ^F = $(notdir $^)
-# environment
-CUDA_PATH = F:\Deep_learn\CUDA\NVIDIA GPU Computing Toolkit\CUDA\v11.1
-# environment
-NVCUDASAMPLES11_1_ROOT = F:\Deep_learn\CUDA\NVIDIA Corporation\CUDA\v11.1
-# makefile (from `makefile', line 48)
-C_SOURCES = /Bsp/Src/adc14.c /Bsp/Src/aes256.c /Bsp/Src/comp_e.c /Bsp/Src/cpu.c /Bsp/Src/crc32.c /Bsp/Src/cs.c /Bsp/Src/dma.c /Bsp/Src/flash.c /Bsp/Src/fpu.c /Bsp/Src/gpio.c /Bsp/Src/i2c.c /Bsp/Src/interrupt.c /Bsp/Src/mpu.c /Bsp/Src/pcm.c /Bsp/Src/pmap.c /Bsp/Src/pss.c /Bsp/Src/ref_a.c /Bsp/Src/reset.c /Bsp/Src/rtc_c.c /Bsp/Src/spi.c /Bsp/Src/sysctl.c /Bsp/Src/systick.c /Bsp/Src/timer32.c /Bsp/Src/timer_a.c /Bsp/Src/uart.c /Bsp/Src/wdt_a.c /Core/Src/startup_msp432p401r_gcc.c /Core/Src/system_msp432p401r.c 
+# makefile (from 'makefile', line 48)
+C_SOURCES = Bsp/Src/adc14.c Bsp/Src/aes256.c Bsp/Src/comp_e.c Bsp/Src/cpu.c Bsp/Src/crc32.c Bsp/Src/cs.c Bsp/Src/dma.c Bsp/Src/flash.c Bsp/Src/fpu.c Bsp/Src/gpio.c Bsp/Src/i2c.c Bsp/Src/interrupt.c Bsp/Src/mpu.c Bsp/Src/pcm.c Bsp/Src/pmap.c Bsp/Src/pss.c Bsp/Src/ref_a.c Bsp/Src/reset.c Bsp/Src/rtc_c.c Bsp/Src/spi.c Bsp/Src/sysctl.c Bsp/Src/systick.c Bsp/Src/timer32.c Bsp/Src/timer_a.c Bsp/Src/uart.c Bsp/Src/wdt_a.c Core/Src/startup_msp432p401r_gcc.c Core/Src/system_msp432p401r.c User/Src/syscalls.c 
 # default
 SUFFIXES := 
 # environment
-SYSTEMDRIVE = C:
+CHROME_DESKTOP = code-url-handler.desktop
 # environment
-SESSIONNAME = Console
-# environment
-PROCESSOR_REVISION = 7100
-# environment
-PYCHARM = F:\Deep_learn\pycharm\PyCharm 2021.3.3\bin;
+WINDOWPATH = 2
 # default
-.INCLUDE_DIRS = /usr/include /usr/include
-# makefile (from `makefile', line 6)
-PRJ_NAME = C_C++
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-MAKELEVEL := 0
-# makefile (from `makefile', line 111)
+LC_IDENTIFICATION = en_US.UTF-8
+# makefile (from 'makefile', line 6)
+PRJ_NAME = C_C++
+# default
+.RECIPEPREFIX := 
+# makefile (from 'makefile', line 113)
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o))) $(addprefix $(BUILD_DIR)/,$(notdir $(CPP_SOURCES:.cpp=.o)))
+# environment
+LC_ADDRESS = en_US.UTF-8
 # environment
 LANG = C
 # environment
-PROCESSOR_LEVEL = 23
+VSCODE_PID = 5453
 # environment
-TERM = xterm
-# environment
-VSCODE_PID = 2688
-# environment
-DOTNET_CLI_TELEMETRY_OPTOUT = 1
-# environment
-USERDOMAIN_ROAMINGPROFILE = DESKTOP-MMIO2D6
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=5cbcc82f474861f25ad779996360d13b
 # variable set hash-table stats:
-# Load=145/1024=14%, Rehash=0, Collisions=19/194=10%
+# Load=128/1024=12%, Rehash=0, Collisions=21/196=11%
 
 # Pattern-specific Variable Values
 
@@ -313,28 +287,26 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-MMIO2D6
 
 # Directories
 
-# Core/Include (device -28644, inode 1523984): 28 files, no impossibilities.
-# . (device -28644, inode 1523916): 11 files, no impossibilities.
-# Core/Include/CMSIS (device -28644, inode 1523985): 6 files, no impossibilities.
-# Bsp/Src (device -28644, inode 1523956): 28 files, no impossibilities.
-# User/Src (device -28644, inode 1524041): 5 files, no impossibilities.
-# Bsp/Inc (device -28644, inode 1523924): 33 files, no impossibilities.
-# Core/Src (device -28644, inode 1524015): 22 files, no impossibilities.
-
-# 133 files, no impossibilities in 7 directories.
-
+# Core/Include (device 66307, inode 3932822): 28 files, no impossibilities.
+# . (device 66307, inode 3932729): 11 files, no impossibilities.
+# Core/Include/CMSIS (device 66307, inode 3932823): 9 files, no impossibilities.
  
+# Bsp/Src (device 66307, inode 3932787): 28 files, no impossibilities.
+# User/Src (device 66307, inode 3933227): 6 files, no impossibilities.
+# Bsp/Inc (device 66307, inode 3932752): 33 files, no impossibilities.
+# Core/Src (device 66307, inode 3932867): 22 files, no impossibilities.
+
+# 137 files, no impossibilities in 7 directories.
+
 # Implicit Rules
 
 build/%.o: %.c | build
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/%.o: %.cpp | build
-#  commands to execute (from `makefile', line 127):
+#  recipe to execute (from 'makefile', line 129):
 	$(CPP) $(CCFLAGS) $< -o $@
-	
 
 # 2 implicit rules, 0 (0.0%) terminal.
 
@@ -343,133 +315,112 @@ build/%.o: %.cpp | build
 # Not a target:
 Bsp/Src/adc14.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/flash.o: Bsp/Src/flash.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `flash'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'flash'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
- 
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/pmap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/user_tick.o: User/Src/user_tick.cpp | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `user_tick'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'user_tick'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 127):
+#  recipe to execute (from 'makefile', line 129):
 	$(CPP) $(CCFLAGS) $< -o $@
-	
 
 build/system_msp432p401r.o: Core/Src/system_msp432p401r.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `system_msp432p401r'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'system_msp432p401r'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/reset.o: Bsp/Src/reset.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `reset'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'reset'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/main.o: main.cpp | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `main'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 127):
+#  recipe to execute (from 'makefile', line 129):
 	$(CPP) $(CCFLAGS) $< -o $@
-	
 
 build/timer_a.o: Bsp/Src/timer_a.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `timer_a'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'timer_a'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/user_uart.o: User/Src/user_uart.cpp | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `user_uart'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'user_uart'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 127):
+#  recipe to execute (from 'makefile', line 129):
 	$(CPP) $(CCFLAGS) $< -o $@
-	
 
 gdb:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 146):
+#  recipe to execute (from 'makefile', line 148):
 	arm-none-eabi-gdb $(BUILD_DIR)/$(PRJ_NAME).elf
-	
 
- 
 all: build/C_C++.elf build/C_C++.bin
-#  Command-line target.
+#  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/20=0%
+
+build/syscalls.o: User/Src/syscalls.c | build
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'syscalls'
+#  Last modified 2022-11-01 16:06:48.864224497
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 126):
+	$(CC) $(CCFLAGS) $< -o $@
 
 # Not a target:
 Bsp/Src/comp_e.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 .PHONY: clean connect download gdb
 #  Implicit rule search has not been done.
@@ -479,71 +430,55 @@ Bsp/Src/comp_e.c:
 # Not a target:
 Bsp/Src/spi.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/wdt_a.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/pss.o: Bsp/Src/pss.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `pss'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'pss'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 User/Src/user_nvic.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.547653926
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/fpu.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/uart.o: Bsp/Src/uart.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `uart'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'uart'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Core/Src/startup_msp432p401r_gcc.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.547653926
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .SUFFIXES:
@@ -554,226 +489,181 @@ Core/Src/startup_msp432p401r_gcc.c:
 # Not a target:
 Bsp/Src/mpu.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/pcm.o: Bsp/Src/pcm.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `pcm'
-#  Last modified 2022-10-23 11:39:27
- 
+#  Implicit/static pattern stem: 'pcm'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/crc32.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/timer32.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/dma.o: Bsp/Src/dma.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `dma'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'dma'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/cpu.o: Bsp/Src/cpu.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `cpu'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'cpu'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/gpio.o: Bsp/Src/gpio.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `gpio'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'gpio'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build:
 #  Implicit rule search has not been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-#  commands to execute (from `makefile', line 130):
+#  recipe to execute (from 'makefile', line 132):
 	mkdir $@
-	
 
 # Not a target:
 Bsp/Src/reset.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/timer_a.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
+ 
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/user_nvic.o: User/Src/user_nvic.cpp | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `user_nvic'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'user_nvic'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
- 
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 127):
+#  recipe to execute (from 'makefile', line 129):
 	$(CPP) $(CCFLAGS) $< -o $@
-	
+
+# Not a target:
+User/Src/syscalls.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-11-01 16:06:48.840224601
+#  File has been updated.
+#  Successfully updated.
 
 build/interrupt.o: Bsp/Src/interrupt.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `interrupt'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'interrupt'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/flash.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/pss.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/rtc_c.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/cs.o: Bsp/Src/cs.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `cs'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'cs'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/uart.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/startup_msp432p401r_gcc.o: Core/Src/startup_msp432p401r_gcc.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `startup_msp432p401r_gcc'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'startup_msp432p401r_gcc'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 User/Src/user_tick.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.547653926
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/pcm.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .DEFAULT:
@@ -783,365 +673,305 @@ Bsp/Src/pcm.c:
 
 build/aes256.o: Bsp/Src/aes256.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `aes256'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'aes256'
+#  Last modified 2022-11-01 16:06:48.860224514
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/ref_a.o: Bsp/Src/ref_a.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `ref_a'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'ref_a'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/dma.c:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/sysctl.o: Bsp/Src/sysctl.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `sysctl'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'sysctl'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/cpu.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 User/Src/user_uart.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-11-01 16:06:48.840224601
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/gpio.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-build/C_C++.elf: build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build/crc32.o build/cs.o build/dma.o build/flash.o build/fpu.o build/gpio.o build/i2c.o build/interrupt.o build/mpu.o build/pcm.o build/pmap.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/spi.o build/sysctl.o build/systick.o build/timer32.o build/timer_a.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/main.o build/user_uart.o build/user_tick.o build/user_nvic.o
+build/C_C++.elf: build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build/crc32.o build/cs.o build/dma.o build/flash.o build/fpu.o build/gpio.o build/i2c.o build/interrupt.o build/mpu.o build/pcm.o build/pmap.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/spi.o build/sysctl.o build/systick.o build/timer32.o build/timer_a.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/syscalls.o build/main.o build/user_uart.o build/user_tick.o build/user_nvic.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-11-01 16:06:48.856224531
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/C_C++.elf
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build/crc32.o build/cs.o build/dma.o build/flash.o build/fpu.o build/gpio.o build/i2c.o build/interrupt.o build/mpu.o build/pcm.o build/pmap.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/spi.o build/sysctl.o build/systick.o build/timer32.o build/timer_a.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/syscalls.o build/main.o build/user_uart.o build/user_tick.o build/user_nvic.o
+# automatic
+# | := 
+# automatic
+# < := build/adc14.o
+# automatic
+# ^ := build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build/crc32.o build/cs.o build/dma.o build/flash.o build/fpu.o build/gpio.o build/i2c.o build/interrupt.o build/mpu.o build/pcm.o build/pmap.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/spi.o build/sysctl.o build/systick.o build/timer32.o build/timer_a.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/syscalls.o build/main.o build/user_uart.o build/user_tick.o build/user_nvic.o
+# automatic
+# ? := build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build/crc32.o build/cs.o build/dma.o build/flash.o build/fpu.o build/gpio.o build/i2c.o build/interrupt.o build/mpu.o build/pcm.o build/pmap.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/spi.o build/sysctl.o build/systick.o build/timer32.o build/timer_a.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/syscalls.o build/main.o build/user_uart.o build/user_tick.o build/user_nvic.o
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 117):
+# Load=8/32=25%, Rehash=0, Collisions=2/30=7%
+#  recipe to execute (from 'makefile', line 119):
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(SZ) $@
-	
 
 build/i2c.o: Bsp/Src/i2c.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `i2c'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'i2c'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 133):
+#  recipe to execute (from 'makefile', line 135):
 	rm -rf $(BUILD_DIR)
-	
 
 download:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 137):
+#  recipe to execute (from 'makefile', line 139):
 	openocd \
-	-f I:/MCU/Openocd/INSTALL/scripts/interface/cmsis-dap.cfg \
-	-f I:/MCU/Openocd/INSTALL/scripts/target/ti_msp432.cfg \
+	-f /usr/local/share/openocd/scripts/interface/xds110.cfg \
+	-f /usr/local/share/openocd/scripts/target/ti_msp432.cfg \
 	-c init \
 	-c halt \
 	-c "flash write_image erase $(BUILD_DIR)/$(PRJ_NAME).elf 0x00000000" \
 	-c reset \
 	-c shutdown 
-	
 
 build/adc14.o: Bsp/Src/adc14.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `adc14'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'adc14'
+#  Last modified 2022-11-01 16:06:48.860224514
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/pmap.o: Bsp/Src/pmap.c | build
 #  Implicit rule search has been done.
- 
-#  Implicit/static pattern stem: `pmap'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'pmap'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Core/Src/system_msp432p401r.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.547653926
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/interrupt.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/systick.o: Bsp/Src/systick.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `systick'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'systick'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/comp_e.o: Bsp/Src/comp_e.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `comp_e'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'comp_e'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/cs.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/spi.o: Bsp/Src/spi.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `spi'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'spi'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
- 
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
+ 
 
 build/C_C++.bin: build/C_C++.elf
 #  Implicit rule search has not been done.
-#  Last modified 2022-10-23 11:39:27
-#  File has been updated.
-#  Successfully updated.
-#  commands to execute (from `makefile', line 121):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 123):
 	$(CP) $< -O binary $@
-	
 
 build/wdt_a.o: Bsp/Src/wdt_a.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `wdt_a'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'wdt_a'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 connect:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 135):
-	openocd -f I:/MCU/Openocd/INSTALL/scripts/interface/cmsis-dap.cfg -f I:/MCU/Openocd/INSTALL/scripts/target/ti_msp432.cfg
-	
+#  recipe to execute (from 'makefile', line 137):
+	openocd -f /usr/local/share/openocd/scripts/interface/xds110.cfg -f /usr/local/share/openocd/scripts/target/ti_msp432.cfg
 
 build/fpu.o: Bsp/Src/fpu.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `fpu'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'fpu'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/aes256.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.523653533
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/ref_a.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 Bsp/Src/sysctl.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/mpu.o: Bsp/Src/mpu.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `mpu'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'mpu'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/i2c.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/rtc_c.o: Bsp/Src/rtc_c.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `rtc_c'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'rtc_c'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 build/crc32.o: Bsp/Src/crc32.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `crc32'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'crc32'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
- 
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # Not a target:
 Bsp/Src/systick.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-23 11:39:27
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 build/timer32.o: Bsp/Src/timer32.c | build
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `timer32'
-#  Last modified 2022-10-23 11:39:27
+#  Implicit/static pattern stem: 'timer32'
+#  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `makefile', line 124):
+#  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
-	
 
 # files hash-table stats:
-# Load=76/1024=7%, Rehash=0, Collisions=50/721=7%
+# Load=78/1024=8%, Rehash=0, Collisions=51/744=7%
 # VPATH Search Paths
 
-# No `vpath' search paths.
+# No 'vpath' search paths.
 
-# General (`VPATH' variable) search path:
+# General ('VPATH' variable) search path:
 # Core/Include:Core/Include/CMSIS:Bsp/Inc:Bsp/Src:Core/Src:User/Src
 
-# # of strings in strcache: 1
-# # of strcache buffers: 1
-# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+# strcache buffers: 1 (0) / strings = 249 / storage = 3107 B / avg = 12 B
+# current buf: size = 8162 B / used = 3107 B / count = 249 / avg = 12 B
 
-# Finished Make data base on Fri Oct 28 15:25:28 2022
+# strcache performance: lookups = 457 / hit rate = 45%
+# hash-table stats:
+# Load=249/8192=3%, Rehash=0, Collisions=22/457=5%
+# Finished Make data base on Tue Nov  1 16:07:18 2022
 
  

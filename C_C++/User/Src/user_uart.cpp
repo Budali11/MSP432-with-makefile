@@ -24,6 +24,16 @@
 
 #define DEBUG
 
+void User_Uart_T::m_send_Nchar(uint8_t *str, uint32_t n)
+{
+    char *pstr = (char *)str;
+    for(uint32_t i = 0; i < n; i++)
+    {
+        m_base->TXBUF = *pstr;
+        pstr++;
+        while(m_base->STATW & (1 << 0));
+    }
+}
 
 User_Uart_T::User_Uart_T(EUSCI_A_Type *base, uint32_t baudrate)
 {
@@ -118,6 +128,17 @@ void User_Uart_T::send_string(const char *str)
     }
 }
 
+void User_Uart_T::send_string(uint8_t *str)
+{
+    char *pstr = (char *)str;
+    while((*pstr) != '\0')
+    {
+        m_base->TXBUF = *pstr;
+        pstr++;
+        while(m_base->STATW & (1 << 0));
+    }
+}
+
 uint32_t User_Uart_T::receive_string(uint8_t *tmp)
 {
     uint32_t i = 0;
@@ -127,4 +148,59 @@ uint32_t User_Uart_T::receive_string(uint8_t *tmp)
         tmp[i] = m_base->RXBUF;
     }
     return i;
+}
+
+void User_Uart_T::printf(const char *str, ...)
+{
+    va_list arg_list;
+    size_t i = 0;
+    char *pstr = (char *)str;
+    va_start(arg_list, str);
+    for (uint8_t err = 0; pstr[i] != '\0'; i++)
+    {
+        if(pstr[i] == '%')
+        {
+            m_send_Nchar((uint8_t *)pstr, i);
+            pstr += i;
+            i = 0;
+            switch (pstr[1])
+            {
+                static char tmp[12] = {0};
+                case 'd':{
+                    int input = va_arg(arg_list, int);
+                    sprintf(tmp, "%d", input);
+                    send_string((uint8_t *)tmp);
+                }break;
+                case 'x':{
+                    unsigned int input = va_arg(arg_list, unsigned int);
+                    sprintf(tmp, "0x%x", input);
+                    send_string((uint8_t *)tmp);
+                }break;
+                case 'u':{
+                    uint32_t input = va_arg(arg_list, uint32_t);
+                    sprintf(tmp, "%lu", input);
+                    send_string((uint8_t *)tmp);
+                }break;
+                case 'f':{
+                    double input = va_arg(arg_list, double);
+                    sprintf(tmp, "%f", input);
+                    send_string((uint8_t *)tmp);
+                }break;
+                case 's':{
+                    uint8_t *input = va_arg(arg_list, uint8_t *);
+                    send_string(input);
+                }break;
+                case 'c':{
+                    char input = va_arg(arg_list, int);
+                    m_send_Nchar((uint8_t *)&input, 1);
+                }break;
+                default:{
+                    send_string("suggest to check up the input.\r\n");
+                }
+            }
+            pstr += 2; //now pstr point at two char behind '%'
+        }
+    }
+    va_end(arg_list);
+    send_string((uint8_t *)pstr);
 }

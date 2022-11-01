@@ -8,6 +8,10 @@
 #ifndef USER_INC_USER_UART_H_
 #define USER_INC_USER_UART_H_
 
+#include "msp.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
 /*user can change this macro to specify a EUSCI module*/
 #define USING_EUSCI_A_X 0
 
@@ -56,12 +60,15 @@ class User_Uart_T
 private:
     EUSCI_A_Type *m_base;
     uint32_t m_baudrate;
+    void m_send_Nchar(uint8_t *str, uint32_t n);
 public:
     User_Uart_T(EUSCI_A_Type *base, uint32_t baudrate);
     ~User_Uart_T();
     void init(EUSCI_A_Type *base, uint32_t baudrate);
+    void send_string(uint8_t *str);
     void send_string(const char *str);
     uint32_t receive_string(uint8_t *tmp);
+    void printf(const char *str, ...);
 };
 
 
