@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Nov  1 16:07:18 2022
+# Make data base, printed on Tue Nov  1 16:16:32 2022
 
 # Variables
 
@@ -53,7 +53,7 @@ SZ = $(PREFIX)size
 # environment
 _ = /usr/share/code/code
 # environment
-JOURNAL_STREAM = 8:47956
+JOURNAL_STREAM = 8:44824
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'makefile', line 1)
@@ -71,7 +71,7 @@ MAKELEVEL := 0
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/home/budali11/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=5cbcc82f474861f25ad779996360d13b
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # makefile (from 'makefile', line 27)
 AS = $(PREFIX)gcc -x assembler-with-cpp
 # environment
@@ -91,33 +91,23 @@ LD = $(PREFIX)ld
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
+GJS_DEBUG_OUTPUT = stderr
+# environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 SESSION_MANAGER = local/hello504:@/tmp/.ICE-unix/1709,unix/hello504:/tmp/.ICE-unix/1709
 # environment
-COMMONPROGRAMW6432 = C:\Program Files\Common Files
-# automatic
-+D = $(patsubst %/,%,$(dir $+))
-# makefile (from 'makefile', line 1)
-MAKEFILE_LIST := makefile
-# automatic
-@F = $(notdir $@)
-# environment
-SESSION_MANAGER = local/hello504:@/tmp/.ICE-unix/1680,unix/hello504:/tmp/.ICE-unix/1680
-# environment
-CUDA_PATH = F:\Deep_learn\CUDA\NVIDIA GPU Computing Toolkit\CUDA\v11.1
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'makefile', line 28)
-CP = $(PREFIX)objcopy
-# makefile (from 'makefile', line 103)
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from 'makefile', line 108)
+VPATH = Core/Include:Core/Include/CMSIS:Bsp/Inc: Bsp/Src:Core/Src:User/Src: 
+# makefile (from 'makefile', line 105)
 CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) 
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 7fadc207fe9d453882f31e3c2c67613d
+INVOCATION_ID = 180b1eae2f114e4b85a3a816ce99280e
 # makefile (from 'makefile', line 103)
 LDFLAGS = $(MCU) -Tmsp432p401r.lds -specs=nosys.specs $(LIB) -Wl,-gc-sections,--cref -Wl,-Map=$(BUILD_DIR)/$(PRJ_NAME).map
 # makefile (from 'makefile', line 100)
@@ -131,7 +121,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5453
+GIO_LAUNCHED_DESKTOP_FILE_PID = 7132
 # automatic
 %F = $(notdir $%)
 # environment
@@ -249,7 +239,7 @@ PAGER = less
 # environment
 LC_ALL = C
 # environment
-DBUS_STARTER_BUS_TYPE = session
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
 # makefile (from 'makefile', line 48)
@@ -275,11 +265,9 @@ LC_ADDRESS = en_US.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 5453
-# environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=5cbcc82f474861f25ad779996360d13b
+VSCODE_PID = 7132
 # variable set hash-table stats:
-# Load=128/1024=12%, Rehash=0, Collisions=21/196=11%
+# Load=128/1024=12%, Rehash=0, Collisions=22/196=11%
 
 # Pattern-specific Variable Values
 
@@ -289,8 +277,8 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=5cbcc82f474861f25ad7799
 
 # Core/Include (device 66307, inode 3932822): 28 files, no impossibilities.
 # . (device 66307, inode 3932729): 11 files, no impossibilities.
-# Core/Include/CMSIS (device 66307, inode 3932823): 9 files, no impossibilities.
  
+# Core/Include/CMSIS (device 66307, inode 3932823): 9 files, no impossibilities.
 # Bsp/Src (device 66307, inode 3932787): 28 files, no impossibilities.
 # User/Src (device 66307, inode 3933227): 6 files, no impossibilities.
 # Bsp/Inc (device 66307, inode 3932752): 33 files, no impossibilities.
@@ -568,8 +556,8 @@ Bsp/Src/reset.c:
 # Not a target:
 Bsp/Src/timer_a.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-27 22:24:19.527653599
  
+#  Last modified 2022-10-27 22:24:19.527653599
 #  File has been updated.
 #  Successfully updated.
 
@@ -851,7 +839,6 @@ build/spi.o: Bsp/Src/spi.c | build
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 126):
 	$(CC) $(CCFLAGS) $< -o $@
- 
 
 build/C_C++.bin: build/C_C++.elf
 #  Implicit rule search has not been done.
@@ -863,6 +850,7 @@ build/C_C++.bin: build/C_C++.elf
 build/wdt_a.o: Bsp/Src/wdt_a.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'wdt_a'
+ 
 #  Last modified 2022-11-01 16:06:48.864224497
 #  File has been updated.
 #  Successfully updated.
@@ -972,6 +960,6 @@ build/timer32.o: Bsp/Src/timer32.c | build
 # strcache performance: lookups = 457 / hit rate = 45%
 # hash-table stats:
 # Load=249/8192=3%, Rehash=0, Collisions=22/457=5%
-# Finished Make data base on Tue Nov  1 16:07:18 2022
+# Finished Make data base on Tue Nov  1 16:16:32 2022
 
  

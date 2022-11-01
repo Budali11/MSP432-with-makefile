@@ -35,9 +35,10 @@ typedef struct timer
 {
     Timer32_Type *base;
     float num_per_us;
+    uint32_t load_value;
     void (*start)(struct timer *ptimer);
     void (*stop)(struct timer *ptimer);
-    uint32_t (*read)(struct timer *ptimer);
+    float (*read)(struct timer *ptimer);
     void (*write)(struct timer *ptimer, uint32_t load);
 }timer_t;
 
@@ -51,14 +52,17 @@ static inline void TIMER_STOP(timer_t *ptimer)
     ptimer->base->CONTROL &= ~(1 << 7);
 }
 
-static inline uint32_t TIMER_READ(timer_t *ptimer)
+static inline float TIMER_READ(timer_t *ptimer)
 {
-    return ((ptimer->base->CONTROL >> 1) & 0x1) ? (ptimer->base->VALUE) : (ptimer->base->VALUE & 0xffff);
+    uint32_t value = ((ptimer->base->CONTROL >> 1) & 0x1) ? (ptimer->base->VALUE) : (ptimer->base->VALUE & 0xffff);
+
+
+    return (ptimer->load_value - value) / ptimer->num_per_us;
 }
 
 static inline void TIMER_WRITE(timer_t *ptimer, uint32_t load)
 {
-    ptimer->base->LOAD = load;
+    ptimer->base->LOAD = ptimer->load_value = load;
 }
 
 

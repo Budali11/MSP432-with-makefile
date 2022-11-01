@@ -15,12 +15,15 @@
  */
 #include "mpu6050.h"
 #include "mpu6050_defs.h"
+#include "user_uart.h"
 
 static mpu6050_data_t data;
+extern timer_t timer1;
 
 
-int MPU6050_Init(mpu6050_t *pdevice)
+int MPU6050_Init(mpu6050_t *pdevice, iic_adapter_t *padapter)
 {
+    pdevice->iic_ops = padapter;
     pdevice->device_init = MPU6050_Device_Init;
     pdevice->read_all = MPU6050_Read_All;
     pdevice->kalman_getAngle = MPU6050_Kalman_GetAngle;
@@ -28,7 +31,7 @@ int MPU6050_Init(mpu6050_t *pdevice)
     return 0;
 }
 
-int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
+int MPU6050_Device_Init(mpu6050_t *pdevice)
 {
     int ret = 0;
     uint8_t msg[3] = {MPU6050_ADDR_WRITE, WHO_AM_I_REG, 0};
@@ -37,7 +40,7 @@ int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
     /* check out device id */
 
     /* send slave address(write) and mpu6050 id register address */
-    ret = IIC_Adapter_Write(padapter, msg, 2, IIC_NO_STOP);
+    ret = pdevice->iic_ops->write(pdevice->iic_ops, msg, 2, IIC_NO_STOP);
     if(ret == 0)
     {
         //perror
@@ -46,7 +49,7 @@ int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
 
     /* send slave address(read) */
     msg[0] = MPU6050_ADDR_READ;
-    ret = IIC_Adapter_Write(padapter, msg, 1, IIC_NO_STOP);
+    ret = pdevice->iic_ops->write(pdevice->iic_ops, msg, 1, IIC_NO_STOP);
     if(ret == 0)
     {
         //perror
@@ -54,7 +57,7 @@ int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
     }
 
     /* read mpu6050 id */
-    ret = IIC_Adapter_Read(padapter, &id, 1, IIC_NACK|IIC_STOP);
+    ret = pdevice->iic_ops->read(pdevice->iic_ops, &id, 1, IIC_NACK|IIC_STOP);
     if(id != 104)
     {
         //perror
@@ -66,7 +69,7 @@ int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
     msg[0] = (MPU6050_ADDR_WRITE);
     msg[1] = PWR_MGMT_1_REG; /* desire register to write */
     msg[2] = 0x00; /* data write into desire register */
-    ret = IIC_Adapter_Write(padapter, msg, 3, IIC_STOP);
+    ret = pdevice->iic_ops->write(pdevice->iic_ops, msg, 3, IIC_STOP);
     if(ret != 3)
     {
         //perror
@@ -77,7 +80,7 @@ int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
     msg[1] = SMPLRT_DIV_REG;
     msg[2] = 0x07; /* sample rate 1kHz without DLPF */
     //msg[2] = 0x00; /* sample rate 1kHz but need to enable DLPF */
-    ret = IIC_Adapter_Write(padapter, msg, 3, IIC_STOP);
+    ret = pdevice->iic_ops->write(pdevice->iic_ops, msg, 3, IIC_STOP);
     if(ret != 3)
     {
         //perror
@@ -88,7 +91,7 @@ int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
     /* set full scale range */
     msg[1] = ACCEL_CONFIG_REG;
     msg[2] = MPU6050_USING_AFSR << 3;
-    ret = IIC_Adapter_Write(padapter, msg, 3, IIC_STOP);
+    ret = pdevice->iic_ops->write(pdevice->iic_ops, msg, 3, IIC_STOP);
     if(ret != 3)
     {
         //perror
@@ -99,7 +102,7 @@ int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
     /* set full scale range */
     msg[1] = GYRO_CONFIG_REG;
     msg[2] = MPU6050_USING_GFSR << 3;
-    ret = IIC_Adapter_Write(padapter, msg, 3, IIC_STOP);
+    ret = pdevice->iic_ops->write(pdevice->iic_ops, msg, 3, IIC_STOP);
     if(ret != 3)
     {
         //perror
@@ -108,12 +111,12 @@ int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
 
     /* give up first 300 data */
     for(int i = 0; i < 300; i++)
-        MPU6050_Read_All(padapter, pdevice, MPU6050_NO_COMPUTE);
+        MPU6050_Read_All(pdevice, MPU6050_NO_COMPUTE|MPU6050_NO_DEBUG);
 
     /* make statistics and average */
     for(uint8_t i = 0; i < 50; i++)
     {
-        MPU6050_Read_All(padapter, pdevice, MPU6050_NO_DEBUG);
+        MPU6050_Read_All(pdevice, MPU6050_NO_DEBUG);
         /* statistics */
         data.ax_raw_offset += data.Accel_X_RAW;
         data.ay_raw_offset += data.Accel_Y_RAW;
@@ -130,13 +133,12 @@ int MPU6050_Device_Init(iic_adapter_t *padapter, mpu6050_t *pdevice)
     data.gy_raw_offset /= 50;
     data.gz_raw_offset /= 50;
 
-    // yuki.printf("ax_offset: %d\t", m_data.ax_raw_offset);
-    // yuki.printf("ay_offset: %d\t", m_data.ay_raw_offset);
-    // yuki.printf("az_offset: %d\r\n", m_data.az_raw_offset);
+    /* debug information */
+    Printf(" ax_offset: %d ay_offset: %d az_offset: %d\r\n", data.ax_raw_offset, data.ay_raw_offset, data.az_raw_offset);
 
     return 0;
 }
-int MPU6050_Read_All(iic_adapter_t *padapter, mpu6050_t *pdevice, uint32_t flags)
+int MPU6050_Read_All(mpu6050_t *pdevice, uint32_t flags)
 {
     uint8_t measure[14] = {0};
     uint32_t ret = 0;
@@ -144,7 +146,7 @@ int MPU6050_Read_All(iic_adapter_t *padapter, mpu6050_t *pdevice, uint32_t flags
     uint8_t msg[2] = {0};
     msg[0] = (MPU6050_ADDR_WRITE);
     msg[1] = ACCEL_XOUT_H_REG;
-    ret = IIC_Adapter_Write(padapter, msg, 2, IIC_NO_STOP);
+    ret = pdevice->iic_ops->write(pdevice->iic_ops, msg, 2, IIC_NO_STOP);
     if(ret != 2)
     {
         //perror
@@ -153,24 +155,24 @@ int MPU6050_Read_All(iic_adapter_t *padapter, mpu6050_t *pdevice, uint32_t flags
 
     /* slave address(read) */
     msg[0] = MPU6050_ADDR_READ;
-    ret = IIC_Adapter_Write(padapter, msg, 1, IIC_NO_STOP);
+    ret = pdevice->iic_ops->write(pdevice->iic_ops, msg, 1, IIC_NO_STOP);
     if(ret != 1)
     {
         //perror
         return -1;
     }
 
-    // /* read out last time timer value */
-    // user_clock1 >> m_data.pass_us;
+    /* read out last time timer value */
+    data.pass_us = timer1.read(&timer1);
 
-    // /* timing */
-    // user_clock1 = 0;
+    /* timing */
+    timer1.write(&timer1, 0xffff);
 
     /* read out data */
-    ret = IIC_Adapter_Read(padapter, measure, 14, IIC_STOP|IIC_ACK);
+    ret = pdevice->iic_ops->read(pdevice->iic_ops, measure, 14, IIC_STOP|IIC_ACK);
 
     if((flags & MPU6050_NO_COMPUTE) != 0)
-        return 0;
+        goto __debug;
 
     data.Accel_X_RAW = measure[0] << 8 | measure[1];
     data.Accel_Y_RAW = measure[2] << 8 | measure[3];
@@ -190,11 +192,13 @@ int MPU6050_Read_All(iic_adapter_t *padapter, mpu6050_t *pdevice, uint32_t flags
     data.Gx = (double)(data.Gyro_X_RAW + data.gx_raw_offset) / gyro_LSB[MPU6050_USING_GFSR];
     data.Gy = (double)(data.Gyro_Y_RAW + data.gy_raw_offset) / gyro_LSB[MPU6050_USING_GFSR];
     data.Gz = (double)(data.Gyro_Z_RAW + data.gz_raw_offset) / gyro_LSB[MPU6050_USING_GFSR];
-    
+
+__debug:    
     if((flags & MPU6050_NO_DEBUG) != 0)
         return 0;
 
     /* debug information */
+    D_Printf(" dt:%fus \r\n", data.pass_us);
 
     return 0;
 }

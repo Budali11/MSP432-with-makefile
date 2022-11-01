@@ -1,7 +1,7 @@
 #2022/7/31 22:56
 #make-test
 
-# LINUX = 1
+LINUX = 1
 
 ifdef LINUX
 OPENOCD_PATH = /usr/local/share/openocd
@@ -84,9 +84,12 @@ User/Src/syscalls.c \
 User/Src/user_uart.c \
 User/Src/user_dma.c \
 Bus/IIC/Src/iic_bus.c \
+User/Src/user_timer.c \
 
 # device source
-C_DEVICE_SOURCES = 
+C_DEVICE_SOURCES = \
+Devices/mpu6050/Src/mpu6050.c \
+
 C_SOURCES += $(C_DEVICE_SOURCES)
 
 # exclude file
@@ -118,6 +121,8 @@ C_INCLUDES = \
 -IBsp/Inc \
 -IUser/Inc \
 -IBus/IIC/Inc \
+-IDevices/mpu6050/Inc \
+
 
 #lib link
 LIB = -lc -lm -lnosys \
@@ -129,9 +134,9 @@ CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) -Wall#
 
 #path define
 VPATH = \
-Core/Include:Core/Include/CMSIS:Bsp/Inc:User/Inc:\
+Core/Include:Core/Include/CMSIS:Bsp/Inc:User/Inc:Devices/mpu6050/Inc:\
 Bsp/Src:Core/Src:User/Src:\
-Bus/IIC/Src:\
+Bus/IIC/Src:Devices/mpu6050/Src:\
 
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_EXCLUDED:.c=.o)))
 

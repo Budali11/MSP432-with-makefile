@@ -37,5 +37,5 @@ arm-none-eabi-g++ -c -g -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=ha
 arm-none-eabi-gcc build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build/crc32.o build/cs.o build/dma.o build/flash.o build/fpu.o build/gpio.o build/i2c.o build/interrupt.o build/mpu.o build/pcm.o build/pmap.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/spi.o build/sysctl.o build/systick.o build/timer32.o build/timer_a.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/syscalls.o build/main.o build/user_uart.o build/user_tick.o build/user_nvic.o -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -Tmsp432p401r.lds -specs=nosys.specs -lc -lm -lnosys  -Wl,-gc-sections,--cref -Wl,-Map=build/C_C++.map -o build/C_C++.elf
 arm-none-eabi-size build/C_C++.elf
 arm-none-eabi-objcopy build/C_C++.elf -O binary build/C_C++.bin
-make: Leaving directory '/cygdrive/f/Git/PRJ/MSP432-with-makefile/C_C++'
+make: Leaving directory '/home/budali11/git_download/MSP432-with-makefile/C_C++'
  

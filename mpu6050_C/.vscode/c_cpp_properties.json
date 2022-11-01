@@ -8,7 +8,8 @@
                 "Core/Include/CMSIS",
                 "Bsp/Inc",
                 "User/Inc",
-                "Bus/IIC/Inc"
+                "Bus/IIC/Inc",
+                "Devices/mpu6050/Inc"
             ],
             "defines": [
                 "_DEBUG",

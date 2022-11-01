@@ -28,11 +28,14 @@ static void Timer_Init(timer_t *ptimer)
 #if defined TIMER_1
     /* set up number per micro second */
     ptimer->num_per_us = TIMER_1_CLOCK_HZ / 1000000;
+    ptimer->base = TIMER_1_STRUCT;
 #endif
 #if defined TIMER_2
     /* set up number per micro second */
     ptimer->num_per_us = TIMER_2_CLOCK_HZ / 1000000;
+    ptimer->base = TIMER_2_STRUCT;
 #endif
+    TIMER_START(ptimer);
 }
 
 static int Timer_PreInit(void)
