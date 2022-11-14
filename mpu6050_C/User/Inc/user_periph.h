@@ -18,6 +18,7 @@
 #include "msp.h"
 #include <stddef.h>
 #include "user_defs.h"
+#include <stdlib.h>
 
 typedef int (*preFunc_t)(void);
 

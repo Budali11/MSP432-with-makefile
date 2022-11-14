@@ -114,7 +114,11 @@
 
 #define DMA_TRIGGER(ch) \
     DMA_Channel->SW_CHTRIG |= (1 << ch)
-
+#define DMA_GEN_SWREQ(ch) \
+    DMA_Control->SWREQ |= (1 << ch)
+#define DMA_SET_PRIO(ch) \
+    DMA_Control->PRIOSET |= (1 << ch)
+    
 #define CONFIG_PRIMARY              1
 #define CONFIG_ALTERNATE            2
 
@@ -129,5 +133,7 @@ void DMA_Config_Source(uint32_t Channel_Peripheral, uint32_t periph_addr, uint8_
 void DMA_Specify_Src(uint32_t Channel_Peripheral, uint32_t src_addr, uint8_t isPrimary);
 void DMA_Specify_Ctrl(uint32_t Channel_Peripheral, uint32_t ctrl_word, uint8_t isPrimary);
 void DMA_Enable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate);
+void DMA_Disable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate);
+
 
 #endif

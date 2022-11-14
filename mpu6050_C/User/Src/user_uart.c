@@ -205,55 +205,10 @@ int Receive(uint8_t *buf)
 int D_Printf(const char *str, ...)
 {
     va_list arg_list;
-    size_t i = 0;
-    char *pstr = (char *)str;
-    va_start(arg_list, str);
-    for (; pstr[i] != '\0'; i++)
-    {
-        if(pstr[i] == '%')
-        {
-            D_Send_Nchar((uint8_t *)pstr, i);
-            pstr += i;
-            i = 0;
-            switch (pstr[1])
-            {
-                static char tmp[12] = {0};
-                case 'd':{
-                    int input = va_arg(arg_list, int);
-                    sprintf(tmp, "%d", input);
-                    D_Send_String((uint8_t *)tmp);
-                }break;
-                case 'x':{
-                    unsigned int input = va_arg(arg_list, unsigned int);
-                    sprintf(tmp, "0x%x", input);
-                    D_Send_String((uint8_t *)tmp);
-                }break;
-                case 'u':{
-                    uint32_t input = va_arg(arg_list, uint32_t);
-                    sprintf(tmp, "%lu", input);
-                    D_Send_String((uint8_t *)tmp);
-                }break;
-                case 'f':{
-                    double input = va_arg(arg_list, double);
-                    sprintf(tmp, "%f", input);
-                    D_Send_String((uint8_t *)tmp);
-                }break;
-                case 's':{
-                    uint8_t *input = va_arg(arg_list, uint8_t *);
-                    D_Send_String(input);
-                }break;
-                case 'c':{
-                    char input = va_arg(arg_list, int);
-                    D_Send_Nchar((uint8_t *)&input, 1);
-                }break;
-                default:{
-                    D_Send_String((uint8_t *)"suggest to check up the input.\r\n");
-                }
-            }
-            pstr += 2; //now pstr point at two char behind '%'
-        }
-    }
-    va_end(arg_list);
+
+    char *pstr = (char *)malloc(MAX_TRANS_BYTES);
+    vsnprintf(pstr, MAX_TRANS_BYTES, str, arg_list);
+
     D_Send_String((uint8_t *)pstr);
 
     return 0;

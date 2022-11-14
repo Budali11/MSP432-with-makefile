@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Nov  1 20:17:00 2022
+# Make data base, printed on Wed Nov  2 21:28:26 2022
 
 # Variables
 
@@ -32,6 +32,8 @@ XDG_SESSION_TYPE = x11
 CPP_SOURCES = $(filter-out $(EXCEPT_CPP), $(CPPS))
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -45,13 +47,13 @@ CURDIR := /home/budali11/git_download/MSP432-with-makefile/mpu6050_soft
 # makefile
 SHELL = /bin/sh
 # environment
-VTE_VERSION = 6003
-# environment
 VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_translationsConfigFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/tcf.json","_cacheRoot":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_resolvedLanguagePackCoreLocation":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/d045a5eda657f4d7b676dedbfa7aab8207f8a075","_corruptedFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/corrupted.info","_languagePackSupport":true}
 # makefile (from 'makefile', line 36)
 SZ = $(PREFIX)size
 # environment
-JOURNAL_STREAM = 8:47956
+_ = /usr/share/code/code
+# environment
+JOURNAL_STREAM = 8:43779
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'makefile', line 1)
@@ -61,9 +63,7 @@ MAKEFILE_LIST :=  makefile
 # makefile (from 'makefile', line 35)
 CP = $(PREFIX)objcopy
 # environment
-IM_CONFIG_PHASE = 1
-# environment
-QT_IM_MODULE = ibus
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # environment
 USERNAME = budali11
 # makefile (from 'makefile', line 112)
@@ -73,31 +73,31 @@ MAKELEVEL := 0
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/home/budali11/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=5cbcc82f474861f25ad779996360d13b
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # makefile (from 'makefile', line 34)
 AS = $(PREFIX)gcc -x assembler-with-cpp
 # environment
-_ = /usr/bin/code
-# environment
-MANAGERPID = 1498
+MANAGERPID = 1488
 # environment
 LC_NAME = en_US.UTF-8
 # makefile (from 'makefile', line 33)
 CPP = $(PREFIX)g++
 # environment
-VSCODE_CWD = /home/budali11/git_download/MSP432-with-makefile
+VSCODE_CWD = /home/budali11
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-NO_PROXY = localhost,127.0.0.0/8,::1
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/arm/arm-linux-gnueabihf/bin:/usr/local/arm/GNU_Tools_for_ARM/bin
 # makefile (from 'makefile', line 37)
 LD = $(PREFIX)ld
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
+GJS_DEBUG_OUTPUT = stderr
+# environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/hello504:@/tmp/.ICE-unix/1709,unix/hello504:/tmp/.ICE-unix/1709
+SESSION_MANAGER = local/hello504:@/tmp/.ICE-unix/1696,unix/hello504:/tmp/.ICE-unix/1696
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # makefile (from 'makefile', line 107)
@@ -109,9 +109,9 @@ CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES)
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
-all_proxy = socks://0.0.0.0:7891/
+ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 7fadc207fe9d453882f31e3c2c67613d
+INVOCATION_ID = cdabf4d8a5a2472d82e961cfda576ce7
 # makefile (from 'makefile', line 139)
 LDFLAGS = $(MCU) -Tmsp432p401r.lds -specs=nosys.specs $(LIB) -Wl,-gc-sections,--cref -Wl,-Map=$(BUILD_DIR)/$(PRJ_NAME).map
 # makefile (from 'makefile', line 136)
@@ -119,25 +119,23 @@ LIB = -lc -lm -lnosys
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LS_COLORS = 
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 5605
 # automatic
 %F = $(notdir $%)
 # environment
-HTTPS_PROXY = http://0.0.0.0:7890/
-# environment
-no_proxy = localhost,127.0.0.0/8,::1
+DISPLAY = :0
 # environment
 PWD = /home/budali11/git_download/MSP432-with-makefile/mpu6050_soft
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1678
+SSH_AGENT_PID = 1665
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -148,8 +146,6 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 HOME = /home/budali11
 # makefile (from 'makefile', line 100)
 C_DEVICE_SOURCES = Devices/mpu6050/Src/mpu6050.c 
-# environment
-VSCODE_CLI = 1
 # environment
 VSCODE_CODE_CACHE_PATH = /home/budali11/.config/Code/CachedData/d045a5eda657f4d7b676dedbfa7aab8207f8a075
 # environment
@@ -172,16 +168,14 @@ C_DEFS = -D__MSP432P401R__ -DPROCESS_FACE -Dgcc
 LC_TIME = en_US.UTF-8
 # makefile (from 'makefile', line 126)
 C_INCLUDES = -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc -IDevices/mpu6050/Inc -IBus/IIC/Inc 
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/arm/arm-linux-gnueabihf/bin:/usr/local/arm/GNU_Tools_for_ARM/bin
+QT_IM_MODULE = ibus
 # environment
-SHLVL = 1
+SHLVL = 0
 # makefile (from 'makefile', line 7)
 OPENOCD_PATH = /usr/local/share/openocd
 # makefile (from 'makefile', line 47)
@@ -219,7 +213,7 @@ FPU = -mfpu=fpv4-sp-d16
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/budali11/git_download/MSP432-with-makefile
+OLDPWD = /home/budali11
 # default
 .VARIABLES := 
 # automatic
@@ -242,18 +236,12 @@ MFLAGS = -pqrR
 GDK_BACKEND = x11
 # environment
 LC_PAPER = en_US.UTF-8
-# environment
-NO_AT_BRIDGE = 1
-# environment
-HTTP_PROXY = http://0.0.0.0:7890/
 # makefile (from 'makefile', line 4)
 LINUX = 1
 # environment
 QT_ACCESSIBILITY = 1
 # makefile (from 'makefile', line 50)
 MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
-# environment
-DISPLAY = :0
 # default
 MAKEFILES := 
 # environment
@@ -261,26 +249,17 @@ LC_NUMERIC = en_US.UTF-8
 # automatic
 <F = $(notdir $<)
 # environment
-https_proxy = http://0.0.0.0:7890/
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
 PAGER = less
 # environment
 LC_ALL = C
 # environment
-DBUS_STARTER_BUS_TYPE = session
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/ee51f753_ae35_466e_a85c_8c43d44dd422
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
- 
 ^F = $(notdir $^)
 # makefile (from 'makefile', line 117)
 C_SOURCES = $(filter-out $(EXCEPT_C), $(CS))
-# environment
-GNOME_TERMINAL_SERVICE = :1.90
 # default
 SUFFIXES := 
 # environment
@@ -291,8 +270,6 @@ WINDOWPATH = 2
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
 LC_IDENTIFICATION = en_US.UTF-8
-# environment
-ALL_PROXY = socks://0.0.0.0:7891/
 # makefile (from 'makefile', line 13)
 PRJ_NAME = mpu6050
 # default
@@ -300,19 +277,14 @@ PRJ_NAME = mpu6050
 # makefile (from 'makefile', line 151)
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o))) $(addprefix $(BUILD_DIR)/,$(notdir $(CPP_SOURCES:.cpp=.o)))
 # environment
-http_proxy = http://0.0.0.0:7890/
-# environment
 LC_ADDRESS = en_US.UTF-8
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 7892
-# environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=5cbcc82f474861f25ad779996360d13b
+VSCODE_PID = 5605
+ 
 # variable set hash-table stats:
-# Load=150/1024=15%, Rehash=0, Collisions=33/221=15%
+# Load=136/1024=13%, Rehash=0, Collisions=26/207=13%
 
 # Pattern-specific Variable Values
 
@@ -404,7 +376,6 @@ build/mpu6050.elf: build/adc14.o build/aes256.o build/comp_e.o build/cpu.o build
 	$(SZ) $@
 
 build/reset.o: Bsp/Src/reset.c | build
- 
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'reset'
 #  Last modified 2022-11-01 16:14:25.634324245
@@ -592,6 +563,7 @@ Bsp/Src/crc32.c:
 # Not a target:
 Bsp/Src/timer32.c:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-10-27 22:24:19.595654708
 #  File has been updated.
 #  Successfully updated.
@@ -686,7 +658,6 @@ Bsp/Src/pss.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-10-27 22:24:19.595654708
 #  File has been updated.
- 
 #  Successfully updated.
 
 # Not a target:
@@ -764,7 +735,6 @@ build/ref_a.o: Bsp/Src/ref_a.c | build
 # Not a target:
 Bsp/Src/dma.c:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-10-27 22:24:19.595654708
 #  File has been updated.
 #  Successfully updated.
@@ -884,6 +854,7 @@ build/comp_e.o: Bsp/Src/comp_e.c | build
 # Not a target:
 Bsp/Src/cs.c:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-10-27 22:24:19.595654708
 #  File has been updated.
 #  Successfully updated.
@@ -1018,6 +989,6 @@ build/timer32.o: Bsp/Src/timer32.c | build
 # strcache performance: lookups = 435 / hit rate = 47%
 # hash-table stats:
 # Load=227/8192=3%, Rehash=0, Collisions=23/435=5%
-# Finished Make data base on Tue Nov  1 20:17:00 2022
+# Finished Make data base on Wed Nov  2 21:28:26 2022
 
  

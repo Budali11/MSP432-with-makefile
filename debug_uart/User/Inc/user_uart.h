@@ -22,6 +22,9 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/* maximum bytes transmits by D_Printf */
+#define MAX_TRANS_BYTES 128
+
 /*user can change this macro to specify a EUSCI module*/
 #define USING_EUSCI_A_X 0
 
@@ -72,11 +75,11 @@
 
 
 /* private function */
-void D_Send_Nchar(uint8_t *str, uint32_t n);
+void D_Send_Nchar(char *str, uint32_t n);
 void Send_Nchar(uint8_t *str, uint32_t n);
 
 /* public function */
-void D_Send_String(uint8_t *str);
+void D_Send_String(char *str);
 void Send_String(uint8_t *str);
 void Printf(const char *str, ...);
 int Receive(uint8_t *buf);

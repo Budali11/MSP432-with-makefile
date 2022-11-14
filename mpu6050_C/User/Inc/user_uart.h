@@ -22,6 +22,9 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/* maximum bytes transmits by D_Printf */
+#define MAX_TRANS_BYTES 128
+
 /*user can change this macro to specify a EUSCI module*/
 #define USING_EUSCI_A_X 0
 

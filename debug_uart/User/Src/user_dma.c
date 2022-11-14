@@ -74,6 +74,12 @@ static int DMA_PreInit(void)
     /* enable dma controller */
     DMA_Control->CFG |= 1 << 0;
 
+    /* clear attributes bits */
+    DMA_Control->ALTCLR = 0xffffffff;
+    DMA_Control->USEBURSTCLR = 0xffffffff;
+    DMA_Control->PRIOCLR = 0xffffffff;
+    DMA_Control->REQMASKCLR = 0xffffffff;
+    
     return 0;
 }
 preinit(DMA_PreInit);
@@ -120,4 +126,11 @@ void DMA_Enable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate)
     // DMA_Control->ENASET |= 1 << 0;
 }
 
-
+void DMA_Disable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate)
+{
+    (!ifAlternate) ? (DMA_Control->ALTSET |= (1 << (Channel_Peripheral & 0x1))) : \
+        (DMA_Control->ALTCLR |= (1 << (Channel_Peripheral & 0x1)));
+        
+    DMA_Control->ENASET &= ~(1 << (Channel_Peripheral & 0x1));
+    // DMA_Control->ENASET |= 1 << 0;
+}

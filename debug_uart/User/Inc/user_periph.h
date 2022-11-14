@@ -15,8 +15,11 @@
 #if !defined USER_PERIPH_H
 #define USER_PERTPH_H
 
+#include "msp.h"
 #include <stddef.h>
 #include "user_defs.h"
+#include <stdlib.h>
+#include <string.h>
 
 typedef int (*preFunc_t)(void);
 

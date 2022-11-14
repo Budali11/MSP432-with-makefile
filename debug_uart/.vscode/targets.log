@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Oct 27 22:43:50 2022
+# Make data base, printed on Mon Nov 14 22:39:21 2022
 
 # Variables
 
@@ -21,21 +21,21 @@ PREFIX = arm-none-eabi-
 # environment
 PAPERSIZE = letter
 # environment
-DESKTOP_SESSION = ubuntu
+DESKTOP_SESSION = ubuntu-wayland
 # default
 .SHELLFLAGS := -c
 # environment
 XDG_SESSION_CLASS = user
 # environment
-XDG_SESSION_TYPE = x11
+XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-XAUTHORITY = /run/user/1000/gdm/Xauthority
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.OY4PV1
 # environment
-GDMSESSION = ubuntu
+GDMSESSION = ubuntu-wayland
 # environment
 XMODIFIERS = @im=ibus
 # makefile
@@ -43,15 +43,13 @@ CURDIR := /home/budali11/git_download/MSP432-with-makefile/debug_uart
 # makefile
 SHELL = /bin/sh
 # environment
-VTE_VERSION = 6003
-# environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_translationsConfigFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/tcf.json","_cacheRoot":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_resolvedLanguagePackCoreLocation":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/d045a5eda657f4d7b676dedbfa7aab8207f8a075","_corruptedFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_translationsConfigFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/tcf.json","_cacheRoot":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn","_resolvedLanguagePackCoreLocation":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/6261075646f055b99068d3688932416f2346dd3b","_corruptedFile":"/home/budali11/.config/Code/clp/d12f895d31d9f9b0d093ad4fb7402f51.zh-cn/corrupted.info","_languagePackSupport":true}
 # makefile (from 'makefile', line 34)
 SZ = $(PREFIX)size
 # environment
-JOURNAL_STREAM = 8:51566
+_ = /usr/share/code/code
 # environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+JOURNAL_STREAM = 8:49302
 # makefile (from 'makefile', line 1)
 MAKEFILE_LIST :=  makefile
 # automatic
@@ -59,42 +57,37 @@ MAKEFILE_LIST :=  makefile
 # makefile (from 'makefile', line 33)
 CP = $(PREFIX)objcopy
 # environment
-IM_CONFIG_PHASE = 1
-# environment
-QT_IM_MODULE = ibus
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # environment
 USERNAME = budali11
 # environment
 MAKELEVEL := 0
 # environment
- 
-XDG_DATA_DIRS = /usr/share/ubuntu:/home/budali11/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+XDG_DATA_DIRS = /home/budali11/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=cb9a71fa907787f3b528bd4d635a8f13
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=9ddb906e57481016eb5fa3db63725300
 # makefile (from 'makefile', line 32)
 AS = $(PREFIX)gcc -x assembler-with-cpp
 # environment
-_ = /usr/bin/code
-# environment
-MANAGERPID = 1484
+MANAGERPID = 1420
 # environment
 LC_NAME = en_US.UTF-8
 # environment
-VSCODE_CWD = /home/budali11/git_download/MSP432-with-makefile
+VSCODE_CWD = /home/budali11
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-NO_PROXY = localhost,127.0.0.0/8,::1
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # makefile (from 'makefile', line 35)
 LD = $(PREFIX)ld
 # environment
-GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
-# environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/hello504:@/tmp/.ICE-unix/1690,unix/hello504:/tmp/.ICE-unix/1690
+SESSION_MANAGER = local/hello504:@/tmp/.ICE-unix/1549,unix/hello504:/tmp/.ICE-unix/1549
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
+# environment
+SSH_AGENT_LAUNCHER = gnome-keyring
 # makefile (from 'makefile', line 132)
 VPATH = Core/Include:Core/Include/CMSIS:Bsp/Inc:User/Inc: Bsp/Src:Core/Src:User/Src: Bus/IIC/Src: 
 # makefile (from 'makefile', line 129)
@@ -102,9 +95,9 @@ CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) -Wall
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
-all_proxy = socks://0.0.0.0:7891/
+ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 0e602fe983154e37a5b48373ecb1c2fc
+INVOCATION_ID = 6cb3b1e2cb7d4a32946d0337effd89a9
 # makefile (from 'makefile', line 127)
 LDFLAGS = $(MCU) -Tmsp432p401r.lds -specs=nosys.specs $(LIB) -Wl,-gc-sections,--cref -Wl,-Map=$(BUILD_DIR)/$(PRJ_NAME).map
 # makefile (from 'makefile', line 124)
@@ -112,25 +105,23 @@ LIB = -lc -lm -lnosys
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
+LS_COLORS = 
 # environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
-# environment
-XDG_SESSION_DESKTOP = ubuntu
+XDG_SESSION_DESKTOP = ubuntu-wayland
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2185
 # automatic
 %F = $(notdir $%)
 # environment
-HTTPS_PROXY = http://0.0.0.0:7890/
+DISPLAY = :0
 # environment
-no_proxy = localhost,127.0.0.0/8,::1
+GNOME_SETUP_DISPLAY = :1
 # environment
 PWD = /home/budali11/git_download/MSP432-with-makefile/debug_uart
 # default
 .LOADED := 
-# environment
-SSH_AGENT_PID = 1659
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -142,9 +133,7 @@ HOME = /home/budali11
 # makefile (from 'makefile', line 89)
 C_DEVICE_SOURCES = 
 # environment
-VSCODE_CLI = 1
-# environment
-VSCODE_CODE_CACHE_PATH = /home/budali11/.config/Code/CachedData/d045a5eda657f4d7b676dedbfa7aab8207f8a075
+VSCODE_CODE_CACHE_PATH = /home/budali11/.config/Code/CachedData/6261075646f055b99068d3688932416f2346dd3b
 # environment
 LOGNAME = budali11
 # environment
@@ -165,17 +154,14 @@ C_DEFS = -D__MSP432P401R__ -DPROCESS_FACE -Dgcc
 LC_TIME = en_US.UTF-8
 # makefile (from 'makefile', line 116)
 C_INCLUDES = -ICore/Include -ICore/Include/CMSIS -IBsp/Inc -IUser/Inc -IBus/IIC/Inc 
-# environment
-COLORTERM = truecolor
- 
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/arm/arm-linux-gnueabihf/bin:/usr/local/arm/GNU_Tools_for_ARM/bin
+QT_IM_MODULE = ibus
 # environment
-SHLVL = 1
+SHLVL = 0
 # makefile (from 'makefile', line 7)
 OPENOCD_PATH = /usr/local/share/openocd
 # makefile (from 'makefile', line 45)
@@ -209,7 +195,7 @@ FPU = -mfpu=fpv4-sp-d16
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/budali11/git_download/MSP432-with-makefile
+OLDPWD = /home/budali11
 # default
 .VARIABLES := 
 # automatic
@@ -217,7 +203,7 @@ OLDPWD = /home/budali11/git_download/MSP432-with-makefile
 # environment
 LANGUAGE = zh_CN:en_US:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-386ed3f9-1.72.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-386ed3f9-1.73.1-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -230,26 +216,18 @@ MFLAGS = -pqrR
 GDK_BACKEND = x11
 # environment
 LC_PAPER = en_US.UTF-8
-# environment
-HTTP_PROXY = http://0.0.0.0:7890/
 # makefile (from 'makefile', line 4)
 LINUX = 1
 # environment
 QT_ACCESSIBILITY = 1
 # makefile (from 'makefile', line 48)
 MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
-# environment
-DISPLAY = :0
 # default
 MAKEFILES := 
 # environment
 LC_NUMERIC = en_US.UTF-8
 # automatic
 <F = $(notdir $<)
-# environment
-https_proxy = http://0.0.0.0:7890/
-# environment
-ELECTRON_RUN_AS_NODE = 1
 # makefile (from 'makefile', line 93)
 EXCLUDE = Bus/IIC/Src/iic_bus.c Bsp/Src/dma.c Bsp/Src/i2c.c Bsp/Src/comp_e.c Bsp/Src/spi.c Bsp/Src/crc32.c Bsp/Src/adc14.c Bsp/Src/aes256.c Bsp/Src/pmap.c Bsp/Src/timer32.c Bsp/Src/timer_a.c 
 # environment
@@ -262,26 +240,20 @@ LC_ALL = C
 DBUS_STARTER_BUS_TYPE = session
 # makefile (from 'makefile', line 106)
 C_EXCLUDED = $(filter-out $(EXCLUDE), $(C_SOURCES))
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/844c5a2f_da84_4433_a77b_c241799ce2f1
 # automatic
 ^F = $(notdir $^)
 # makefile (from 'makefile', line 90)
 C_SOURCES = main.c Bsp/Src/adc14.c Bsp/Src/aes256.c Bsp/Src/comp_e.c Bsp/Src/cpu.c Bsp/Src/crc32.c Bsp/Src/cs.c Bsp/Src/dma.c Bsp/Src/flash.c Bsp/Src/fpu.c Bsp/Src/gpio.c Bsp/Src/i2c.c Bsp/Src/interrupt.c Bsp/Src/mpu.c Bsp/Src/pcm.c Bsp/Src/pmap.c Bsp/Src/pss.c Bsp/Src/ref_a.c Bsp/Src/reset.c Bsp/Src/rtc_c.c Bsp/Src/spi.c Bsp/Src/sysctl.c Bsp/Src/systick.c Bsp/Src/timer32.c Bsp/Src/timer_a.c Bsp/Src/uart.c Bsp/Src/wdt_a.c Core/Src/startup_msp432p401r_gcc.c Core/Src/system_msp432p401r.c Bus/IIC/Src/iic_bus.c User/Src/user_periph.c User/Src/syscalls.c User/Src/user_uart.c User/Src/user_dma.c  $(C_DEVICE_SOURCES)
-# environment
-GNOME_TERMINAL_SERVICE = :1.82
 # default
 SUFFIXES := 
 # environment
-CHROME_DESKTOP = code-url-handler.desktop
+WAYLAND_DISPLAY = wayland-0
 # environment
-WINDOWPATH = 2
+CHROME_DESKTOP = code-url-handler.desktop
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
 LC_IDENTIFICATION = en_US.UTF-8
-# environment
-ALL_PROXY = socks://0.0.0.0:7891/
 # makefile (from 'makefile', line 13)
 PRJ_NAME = debug_uart
 # default
@@ -289,19 +261,15 @@ PRJ_NAME = debug_uart
 # makefile (from 'makefile', line 137)
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_EXCLUDED:.c=.o)))
 # environment
-http_proxy = http://0.0.0.0:7890/
-# environment
 LC_ADDRESS = en_US.UTF-8
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
+VSCODE_PID = 2185
 # environment
-VSCODE_PID = 8644
-# environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=cb9a71fa907787f3b528bd4d635a8f13
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=9ddb906e57481016eb5fa3db63725300
 # variable set hash-table stats:
-# Load=144/1024=14%, Rehash=0, Collisions=29/215=13%
+# Load=129/1024=13%, Rehash=0, Collisions=19/191=10%
 
 # Pattern-specific Variable Values
 
@@ -309,17 +277,26 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=cb9a71fa907787f3b528bd4
 
 # Directories
 
-# Core/Include (device 66307, inode 5512988): 9 files, no impossibilities.
+# Core/Include/CMSIS/build: could not be stat'd.
+# User/Src/build: could not be stat'd.
+# Bsp/Inc/build: could not be stat'd.
+# Core/Include (device 66307, inode 5506979): 9 files, no impossibilities.
+# User/Inc/build: could not be stat'd.
 # . (device 66307, inode 5512882): 13 files, no impossibilities.
-# Core/Include/CMSIS (device 66307, inode 5512989): 8 files, no impossibilities.
-# Bsp/Src (device 66307, inode 5512954): 28 files, no impossibilities.
-# User/Src (device 66307, inode 5513029): 6 files, no impossibilities.
-# Bsp/Inc (device 66307, inode 5512922): 33 files, no impossibilities.
-# User/Inc (device 66307, inode 5513023): 7 files, no impossibilities.
-# Core/Src (device 66307, inode 5513006): 4 files, no impossibilities.
-# Bus/IIC/Src (device 66307, inode 5512985): 3 files, no impossibilities.
+# Core/Include/CMSIS (device 66307, inode 5506980): 8 files, no impossibilities.
+ 
+# Bsp/Src (device 66307, inode 5506769): 28 files, no impossibilities.
+# User/Src (device 66307, inode 5507008): 6 files, no impossibilities.
+# Bsp/Inc (device 66307, inode 5506241): 33 files, no impossibilities.
+# User/Inc (device 66307, inode 5507002): 7 files, no impossibilities.
+# Core/Src/build: could not be stat'd.
+# Bus/IIC/Src/build: could not be stat'd.
+# Core/Src (device 66307, inode 5506997): 4 files, no impossibilities.
+# Core/Include/build: could not be stat'd.
+# Bus/IIC/Src (device 66307, inode 5506976): 3 files, no impossibilities.
+# Bsp/Src/build: could not be stat'd.
 
-# 111 files, no impossibilities in 9 directories.
+# 111 files, no impossibilities in 17 directories.
 
 # Implicit Rules
 
@@ -331,51 +308,56 @@ build/%.o: %.c | build
 
 # Files
 
-build/flash.o: Bsp/Src/flash.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'flash'
-#  Last modified 2022-10-27 22:43:19.494256834
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/flash.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-build/system_msp432p401r.o: Core/Src/system_msp432p401r.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'system_msp432p401r'
-#  Last modified 2022-10-27 22:43:19.614257944
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/system_msp432p401r.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-build/reset.o: Bsp/Src/reset.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'reset'
-#  Last modified 2022-10-27 22:43:19.52625713
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/reset.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 build/main.o: main.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-10-27 22:43:19.406256019
+#  Last modified 2022-11-01 16:14:25.610324344
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := main.c
+# automatic
+# | := build
+# automatic
+# < := main.c
+# automatic
+# ^ := main.c
+# automatic
+# ? := main.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/22=5%
 #  recipe to execute (from 'makefile', line 149):
 	$(CC) $(CCFLAGS) $< -o $@
 
-build/user_uart.o: User/Src/user_uart.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'user_uart'
-#  Last modified 2022-10-27 22:43:19.642258204
- 
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/user_uart.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 gdb:
 #  Phony target (prerequisite of .PHONY).
@@ -392,16 +374,13 @@ all: build/debug_uart.elf build/debug_uart.bin
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/21=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/12=0%
 
-build/syscalls.o: User/Src/syscalls.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'syscalls'
-#  Last modified 2022-10-27 22:43:19.622258018
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/syscalls.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .PHONY: clean connect download gdb
 #  Implicit rule search has not been done.
@@ -409,128 +388,56 @@ build/syscalls.o: User/Src/syscalls.c | build
 #  File has not been updated.
 
 # Not a target:
-Bsp/Src/wdt_a.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-User/Src/user_periph.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-27 18:36:32.344748
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-27 22:41:48.897530692
-#  File has been updated.
-#  Successfully updated.
-
-build/pss.o: Bsp/Src/pss.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'pss'
-#  Last modified 2022-10-27 22:43:19.426256205
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
-
-# Not a target:
-Bsp/Src/fpu.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
-
-build/uart.o: Bsp/Src/uart.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'uart'
-#  Last modified 2022-10-27 22:43:19.542257278
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
-
-# Not a target:
-Core/Src/startup_msp432p401r_gcc.c:
- 
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.418326
+#  Last modified 2022-11-14 22:35:26.486423832
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
-.SUFFIXES:
+build/pss.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-Bsp/Src/mpu.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
+build/uart.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-build/pcm.o: Bsp/Src/pcm.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'pcm'
-#  Last modified 2022-10-27 22:43:19.482256723
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/pcm.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-build/cpu.o: Bsp/Src/cpu.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'cpu'
-#  Last modified 2022-10-27 22:43:19.334255354
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/cpu.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-build/gpio.o: Bsp/Src/gpio.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'gpio'
- 
-#  Last modified 2022-10-27 22:43:19.350255501
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/gpio.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-10-27 22:43:29.526350934
+#  Last modified 2022-11-01 16:14:25.614324327
 #  File has been updated.
 #  Successfully updated.
 
 build:
 #  Implicit rule search has not been done.
-#  Last modified 2022-10-27 22:43:19.710258833
+#  Last modified 2022-11-01 16:14:25.614324327
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 152):
 	mkdir $@
-
-# Not a target:
-Bsp/Src/reset.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-User/Src/user_uart.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-27 22:34:13.889165521
-#  File has been updated.
-#  Successfully updated.
 
 build/debug_uart.bin: build/debug_uart.elf makefile | build
 #  Implicit rule search has not been done.
@@ -539,83 +446,29 @@ build/debug_uart.bin: build/debug_uart.elf makefile | build
 #  recipe to execute (from 'makefile', line 146):
 	$(CP) $< -O binary $@
 
-build/user_dma.o: User/Src/user_dma.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'user_dma'
-#  Last modified 2022-10-27 22:43:19.622258018
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/user_dma.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-User/Src/syscalls.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.462326
-#  File has been updated.
-#  Successfully updated.
-
-build/interrupt.o: Bsp/Src/interrupt.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'interrupt'
-#  Last modified 2022-10-27 22:43:19.334255354
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+build/interrupt.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-Bsp/Src/flash.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
+build/cs.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-Bsp/Src/pss.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-Bsp/Src/rtc_c.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
-
-build/cs.o: Bsp/Src/cs.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'cs'
-#  Last modified 2022-10-27 22:43:19.534257204
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
-
-# Not a target:
-Bsp/Src/uart.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
-
-build/startup_msp432p401r_gcc.o: Core/Src/startup_msp432p401r_gcc.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'startup_msp432p401r_gcc'
-#  Last modified 2022-10-27 22:43:19.510256982
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
-
-# Not a target:
-Bsp/Src/pcm.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
+build/startup_msp432p401r_gcc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -623,38 +476,17 @@ Bsp/Src/pcm.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-build/ref_a.o: Bsp/Src/ref_a.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ref_a'
-#  Last modified 2022-10-27 22:43:19.514257019
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
-
-build/sysctl.o: Bsp/Src/sysctl.c | build
-#  Implicit rule search has been done.
- 
-#  Implicit/static pattern stem: 'sysctl'
-#  Last modified 2022-10-27 22:43:19.5662575
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/ref_a.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-Bsp/Src/cpu.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-Bsp/Src/gpio.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
+build/sysctl.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 clean:
 #  Phony target (prerequisite of .PHONY).
@@ -680,91 +512,33 @@ download:
 	-c shutdown 
 
 # Not a target:
-Core/Src/system_msp432p401r.c:
- 
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.418326
-#  File has been updated.
-#  Successfully updated.
+build/systick.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-User/Src/user_dma.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-27 22:33:39.280275993
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-Bsp/Src/interrupt.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
-
-build/systick.o: Bsp/Src/systick.c | build
-#  Implicit rule search has been done.
- 
-#  Implicit/static pattern stem: 'systick'
-#  Last modified 2022-10-27 22:43:19.494256834
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
-
-# Not a target:
-Bsp/Src/cs.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
-
-build/user_periph.o: User/Src/user_periph.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'user_periph'
-#  Last modified 2022-10-27 22:43:19.5662575
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+build/user_periph.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 build/debug_uart.elf: build/main.o build/cpu.o build/cs.o build/flash.o build/fpu.o build/gpio.o build/interrupt.o build/mpu.o build/pcm.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/sysctl.o build/systick.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/user_periph.o build/syscalls.o build/user_uart.o build/user_dma.o makefile | build
 #  Implicit rule search has not been done.
- 
-#  Implicit/static pattern stem: ''
-#  Last modified 2022-10-27 22:43:19.706258795
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# automatic
-# @ := build/debug_uart.elf
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := build/main.o build/cpu.o build/cs.o build/flash.o build/fpu.o build/gpio.o build/interrupt.o build/mpu.o build/pcm.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/sysctl.o build/systick.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/user_periph.o build/syscalls.o build/user_uart.o build/user_dma.o makefile
-# automatic
-# | := build
-# automatic
-# < := build/main.o
-# automatic
-# ^ := build/main.o build/cpu.o build/cs.o build/flash.o build/fpu.o build/gpio.o build/interrupt.o build/mpu.o build/pcm.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/sysctl.o build/systick.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/user_periph.o build/syscalls.o build/user_uart.o build/user_dma.o makefile
-# automatic
-# ? := makefile
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/31=3%
+# Load=0/32=0%, Rehash=0, Collisions=0/12=0%
 #  recipe to execute (from 'makefile', line 142):
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(SZ) $@
 
-build/wdt_a.o: Bsp/Src/wdt_a.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'wdt_a'
- 
-#  Last modified 2022-10-27 22:43:19.582257648
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/wdt_a.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 connect:
 #  Phony target (prerequisite of .PHONY).
@@ -774,71 +548,40 @@ connect:
 #  recipe to execute (from 'makefile', line 157):
 	openocd -f $(OPENOCD_PATH)/scripts/interface/xds110.cfg -f $(OPENOCD_PATH)/scripts/target/ti_msp432.cfg
 
-build/fpu.o: Bsp/Src/fpu.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'fpu'
-#  Last modified 2022-10-27 22:43:19.314255168
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
+# Not a target:
+build/fpu.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-Bsp/Src/ref_a.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
+build/mpu.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-Bsp/Src/sysctl.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
- 
-
-build/mpu.o: Bsp/Src/mpu.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'mpu'
-#  Last modified 2022-10-27 22:43:19.466256575
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
-
-build/rtc_c.o: Bsp/Src/rtc_c.c | build
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'rtc_c'
-#  Last modified 2022-10-27 22:43:19.522257093
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 149):
-	$(CC) $(CCFLAGS) $< -o $@
-
-# Not a target:
-Bsp/Src/systick.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-10-24 19:58:22.410326
-#  File has been updated.
-#  Successfully updated.
+build/rtc_c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=58/1024=6%, Rehash=0, Collisions=16/563=3%
+# Load=36/1024=4%, Rehash=0, Collisions=3/111=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
- 
 
 # General ('VPATH' variable) search path:
 # Core/Include:Core/Include/CMSIS:Bsp/Inc:User/Inc:Bsp/Src:Core/Src:User/Src:Bus/IIC/Src
 
-# strcache buffers: 1 (0) / strings = 186 / storage = 2029 B / avg = 10 B
-# current buf: size = 8162 B / used = 2029 B / count = 186 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 150 / storage = 1596 B / avg = 10 B
+# current buf: size = 8162 B / used = 1596 B / count = 150 / avg = 10 B
 
-# strcache performance: lookups = 352 / hit rate = 47%
+ 
+# strcache performance: lookups = 205 / hit rate = 26%
 # hash-table stats:
-# Load=186/8192=2%, Rehash=0, Collisions=15/352=4%
-# Finished Make data base on Thu Oct 27 22:43:50 2022
+# Load=150/8192=2%, Rehash=0, Collisions=11/205=5%
+# Finished Make data base on Mon Nov 14 22:39:21 2022
 
  

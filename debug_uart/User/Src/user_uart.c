@@ -79,6 +79,7 @@ static int UART_PreInit(void)
 
     /* configure DMA channel */
     DMA_Config_Source(DMA_CH0_EUSCIA0TX, (uint32_t)&(DEBUG_UART->TXBUF), CONFIG_PRIMARY|CONFIG_ALTERNATE);
+    DMA_SET_PRIO(DEBUG_UART_TX_DMA_CH);
 
     return ret;
 }
@@ -96,14 +97,16 @@ void Send_Nchar(uint8_t *str, uint32_t n)
         while(DEBUG_UART->STATW & (1 << 0));
     }
 }
-void D_Send_Nchar(uint8_t *str, uint32_t n)
+void D_Send_Nchar(char *str, uint32_t n)
 {
     uint32_t ctrl = UDMA_CHCTL_SRCINC_8|UDMA_CHCTL_DSTINC_NONE|\
         UDMA_CHCTL_DSTSIZE_8|UDMA_CHCTL_SRCSIZE_8|\
         UDMA_CHCTL_ARBSIZE_1|UDMA_CHCTL_XFERMODE_BASIC|\
         ((n - 1) << 4);
     
-    ctrl |= (7 << 21) | (7 << 18);
+    // ctrl |= (7 << 21) | (7 << 18);
+    /* disable channel */
+    DMA_Disable_Channel(DMA_CH0_EUSCIA0TX, 1);
 
     /* write control word */
     DMA_Specify_Ctrl(DMA_CH0_EUSCIA0TX, ctrl, CONFIG_PRIMARY|CONFIG_ALTERNATE);
@@ -111,15 +114,16 @@ void D_Send_Nchar(uint8_t *str, uint32_t n)
     /* specify source data pointer */
     DMA_Specify_Src(DMA_CH0_EUSCIA0TX, (uint32_t)(str+n), CONFIG_PRIMARY|CONFIG_ALTERNATE);
 
+    /* trigger dma transfer */
+    // DMA_TRIGGER(DEBUG_UART_TX_DMA_CH);
+    DMA_GEN_SWREQ(DEBUG_UART_TX_DMA_CH);
+
     /* enable channel */
     DMA_Enable_Channel(DMA_CH0_EUSCIA0TX, 0);
-
-    /* trigger dma transfer */
-    DMA_TRIGGER(DEBUG_UART_TX_DMA_CH);
 }
 
 /* public function */
-void D_Send_String(uint8_t *str)
+void D_Send_String(char *str)
 {
     uint32_t i = 0;
     for(; str[i] != '\0'; i++);
@@ -147,7 +151,7 @@ void Printf(const char *str, ...)
     {
         if(pstr[i] == '%')
         {
-            D_Send_Nchar((uint8_t *)pstr, i);
+            Send_Nchar((uint8_t *)pstr, i);
             pstr += i;
             i = 0;
             switch (pstr[1])
@@ -201,56 +205,22 @@ int Receive(uint8_t *buf)
 int D_Printf(const char *str, ...)
 {
     va_list arg_list;
-    size_t i = 0;
-    char *pstr = (char *)str;
     va_start(arg_list, str);
-    for (; pstr[i] != '\0'; i++)
-    {
-        if(pstr[i] == '%')
-        {
-            Send_Nchar((uint8_t *)pstr, i);
-            pstr += i;
-            i = 0;
-            switch (pstr[1])
-            {
-                static char tmp[12] = {0};
-                case 'd':{
-                    int input = va_arg(arg_list, int);
-                    sprintf(tmp, "%d", input);
-                    D_Send_String((uint8_t *)tmp);
-                }break;
-                case 'x':{
-                    unsigned int input = va_arg(arg_list, unsigned int);
-                    sprintf(tmp, "0x%x", input);
-                    D_Send_String((uint8_t *)tmp);
-                }break;
-                case 'u':{
-                    uint32_t input = va_arg(arg_list, uint32_t);
-                    sprintf(tmp, "%lu", input);
-                    D_Send_String((uint8_t *)tmp);
-                }break;
-                case 'f':{
-                    double input = va_arg(arg_list, double);
-                    sprintf(tmp, "%f", input);
-                    D_Send_String((uint8_t *)tmp);
-                }break;
-                case 's':{
-                    uint8_t *input = va_arg(arg_list, uint8_t *);
-                    D_Send_String(input);
-                }break;
-                case 'c':{
-                    char input = va_arg(arg_list, int);
-                    D_Send_Nchar((uint8_t *)&input, 1);
-                }break;
-                default:{
-                    D_Send_String((uint8_t *)"suggest to check up the input.\r\n");
-                }
-            }
-            pstr += 2; //now pstr point at two char behind '%'
-        }
-    }
+
+    /* allocate a region for converting % */
+    char *pstr = (char *)malloc(MAX_TRANS_BYTES);
+    
+    /* clear */
+    memset(pstr, 0, MAX_TRANS_BYTES*sizeof(char));
+    
+    /* get final string to transmit */
+    // vsnprintf(pstr, MAX_TRANS_BYTES, str, arg_list);
+    vsprintf(pstr, str, arg_list);
+    D_Send_String(pstr);
+
     va_end(arg_list);
-    D_Send_String((uint8_t *)pstr);
+    /* free */
+    free(pstr);
 
     return 0;
 }

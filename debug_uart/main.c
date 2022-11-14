@@ -40,9 +40,11 @@ int main(void)
     Peripheral_PreInit();
 
     Printf("Yuki.\r\n");
-    D_Printf("DMA_Yuki.\r\n");
+    D_Printf(" DMA_Yuki.\r\n");
     Delay(500);
-    D_Printf("1234567890This is a test text.\r\n");
+    D_Printf("  1234567890This is a test text.\r\n");
+    Delay(500);
+    D_Printf(" 3214 is hex:%x.\r\n", 3214);
     while (1)
     {
         /* code */

@@ -46,14 +46,6 @@ int main(void)
     else
         Printf("device mpu6050 init failed.\r\n");
 
-    // my_delay(50000);
-    // mpu6050.read_all(&mpu6050, MPU6050_DEBUG);
-    // my_delay(10000);
-    // mpu6050.read_all(&mpu6050, MPU6050_DEBUG);
-    // my_delay(10000);
-    // mpu6050.read_all(&mpu6050, MPU6050_DEBUG);
-    // my_delay(10000);
-    // mpu6050.read_all(&mpu6050, MPU6050_DEBUG);
     mpu6050.read_all(&mpu6050, MPU6050_DEBUG);
     mpu6050.read_all(&mpu6050, MPU6050_DEBUG);
 
