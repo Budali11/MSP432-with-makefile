@@ -27,6 +27,7 @@ void Delay(uint32_t us)
     for(uint32_t i = 0; i < 48*us; i++);
 }
 
+void Clock_Information(void);
 
 int main(void)
 {
@@ -55,7 +56,7 @@ int main(void)
     return 0;
 }
 
-static void Clock_Information(void)
+void Clock_Information(void)
 {
     uint32_t ACLK, MCLK, HSMCLK, SMCLK, BCLK;
 

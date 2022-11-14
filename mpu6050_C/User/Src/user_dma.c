@@ -16,7 +16,6 @@
 #include "msp.h"
 #include "user_dma.h"
 #include "user_periph.h"
-#include "string.h"
 
 uint32_t data_control_structure[][4] __attribute__((aligned(256))) = 
 {
@@ -80,7 +79,7 @@ static int DMA_PreInit(void)
     DMA_Control->USEBURSTCLR = 0xffffffff;
     DMA_Control->PRIOCLR = 0xffffffff;
     DMA_Control->REQMASKCLR = 0xffffffff;
-
+    
     return 0;
 }
 preinit(DMA_PreInit);
@@ -88,7 +87,7 @@ preinit(DMA_PreInit);
 void DMA_Config_Source(uint32_t Channel_Peripheral, uint32_t periph_addr, uint8_t isPrimary)
 {
     /* configure SRCCFG register */
-    DMA_Channel->CH_SRCCFG[Channel_Peripheral & 0x1] = (Channel_Peripheral >> 24) & 0x1F;
+    DMA_Channel->CH_SRCCFG[Channel_Peripheral & 0x1] = Channel_Peripheral >> 24;
 
     /* configure data control structure */
     if(isPrimary & 0x1)
@@ -135,4 +134,3 @@ void DMA_Disable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate)
     DMA_Control->ENASET &= ~(1 << (Channel_Peripheral & 0x1));
     // DMA_Control->ENASET |= 1 << 0;
 }
-

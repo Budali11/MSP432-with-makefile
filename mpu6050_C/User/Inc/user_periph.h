@@ -19,10 +19,10 @@
 #include <stddef.h>
 #include "user_defs.h"
 #include <stdlib.h>
+#include <string.h>
 
 typedef int (*preFunc_t)(void);
 
-/* define a function pointer in section [.preinitcal] */
 #define preinit(fn) \
     static preFunc_t __preinit_call_##fn __used __attribute__((__section__(".preinitcall"))) = fn
 

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Nov 14 22:41:33 2022
+# Make data base, printed on Mon Nov 14 23:34:50 2022
 
 # Variables
 
@@ -111,7 +111,7 @@ XDG_SESSION_DESKTOP = ubuntu-wayland
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3252
+GIO_LAUNCHED_DESKTOP_FILE_PID = 9129
 # automatic
 %F = $(notdir $%)
 # environment
@@ -191,7 +191,6 @@ CPU = -mcpu=cortex-m4
 # environment
 LC_TELEPHONE = en_US.UTF-8
 # makefile (from 'makefile', line 42)
- 
 FPU = -mfpu=fpv4-sp-d16
 # default
 MAKE_COMMAND := make
@@ -268,7 +267,7 @@ LC_ADDRESS = en_US.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2185
+VSCODE_PID = 8648
 # environment
 DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=9ddb906e57481016eb5fa3db63725300
 # variable set hash-table stats:
@@ -280,6 +279,7 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=9ddb906e57481016eb5fa3d
 
 # Directories
 
+ 
 # Core/Include (device 66307, inode 5512723): 9 files, no impossibilities.
 # . (device 66307, inode 5506278): 14 files, no impossibilities.
 # Core/Include/CMSIS (device 66307, inode 5512724): 8 files, no impossibilities.
@@ -482,7 +482,6 @@ build/ref_a.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 # Not a target:
 build/sysctl.o:
@@ -574,6 +573,7 @@ build/mpu.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 # Not a target:
 build/rtc_c.o:
@@ -596,6 +596,6 @@ build/rtc_c.o:
 # strcache performance: lookups = 214 / hit rate = 28%
 # hash-table stats:
 # Load=153/8192=2%, Rehash=0, Collisions=15/214=7%
-# Finished Make data base on Mon Nov 14 22:41:33 2022
+# Finished Make data base on Mon Nov 14 23:34:50 2022
 
  

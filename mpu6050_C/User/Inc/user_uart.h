@@ -73,20 +73,13 @@
 #define BAUDRATE_230400     0x2041
 #define BAUDRATE_460800     0xA1
 
-typedef struct uart_controller
-{
-    EUSCI_A_Type *base;             /* control base */
-    
-
-}uart_controller_t;
-
 
 /* private function */
-void D_Send_Nchar(uint8_t *str, uint32_t n);
+void D_Send_Nchar(char *str, uint32_t n);
 void Send_Nchar(uint8_t *str, uint32_t n);
 
 /* public function */
-void D_Send_String(uint8_t *str);
+void D_Send_String(char *str);
 void Send_String(uint8_t *str);
 void Printf(const char *str, ...);
 int Receive(uint8_t *buf);

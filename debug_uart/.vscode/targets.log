@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Nov 14 22:39:21 2022
+# Make data base, printed on Mon Nov 14 23:34:45 2022
 
 # Variables
 
@@ -111,7 +111,7 @@ XDG_SESSION_DESKTOP = ubuntu-wayland
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2185
+GIO_LAUNCHED_DESKTOP_FILE_PID = 8648
 # automatic
 %F = $(notdir $%)
 # environment
@@ -265,7 +265,7 @@ LC_ADDRESS = en_US.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2185
+VSCODE_PID = 8648
 # environment
 DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=9ddb906e57481016eb5fa3db63725300
 # variable set hash-table stats:
@@ -277,26 +277,18 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=9ddb906e57481016eb5fa3d
 
 # Directories
 
-# Core/Include/CMSIS/build: could not be stat'd.
-# User/Src/build: could not be stat'd.
-# Bsp/Inc/build: could not be stat'd.
 # Core/Include (device 66307, inode 5506979): 9 files, no impossibilities.
-# User/Inc/build: could not be stat'd.
 # . (device 66307, inode 5512882): 13 files, no impossibilities.
 # Core/Include/CMSIS (device 66307, inode 5506980): 8 files, no impossibilities.
- 
 # Bsp/Src (device 66307, inode 5506769): 28 files, no impossibilities.
 # User/Src (device 66307, inode 5507008): 6 files, no impossibilities.
 # Bsp/Inc (device 66307, inode 5506241): 33 files, no impossibilities.
 # User/Inc (device 66307, inode 5507002): 7 files, no impossibilities.
-# Core/Src/build: could not be stat'd.
-# Bus/IIC/Src/build: could not be stat'd.
+ 
 # Core/Src (device 66307, inode 5506997): 4 files, no impossibilities.
-# Core/Include/build: could not be stat'd.
 # Bus/IIC/Src (device 66307, inode 5506976): 3 files, no impossibilities.
-# Bsp/Src/build: could not be stat'd.
 
-# 111 files, no impossibilities in 17 directories.
+# 111 files, no impossibilities in 9 directories.
 
 # Implicit Rules
 
@@ -329,7 +321,7 @@ build/reset.o:
 build/main.o: main.c | build
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-11-01 16:14:25.610324344
+#  Last modified 2022-11-14 23:16:17.683395273
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -390,7 +382,7 @@ build/syscalls.o:
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-11-14 22:35:26.486423832
+#  Last modified 2022-11-14 23:17:18.424233901
 #  File has been updated.
 #  Successfully updated.
 
@@ -433,7 +425,7 @@ makefile:
 
 build:
 #  Implicit rule search has not been done.
-#  Last modified 2022-11-01 16:14:25.614324327
+#  Last modified 2022-11-14 23:16:17.731395932
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 152):
@@ -525,7 +517,7 @@ build/user_periph.o:
 
 build/debug_uart.elf: build/main.o build/cpu.o build/cs.o build/flash.o build/fpu.o build/gpio.o build/interrupt.o build/mpu.o build/pcm.o build/pss.o build/ref_a.o build/reset.o build/rtc_c.o build/sysctl.o build/systick.o build/uart.o build/wdt_a.o build/startup_msp432p401r_gcc.o build/system_msp432p401r.o build/user_periph.o build/syscalls.o build/user_uart.o build/user_dma.o makefile | build
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2022-11-14 23:16:17.727395876
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -567,7 +559,7 @@ build/rtc_c.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=36/1024=4%, Rehash=0, Collisions=3/111=3%
+# Load=36/1024=4%, Rehash=0, Collisions=3/102=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -575,13 +567,12 @@ build/rtc_c.o:
 # General ('VPATH' variable) search path:
 # Core/Include:Core/Include/CMSIS:Bsp/Inc:User/Inc:Bsp/Src:Core/Src:User/Src:Bus/IIC/Src
 
-# strcache buffers: 1 (0) / strings = 150 / storage = 1596 B / avg = 10 B
-# current buf: size = 8162 B / used = 1596 B / count = 150 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 142 / storage = 1461 B / avg = 10 B
+# current buf: size = 8162 B / used = 1461 B / count = 142 / avg = 10 B
 
- 
-# strcache performance: lookups = 205 / hit rate = 26%
+# strcache performance: lookups = 197 / hit rate = 27%
 # hash-table stats:
-# Load=150/8192=2%, Rehash=0, Collisions=11/205=5%
-# Finished Make data base on Mon Nov 14 22:39:21 2022
+# Load=142/8192=2%, Rehash=0, Collisions=11/197=6%
+# Finished Make data base on Mon Nov 14 23:34:45 2022
 
  

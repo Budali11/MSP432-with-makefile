@@ -97,7 +97,7 @@ void Send_Nchar(uint8_t *str, uint32_t n)
         while(DEBUG_UART->STATW & (1 << 0));
     }
 }
-void D_Send_Nchar(uint8_t *str, uint32_t n)
+void D_Send_Nchar(char *str, uint32_t n)
 {
     uint32_t ctrl = UDMA_CHCTL_SRCINC_8|UDMA_CHCTL_DSTINC_NONE|\
         UDMA_CHCTL_DSTSIZE_8|UDMA_CHCTL_SRCSIZE_8|\
@@ -123,7 +123,7 @@ void D_Send_Nchar(uint8_t *str, uint32_t n)
 }
 
 /* public function */
-void D_Send_String(uint8_t *str)
+void D_Send_String(char *str)
 {
     uint32_t i = 0;
     for(; str[i] != '\0'; i++);
@@ -205,11 +205,22 @@ int Receive(uint8_t *buf)
 int D_Printf(const char *str, ...)
 {
     va_list arg_list;
+    va_start(arg_list, str);
 
+    /* allocate a region for converting % */
     char *pstr = (char *)malloc(MAX_TRANS_BYTES);
-    vsnprintf(pstr, MAX_TRANS_BYTES, str, arg_list);
+    
+    /* clear */
+    memset(pstr, 0, MAX_TRANS_BYTES*sizeof(char));
+    
+    /* get final string to transmit */
+    // vsnprintf(pstr, MAX_TRANS_BYTES, str, arg_list);
+    vsprintf(pstr, str, arg_list);
+    D_Send_String(pstr);
 
-    D_Send_String((uint8_t *)pstr);
+    va_end(arg_list);
+    /* free */
+    free(pstr);
 
     return 0;
 }
