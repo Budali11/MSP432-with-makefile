@@ -81,8 +81,8 @@ Core/Src/startup_msp432p401r_gcc.c \
 Core/Src/system_msp432p401r.c \
 User/Src/user_periph.c \
 User/Src/syscalls.c \
-User/Src/user_uart.c \
 User/Src/user_dma.c \
+User/Src/user_uart.c \
 Bus/IIC/Src/iic_bus.c \
 User/Src/user_timer.c \
 
@@ -130,7 +130,7 @@ LIB = -lc -lm -lnosys \
 #link options
 LDFLAGS = $(MCU) -Tmsp432p401r.lds -specs=nosys.specs $(LIB) -Wl,-gc-sections,--cref -Wl,-Map=$(BUILD_DIR)/$(PRJ_NAME).map
 #compile options
-CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) -Wall#
+CCFLAGS = -c -g $(MCU) $(C_DEFS) $(C_INCLUDES) -Wall -O0
 
 #path define
 VPATH = \

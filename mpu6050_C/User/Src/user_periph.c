@@ -54,7 +54,7 @@ int Peripheral_PreInit(void)
     if(ret != 0)
         Printf("\r\nInitialization occurs some error.\r\n");
     else
-        Printf("\r\nTotal execute %d preInit functions. Initialization succeed.\r\n", num_inits);
+        Printf("\r\nInitialization succeed.\r\n");
     
     return ret;
 }

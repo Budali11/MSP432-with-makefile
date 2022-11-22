@@ -26,7 +26,7 @@ extern iic_adapter_t user_iic;
 
 void my_delay(uint32_t us)
 {
-    for(uint32_t i = 0; i < 48 * us; i--);
+    for(uint32_t i = 0; i < 48 * us; i++);
 }
 
 void Clock_Information(void);
@@ -46,11 +46,10 @@ int main(void)
     else
         Printf("device mpu6050 init failed.\r\n");
 
-    mpu6050.read_all(&mpu6050, MPU6050_DEBUG);
-    mpu6050.read_all(&mpu6050, MPU6050_DEBUG);
-
     while (1)
     {
+        mpu6050.read_all(&mpu6050, MPU6050_DEBUG);
+        my_delay(35);
     }
     
 

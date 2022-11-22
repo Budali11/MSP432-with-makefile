@@ -198,7 +198,7 @@ __debug:
         return 0;
 
     /* debug information */
-    D_Printf(" dt:%fus \r\n", data.pass_us);
+    D_Printf("dt %f us \r\n", data.pass_us);
 
     return 0;
 }

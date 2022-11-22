@@ -14,6 +14,7 @@
 #if !defined USER_CORE_H
 #define USER_CORE_H
 
+#include "msp.h"
 #include "user_periph.h"
 #include "user_uart.h"
 #include "user_dma.h"

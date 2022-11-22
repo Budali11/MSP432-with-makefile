@@ -118,10 +118,17 @@
     DMA_Control->SWREQ |= (1 << ch)
 #define DMA_SET_PRIO(ch) \
     DMA_Control->PRIOSET |= (1 << ch)
-
+    
 #define CONFIG_PRIMARY              1
 #define CONFIG_ALTERNATE            2
 
+typedef struct dma_ctrl_unit
+{
+    volatile void *src_addr;
+    volatile void *dst_addr;
+    volatile uint32_t ctrl;
+    void *reserved;
+}dma_ctrl_unit_t;
 
 typedef struct dma_controller
 {
@@ -129,10 +136,11 @@ typedef struct dma_controller
 
 }dma_controller_t;
 
-void DMA_Config_Source(uint32_t Channel_Peripheral, uint32_t periph_addr, uint8_t isPrimary);
-void DMA_Specify_Src(uint32_t Channel_Peripheral, uint32_t src_addr, uint8_t isPrimary);
-void DMA_Specify_Ctrl(uint32_t Channel_Peripheral, uint32_t ctrl_word, uint8_t isPrimary);
+
+void DMA_Assign_Source_Channel(uint32_t Channel_Peripheral);
+void DMA_Specify_Ctrl_Unit(uint32_t Channel_Peripheral, dma_ctrl_unit_t *unit, uint8_t PRIorALT);
 void DMA_Enable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate);
 void DMA_Disable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate);
+
 
 #endif

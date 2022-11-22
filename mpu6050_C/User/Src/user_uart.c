@@ -16,6 +16,10 @@
 #include "user_periph.h"
 #include "user_uart.h"
 #include "user_dma.h"
+#include "interrupt.h"
+
+extern uint32_t data_control_structure[][4];
+static char txbuffer[MAX_TRANS_BYTES];
 
 /* preInit function */
 static int UART_PreInit(void)
@@ -26,7 +30,7 @@ static int UART_PreInit(void)
     //init all register
     //select SMCLK as uart clk
     DEBUG_UART->CTLW0 |= 0xC0;
-    DEBUG_UART->CTLW1 = 0x00;
+    DEBUG_UART->CTLW1 = 0x03;
     //set UCBRx
     //set UCOS16, UCBRFx, UCBRSx
     //setup baudrate
@@ -77,9 +81,18 @@ static int UART_PreInit(void)
     //enable receive interrupt
     DEBUG_UART->IE = 0x01;
 
+    /* assign interrupt */
+    DMA_Channel->INT1_SRCCFG = (DMA_Channel->INT1_SRCCFG
+        & ~DMA_INT1_SRCCFG_INT_SRC_MASK) | 0;
+    DMA_Channel->INT1_SRCCFG |= 1 << 5;
+    Interrupt_enableInterrupt(DMA_INT1_IRQn);
+    Interrupt_disableSleepOnIsrExit();
+    
     /* configure DMA channel */
-    DMA_Config_Source(DMA_CH0_EUSCIA0TX, (uint32_t)&(DEBUG_UART->TXBUF), CONFIG_PRIMARY|CONFIG_ALTERNATE);
-    DMA_SET_PRIO(DEBUG_UART_TX_DMA_CH);
+    DMA_Assign_Source_Channel(DMA_CH0_EUSCIA0TX);
+    // DMA_SET_PRIO(DEBUG_UART_TX_DMA_CH);
+
+
 
     return ret;
 }
@@ -99,35 +112,33 @@ void Send_Nchar(uint8_t *str, uint32_t n)
 }
 void D_Send_Nchar(char *str, uint32_t n)
 {
-    uint32_t ctrl = UDMA_CHCTL_SRCINC_8|UDMA_CHCTL_DSTINC_NONE|\
+    dma_ctrl_unit_t unit = {
+        .src_addr = (str + n - 1),
+        .dst_addr = &(DEBUG_UART->TXBUF),
+        .ctrl = UDMA_CHCTL_SRCINC_8|UDMA_CHCTL_DSTINC_NONE|\
         UDMA_CHCTL_DSTSIZE_8|UDMA_CHCTL_SRCSIZE_8|\
         UDMA_CHCTL_ARBSIZE_1|UDMA_CHCTL_XFERMODE_BASIC|\
-        ((n - 1) << 4);
-    
-    // ctrl |= (7 << 21) | (7 << 18);
-    /* disable channel */
-    DMA_Disable_Channel(DMA_CH0_EUSCIA0TX, 1);
+        ((n - 1) << 4)
+    };
 
     /* write control word */
-    DMA_Specify_Ctrl(DMA_CH0_EUSCIA0TX, ctrl, CONFIG_PRIMARY|CONFIG_ALTERNATE);
-
-    /* specify source data pointer */
-    DMA_Specify_Src(DMA_CH0_EUSCIA0TX, (uint32_t)(str+n), CONFIG_PRIMARY|CONFIG_ALTERNATE);
-
+    DMA_Specify_Ctrl_Unit(DMA_CH0_EUSCIA0TX, &unit, CONFIG_PRIMARY);
+    
     /* trigger dma transfer */
     // DMA_TRIGGER(DEBUG_UART_TX_DMA_CH);
-    DMA_GEN_SWREQ(DEBUG_UART_TX_DMA_CH);
-
+    // DMA_GEN_SWREQ(DEBUG_UART_TX_DMA_CH);
     /* enable channel */
     DMA_Enable_Channel(DMA_CH0_EUSCIA0TX, 0);
+
 }
 
 /* public function */
 void D_Send_String(char *str)
 {
-    uint32_t i = 0;
-    for(; str[i] != '\0'; i++);
-    D_Send_Nchar(str, i);
+    // int i = 0;
+    // for(; str[i] != '\0'; i++);
+    // D_Send_Nchar(str, i);
+    D_Send_Nchar(str, strlen(str));
 }
 
 void Send_String(uint8_t *str)
@@ -208,19 +219,33 @@ int D_Printf(const char *str, ...)
     va_start(arg_list, str);
 
     /* allocate a region for converting % */
-    char *pstr = (char *)malloc(MAX_TRANS_BYTES);
     
     /* clear */
-    memset(pstr, 0, MAX_TRANS_BYTES*sizeof(char));
+    memset(txbuffer, 0, MAX_TRANS_BYTES*sizeof(char));
     
     /* get final string to transmit */
     // vsnprintf(pstr, MAX_TRANS_BYTES, str, arg_list);
-    vsprintf(pstr, str, arg_list);
-    D_Send_String(pstr);
+    vsprintf(txbuffer, str, arg_list);
+    D_Send_String(txbuffer);
 
     va_end(arg_list);
-    /* free */
-    free(pstr);
 
     return 0;
 }
+
+/************* Interrupt Handler *****************/
+void DMA_INT1_IRQHandler(void)
+{
+    // if(data_control_structure[0][3] & UDMA_CHCTL_XFERSIZE_M)
+    // {
+    //     DMA_TRIGGER(DEBUG_UART_TX_DMA_CH);
+    // }
+    // else
+        // DMA_Disable_Channel(DMA_CH0_EUSCIA0TX, 0);
+
+    Printf("INT.\r\n");
+}
+
+
+
+
