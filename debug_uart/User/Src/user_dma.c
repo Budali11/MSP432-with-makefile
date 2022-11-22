@@ -16,8 +16,9 @@
 #include "msp.h"
 #include "user_dma.h"
 #include "user_periph.h"
+#include "user_uart.h"
 
-uint32_t data_control_structure[][4] __attribute__((aligned(256))) = 
+dma_ctrl_unit_t data_control_structure[] __attribute__((aligned(256))) = 
 {
     /* first element is source end pointer */
     /* second element is destination end pointer */
@@ -60,77 +61,72 @@ uint32_t data_control_structure[][4] __attribute__((aligned(256))) =
     {0,0,0,0},
 };
 
-
 static int DMA_PreInit(void)
 {
-    /* enable data, user access*/
-    /* non-bufferable and non-cacheable */
-    DMA_Control->CFG |= 0x01 << 5;
+    /* enable dma controller */
+    DMA_Control->CFG = 1 << 0;
 
     /* set up the base address of primary data structure */
-    DMA_Control->CTLBASE = 0; 
-    DMA_Control->CTLBASE |= ((uint32_t)data_control_structure & 0xffffffe0);
+    DMA_Control->CTLBASE = (uint32_t)data_control_structure;
 
-    /* enable dma controller */
-    DMA_Control->CFG |= 1 << 0;
-
-    /* clear attributes bits */
-    DMA_Control->ALTCLR = 0xffffffff;
-    DMA_Control->USEBURSTCLR = 0xffffffff;
-    DMA_Control->PRIOCLR = 0xffffffff;
-    DMA_Control->REQMASKCLR = 0xffffffff;
+    // /* clear attributes bits */
+    // DMA_Control->ALTCLR = 0xffffffff;
+    // DMA_Control->USEBURSTCLR = 0xffffffff;
+    // DMA_Control->PRIOCLR = 0xffffffff;
+    // DMA_Control->REQMASKCLR = 0xffffffff;
     
     return 0;
 }
 preinit(DMA_PreInit);
 
-void DMA_Config_Source(uint32_t Channel_Peripheral, uint32_t periph_addr, uint8_t isPrimary)
+void DMA_Assign_Source_Channel(uint32_t Channel_Peripheral)
 {
     /* configure SRCCFG register */
     DMA_Channel->CH_SRCCFG[Channel_Peripheral & 0x1] = Channel_Peripheral >> 24;
+}
 
+void DMA_Specify_Ctrl_Unit(uint32_t Channel_Peripheral, dma_ctrl_unit_t *unit, uint8_t PRIorALT)
+{
     /* configure data control structure */
-    if(isPrimary & 0x1)
-        data_control_structure[Channel_Peripheral & 0x1][1] = periph_addr;
-    if(isPrimary & 0x2)
-        data_control_structure[(Channel_Peripheral & 0x1) + 8][1] = periph_addr;
-        
-
-    // /* enable channel */
-    // DMA_Control->ENASET |= (1 << (Channel_Peripheral & 0x1));
-}
-
-void DMA_Specify_Src(uint32_t Channel_Peripheral, uint32_t src_addr, uint8_t isPrimary)
-{
-    if(isPrimary & 0x1)
-        data_control_structure[Channel_Peripheral & 0x1][0] = src_addr;
-    if(isPrimary & 0x2)
-        data_control_structure[(Channel_Peripheral & 0x1) + 8][0] = src_addr;
-    
-}
-
-void DMA_Specify_Ctrl(uint32_t Channel_Peripheral, uint32_t ctrl_word, uint8_t isPrimary)
-{
-    if(isPrimary & 0x1)
-        data_control_structure[Channel_Peripheral & 0x1][2] = ctrl_word;
-    if(isPrimary & 0x2)
-        data_control_structure[(Channel_Peripheral & 0x1) + 8][2] = ctrl_word;
+    if(PRIorALT & CONFIG_PRIMARY)
+    {
+        data_control_structure[Channel_Peripheral & 0x1].src_addr = unit->src_addr;
+        data_control_structure[Channel_Peripheral & 0x1].dst_addr = unit->dst_addr;
+        data_control_structure[Channel_Peripheral & 0x1].ctrl = unit->ctrl;
+    }
+    if(PRIorALT & CONFIG_ALTERNATE)
+    {
+        data_control_structure[(Channel_Peripheral & 0x1) + 8].src_addr = unit->src_addr;
+        data_control_structure[(Channel_Peripheral & 0x1) + 8].dst_addr = unit->dst_addr;
+        data_control_structure[(Channel_Peripheral & 0x1) + 8].ctrl = unit->ctrl;
+    }
 }
 
 void DMA_Enable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate)
 {
-    ifAlternate ? (DMA_Control->ALTSET |= (1 << (Channel_Peripheral & 0x1))) : \
-        (DMA_Control->ALTCLR |= (1 << (Channel_Peripheral & 0x1)));
+    ifAlternate ? (DMA_Control->ALTSET = (1 << (Channel_Peripheral & 0x1))) : \
+        (DMA_Control->ALTCLR = (1 << (Channel_Peripheral & 0x1)));
         
-    DMA_Control->ENASET |= (1 << (Channel_Peripheral & 0x1));
-    // DMA_Control->ENASET |= 1 << 0;
+    DMA_Control->ENASET = (1 << (Channel_Peripheral & 0x1));
 }
 
 void DMA_Disable_Channel(uint32_t Channel_Peripheral, uint8_t ifAlternate)
 {
-    (!ifAlternate) ? (DMA_Control->ALTSET |= (1 << (Channel_Peripheral & 0x1))) : \
-        (DMA_Control->ALTCLR |= (1 << (Channel_Peripheral & 0x1)));
+    (ifAlternate) ? (DMA_Control->ALTCLR = (1 << (Channel_Peripheral & 0xf))) : \
+        (DMA_Control->ALTSET = (1 << (Channel_Peripheral & 0xf)));
         
-    DMA_Control->ENASET &= ~(1 << (Channel_Peripheral & 0x1));
-    // DMA_Control->ENASET |= 1 << 0;
+    DMA_Control->ENACLR = (1 << (Channel_Peripheral & 0xf));
+}
+
+/************* Interrupt Handler *****************/
+void DMA_ERR_IRQHandler(void)
+{
+    // if(data_control_structure[0][3] & UDMA_CHCTL_XFERSIZE_M)
+    // {
+    //     DMA_TRIGGER(DEBUG_UART_TX_DMA_CH);
+    // }
+    // else
+        // DMA_Disable_Channel(DMA_CH0_EUSCIA0TX, 0);
+
+    Printf("INT.\r\n");
 }
